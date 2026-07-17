@@ -1,6 +1,9 @@
-# DailyOS
+# Daily ADHD / Daily TDAH
 
-Journal personnel privé, moderne, minimaliste et piloté par IA. Capturez vos pensées au fil de la journée, obtenez un bilan structuré chaque nuit.
+**Ton cerveau, tes règles. — Your brain, your rules.**
+
+Journal personnel spécialisé TDAH. Rapide, visuel, sans distraction.
+Bilingue FR/EN. Fonctionne en localStorage (hors ligne) ou Supabase.
 
 ## Quick Start
 

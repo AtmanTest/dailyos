@@ -201,3 +201,9 @@ BEGIN
     END LOOP;
 END;
 $$;
+
+-- Migration v2.0 : gestion du champ "tomorrow" sur raw_entries
+-- Option A (metadata JSONB) : stocker { "tomorrow": true } dans metadata — aucune ALTER TABLE.
+-- Option B (metadata absent ou non JSONB) : exécuter manuellement :
+--   ALTER TABLE raw_entries ADD COLUMN IF NOT EXISTS tomorrow BOOLEAN DEFAULT FALSE;
+-- Les policies RLS existantes couvrent les nouvelles colonnes par héritage.
