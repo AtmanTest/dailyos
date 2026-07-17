@@ -35,14 +35,14 @@ function replaceLSCollection(key, items) {
 async function getLocalOrDemoData(endpoint, options = {}) {
   await new Promise(resolve => setTimeout(resolve, 30));
 
-  // Entries: merge localStorage + demo data
+  // Entries: merge localStorage + demo data (keep all demo entries alongside user entries)
   if (endpoint.includes('entries')) {
     const stored = loadFromLS('entries') || [];
     const demo = DEMO_DATA.entries || [];
 
-    // Merge: user entries first, then demo entries for dates without user entries
-    const userDates = new Set(stored.map(e => e.date));
-    const merged = [...stored, ...demo.filter(e => !userDates.has(e.date))];
+    // Merge: demo entries first, user entries appended on top (demo provides structure for new users)
+    // This ensures the chronology/layout stays populated even when user starts adding entries
+    const merged = [...demo, ...stored];
 
     if (options.date) {
       return { data: merged.filter(e => e.date === options.date), error: null };
