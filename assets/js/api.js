@@ -1,7 +1,113 @@
 /* ===== DailyOS API Module ===== */
 
+/* ===== LocalStorage Persistence Layer ===== */
+const LS_PREFIX = 'dailyos_';
+
+function loadFromLS(key) {
+  try {
+    const raw = localStorage.getItem(LS_PREFIX + key);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
+
+function saveToLS(key, data) {
+  try { localStorage.setItem(LS_PREFIX + key, JSON.stringify(data)); } catch {}
+}
+
+function addToLSCollection(key, item) {
+  const items = loadFromLS(key) || [];
+  items.push(item);
+  saveToLS(key, items);
+  return items;
+}
+
+function replaceLSCollection(key, items) {
+  saveToLS(key, items);
+  return items;
+}
+
 /**
- * Fetch data from Supabase (or demo data)
+ * Get data from localStorage with demo fallback
+ * @param {string} endpoint
+ * @param {Object} options
+ * @returns {Promise<Object>}
+ */
+async function getLocalOrDemoData(endpoint, options = {}) {
+  await new Promise(resolve => setTimeout(resolve, 30));
+
+  // Entries: merge localStorage + demo data
+  if (endpoint.includes('entries')) {
+    const stored = loadFromLS('entries') || [];
+    const demo = DEMO_DATA.entries || [];
+
+    // Merge: user entries first, then demo entries for dates without user entries
+    const userDates = new Set(stored.map(e => e.date));
+    const merged = [...stored, ...demo.filter(e => !userDates.has(e.date))];
+
+    if (options.date) {
+      return { data: merged.filter(e => e.date === options.date), error: null };
+    }
+    if (options.dateFrom && options.dateTo) {
+      return { data: merged.filter(e => e.date >= options.dateFrom && e.date <= options.dateTo), error: null };
+    }
+    return { data: merged, error: null };
+  }
+
+  if (endpoint.includes('summaries')) {
+    const stored = loadFromLS('summaries') || [];
+    const demo = DEMO_DATA.summaries || [];
+    const userDates = new Set(stored.map(s => s.date));
+    const merged = [...stored, ...demo.filter(s => !userDates.has(s.date))];
+
+    if (options.date) {
+      return { data: merged.find(s => s.date === options.date) || null, error: null };
+    }
+    return { data: merged, error: null };
+  }
+
+  if (endpoint.includes('ideas')) {
+    const stored = loadFromLS('ideas') || [];
+    const demo = DEMO_DATA.ideas || [];
+    let result = [...stored, ...demo];
+    if (options.status) result = result.filter(i => i.status === options.status);
+    if (options.tag) result = result.filter(i => i.tags && i.tags.includes(options.tag));
+    return { data: result, error: null };
+  }
+
+  if (endpoint.includes('reminders')) {
+    const stored = loadFromLS('reminders') || [];
+    const demo = DEMO_DATA.reminders || [];
+    let result = [...stored, ...demo];
+    if (options.status) result = result.filter(r => r.status === options.status);
+    if (options.category) result = result.filter(r => r.category === options.category);
+    return { data: result, error: null };
+  }
+
+  if (endpoint.includes('insights')) {
+    const periods = { '7d': 7, '30d': 30, '90d': 90 };
+    const days = periods[options.period] || 30;
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    const cutoffStr = cutoff.toISOString().split('T')[0];
+
+    const storedSummaries = loadFromLS('summaries') || [];
+    return {
+      data: {
+        summaries: storedSummaries.filter(s => s.date >= cutoffStr),
+        ideas: [],
+        reminders: [],
+        insights: DEMO_DATA.insights || [],
+        period: options.period || '30d'
+      },
+      error: null
+    };
+  }
+
+  return { data: null, error: 'Endpoint inconnu: ' + endpoint };
+}
+
+/**
+ * Fetch data from Supabase (or localStorage/demo)
  * @param {string} endpoint - API endpoint path
  * @param {Object} options - fetch options
  * @returns {Promise<Object>}
@@ -10,8 +116,8 @@ async function fetchFromSupabase(endpoint, options = {}) {
   const config = store.getState('demoMode') !== false ? true : false;
 
   if (store.getState('demoMode')) {
-    // Return demo data
-    return getDemoData(endpoint, options);
+    // Return localStorage data, fallback to demo data
+    return getLocalOrDemoData(endpoint, options);
   }
 
   // Real Supabase call
@@ -207,14 +313,19 @@ async function getInsights(period = '30d') {
 }
 
 /**
- * Add a new entry (demo mode just returns success)
+ * Add a new entry (persists to localStorage in demo mode)
  * @param {Object} entry
  * @returns {Promise<Object>}
  */
 async function addEntry(entry) {
   if (store.getState('demoMode')) {
-    await new Promise(r => setTimeout(r, 100));
-    return { data: { ...entry, id: Date.now(), created_at: new Date().toISOString() }, error: null };
+    const newEntry = {
+      ...entry,
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      created_at: new Date().toISOString()
+    };
+    addToLSCollection('entries', newEntry);
+    return { data: newEntry, error: null };
   }
 
   try {
@@ -227,4 +338,47 @@ async function addEntry(entry) {
     console.error('addEntry error:', error);
     throw error;
   }
+}
+
+/**
+ * Add a new idea (persists to localStorage in demo mode)
+ * @param {Object} idea
+ * @returns {Promise<Object>}
+ */
+async function addIdea(idea) {
+  const newIdea = {
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+    content: idea.content || '',
+    status: idea.status || 'inbox',
+    tags: idea.tags || [],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  };
+  if (store.getState('demoMode')) {
+    addToLSCollection('ideas', newIdea);
+    return { data: newIdea, error: null };
+  }
+  return { data: newIdea, error: null };
+}
+
+/**
+ * Add a new reminder (persists to localStorage in demo mode)
+ * @param {Object} reminder
+ * @returns {Promise<Object>}
+ */
+async function addReminder(reminder) {
+  const newReminder = {
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+    title: reminder.title || '',
+    category: reminder.category || 'action',
+    priority: reminder.priority || 'medium',
+    status: 'active',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  };
+  if (store.getState('demoMode')) {
+    addToLSCollection('reminders', newReminder);
+    return { data: newReminder, error: null };
+  }
+  return { data: newReminder, error: null };
 }
