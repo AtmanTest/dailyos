@@ -28,7 +28,43 @@ async function renderTodayPage() {
       </div>
     `;
 
-    // Scores section
+    // Saisie rapide
+    html += `
+      <div class="card mb-6">
+        <div class="card-header">
+          <div class="card-title">Ajouter une entrée</div>
+        </div>
+        <div class="card-body">
+          <div id="quick-entry-form">
+            <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-2)">
+              <input type="text" id="qe-time" placeholder="Heure (ex: 09:30)" value="${getLocalTime()}"
+                style="flex:0 0 80px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
+              <select id="qe-type"
+                style="flex:0 0 120px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
+                <option value="morning">Matin</option>
+                <option value="afternoon">Après-midi</option>
+                <option value="evening" selected>Soirée</option>
+                <option value="reflection">Réflexion</option>
+                <option value="event">Événement</option>
+                <option value="mood">Humeur</option>
+              </select>
+            </div>
+            <textarea id="qe-content" rows="3" placeholder="Quoi de neuf aujourd'hui ?"
+              style="width:100%;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm);resize:vertical"></textarea>
+            <div style="display:flex;gap:var(--space-2);margin-top:var(--space-2)">
+              <button onclick="submitQuickEntry()" class="btn"
+                style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer;font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)">
+                + Ajouter
+              </button>
+              <button onclick="openFullEntry()" class="btn"
+                style="padding:var(--space-2) var(--space-4);background:transparent;color:var(--color-text-muted);border:1px solid var(--color-border);border-radius:var(--radius-md);cursor:pointer;font-size:var(--font-size-sm)">
+                Entrée complète
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
     if (summary) {
       const s = summary;
       html += `
@@ -246,4 +282,51 @@ function getScoreColorInverted(score) {
   if (score <= 2) return 'var(--color-success)';
   if (score <= 3) return 'var(--color-warning)';
   return 'var(--color-error)';
+}
+
+/* ===== Quick Entry Handlers ===== */
+
+/**
+ * Submit a quick journal entry
+ */
+async function submitQuickEntry() {
+  const content = document.getElementById('qe-content');
+  const timeInput = document.getElementById('qe-time');
+  const typeSelect = document.getElementById('qe-type');
+
+  if (!content || !content.value.trim()) {
+    showToast("Écris quelque chose d'abord", 'warning');
+    content?.focus();
+    return;
+  }
+
+  const today = getTodayISO();
+  const newEntry = {
+    date: today,
+    time: timeInput?.value || getLocalTime(),
+    type: typeSelect?.value || 'evening',
+    content: content.value.trim()
+  };
+
+  try {
+    await addEntry(newEntry);
+    content.value = '';
+    showToast('Entrée ajoutée ✓', 'success');
+    // Re-render the page to show the new entry in timeline
+    await renderTodayPage();
+  } catch (e) {
+    showToast('Erreur: ' + e.message, 'error');
+  }
+}
+
+/**
+ * Open the full entry editor (switches to journal page with entry form)
+ */
+function openFullEntry() {
+  router.navigate('#/journal');
+  // Focus on entry textarea after page renders
+  setTimeout(() => {
+    const ta = document.getElementById('journal-entry-content');
+    if (ta) ta.focus();
+  }, 100);
 }
