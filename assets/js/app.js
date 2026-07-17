@@ -14,29 +14,6 @@ function initApp() {
   const theme = store.getState('theme');
   applyTheme(theme);
 
-  // Initialize auth listener (detect Google OAuth redirect & session)
-  initAuthListener();
-  document.addEventListener('auth-changed', (e) => {
-    const { user, event } = e.detail;
-    if (event === 'INIT') {
-      // Session restored from hash fragment on page load
-    }
-    if (user) {
-      // Sync local data on first detection
-      if (event !== 'SIGNED_OUT') {
-        try { window.syncLocalToSupabase(); } catch (e) {}
-      }
-    }
-    // Re-render current page to reflect auth state
-    const current = store.getState('currentPage');
-    const routeMap = {
-      today: renderTodayPage, journal: renderJournalPage,
-      ideas: renderIdeasPage, reminders: renderRemindersPage,
-      insights: renderInsightsPage, settings: renderSettingsPage
-    };
-    if (routeMap[current]) routeMap[current]();
-  });
-
   // Register routes
   router.register('#/today', renderTodayPage);
   router.register('#/journal', renderJournalPage);
@@ -84,6 +61,26 @@ function initApp() {
   });
 
   console.log(`${t('app_name')} v${APP_CONFIG.VERSION} initialized`);
+}
+
+/**
+ * Set up auth state change listener (re-renders current page on auth change)
+ */
+function setupAuthStateListener() {
+  document.addEventListener('auth-changed', (e) => {
+    const { user, event } = e.detail;
+    if (user && event !== 'SIGNED_OUT') {
+      try { window.syncLocalToSupabase(); } catch (e) {}
+    }
+    // Re-render current page to reflect auth state
+    const current = store.getState('currentPage');
+    const routeMap = {
+      today: renderTodayPage, journal: renderJournalPage,
+      ideas: renderIdeasPage, reminders: renderRemindersPage,
+      insights: renderInsightsPage, settings: renderSettingsPage
+    };
+    if (routeMap[current]) routeMap[current]();
+  });
 }
 
 /**
@@ -242,4 +239,13 @@ function fireConfetti(parentEl) {
 }
 
 // Start the app when DOM is ready
-document.addEventListener('DOMContentLoaded', initApp);
+// CRITICAL: Process OAuth hash BEFORE router to avoid 404 on #access_token=...
+document.addEventListener('DOMContentLoaded', () => {
+  setupAuthStateListener();
+  initAuthListener().then(() => {
+    initApp();
+  }).catch(() => {
+    // If auth fails, init app anyway without auth
+    initApp();
+  });
+});
