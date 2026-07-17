@@ -259,13 +259,13 @@ ul, ol {
 .card {
   background: var(--color-card);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--color-card-radius);
   padding: var(--space-5);
   transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .card:hover {
-  border-color: rgba(91, 141, 238, 0.3);
+  border-color: rgba(124, 58, 237, 0.3);
 }
 
 .card-header {
@@ -983,3 +983,246 @@ tr:hover td {
   text-align: center;
   color: var(--color-text-muted);
 }
+
+/* ===== ADHD Design System v2.0 ===== */
+
+/* Animation pulse */
+@keyframes adhd-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(124,58,237,0); }
+}
+.adhd-pulse { animation: adhd-pulse 2s infinite; }
+@media (prefers-reduced-motion: reduce) { .adhd-pulse { animation: none; } }
+
+/* FAB */
+.fab-quick-entry {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: var(--color-fab-size);
+  height: var(--color-fab-size);
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: white;
+  font-size: 28px;
+  box-shadow: var(--shadow-xl);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+.fab-quick-entry:hover {
+  transform: scale(1.1);
+  background: var(--color-accent-hover);
+}
+.fab-quick-entry:active {
+  transform: scale(0.95);
+}
+.page-settings .fab-quick-entry { display: none; }
+
+/* Quick moods */
+.quick-moods-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.quick-mood-btn {
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: transparent;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
+}
+.quick-mood-btn:hover {
+  background: rgba(124,58,237,0.15);
+  transform: scale(1.1);
+}
+.quick-mood-btn.selected {
+  background: rgba(124,58,237,0.2);
+  border: 1px solid var(--color-accent);
+}
+
+/* Streak badge */
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(245,158,11,0.15);
+  color: var(--color-streak-gold);
+  font-weight: var(--font-weight-bold);
+}
+.streak-badge .streak-count {
+  background: linear-gradient(135deg, var(--color-streak-gold), #D97706);
+  color: white;
+  border-radius: var(--radius-full);
+  padding: 1px 8px;
+  font-size: var(--font-size-sm);
+}
+.streak-new {
+  animation: streak-flash 0.6s ease;
+}
+@keyframes streak-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+
+/* Win section */
+.win-section {
+  border-left: 3px solid var(--color-win);
+  padding-left: 16px;
+}
+.win-section input {
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 0;
+  width: 100%;
+  transition: border-color var(--transition-fast);
+}
+.win-section input:focus {
+  border-bottom-color: var(--color-win);
+  outline: none;
+}
+
+/* Flash capture modal */
+.flash-capture-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2000;
+  animation: slide-up 200ms ease;
+}
+.flash-capture-modal .modal-inner {
+  background: var(--color-surface);
+  border-radius: 20px 20px 0 0;
+  padding: 24px;
+  width: 100%;
+  max-width: 500px;
+}
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Confetti */
+.confetti-burst {
+  position: relative;
+  display: inline-block;
+}
+.confetti-piece {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  animation: confetti-fly 600ms ease forwards;
+  pointer-events: none;
+}
+@keyframes confetti-fly {
+  0% { transform: scale(0) translateY(0); opacity: 1; }
+  50% { transform: scale(1) translateY(-20px); opacity: 1; }
+  100% { transform: scale(0.5) translateY(-40px); opacity: 0; }
+}
+
+/* Mode badge */
+.mode-badge {
+  display: none;
+  background: var(--color-win);
+  color: white;
+  font-size: 10px;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.mode-badge.visible { display: inline-block; }
+
+/* Lang toggle */
+.lang-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 4px 10px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.lang-toggle-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Tomorrow focus */
+.tomorrow-focus {
+  background: rgba(124,58,237,0.08);
+  border: 1px dashed var(--color-accent);
+  border-radius: var(--color-card-radius);
+  padding: var(--space-4);
+}
+.tomorrow-focus.done {
+  border-color: var(--color-win);
+  background: rgba(16,185,129,0.08);
+}
+
+/* Bottom nav mobile redesign */
+@media (max-width: 768px) {
+  .bottom-nav {
+    height: 64px !important;
+    display: block !important;
+  }
+  .bottom-nav-inner {
+    justify-content: center;
+    gap: 0;
+  }
+  .bottom-nav-item {
+    flex: 1;
+    max-width: 64px;
+    gap: 2px;
+    padding: 4px;
+    position: relative;
+  }
+  .bottom-nav-item.active {
+    color: var(--color-accent);
+  }
+  .bottom-nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 0 0 2px 2px;
+  }
+}
+
+/* Nudge toast */
+.nudge-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nudge-toast .nudge-btn {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
