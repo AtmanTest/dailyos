@@ -4,8 +4,23 @@ let journalState = {
   selectedDate: getTodayISO(),
   searchQuery: '',
   dateFrom: '',
-  dateTo: ''
+  dateTo: '',
+  typeFilter: '',
+  page: 1,
+  pageSize: 20
 };
+
+const ENTRY_TYPE_EMOJIS = {
+  note: '📝',
+  morning: '🌅',
+  afternoon: '☀️',
+  evening: '🌙',
+  reflection: '🪞',
+  event: '📅',
+  mood: '💖'
+};
+
+const ENTRY_TYPES = ['note', 'morning', 'afternoon', 'evening', 'reflection', 'event', 'mood'];
 
 async function renderJournalPage(focusHint) {
   const app = document.getElementById('app');
@@ -44,7 +59,7 @@ async function renderJournalPage(focusHint) {
     const firstDay = new Date(year, month, 1).getDay(); // 0=Sun
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    // Filter summaries by search / date range
+    // Filter summaries by search / date range / type
     let filteredSummaries = [...summaries];
     if (journalState.searchQuery) {
       const q = journalState.searchQuery.toLowerCase();
@@ -66,44 +81,56 @@ async function renderJournalPage(focusHint) {
     // Selected summary
     const selectedSummary = summaries.find(s => s.date === selDate);
 
+    // Filter entries by type for the type filter
+    let filteredEntries = [...entries];
+    if (journalState.typeFilter) {
+      filteredEntries = filteredEntries.filter(e => e.type === journalState.typeFilter);
+    }
+
+    // Pagination
+    const totalEntries = filteredEntries.length;
+    const totalPages = Math.ceil(totalEntries / journalState.pageSize);
+    const paginatedEntries = filteredEntries.slice(0, journalState.page * journalState.pageSize);
+    const hasMore = paginatedEntries.length < totalEntries;
+
     let html = `
       <div class="section">
-        <h1 class="section-title">📖 Journal</h1>
+        <h1 class="section-title">📖 ${window.t ? window.t('journal_title') : 'Journal'}</h1>
       </div>
 
       <!-- Entry form -->
       <div class="card mb-6">
         <div class="card-header">
-          <div class="card-title">Nouvelle entrée</div>
+          <div class="card-title">${window.t ? window.t('journal_new_entry') : 'Nouvelle entrée'}</div>
         </div>
         <div class="card-body">
           <form id="journal-entry-form" onsubmit="submitJournalEntry(event)">
             <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-2);flex-wrap:wrap">
               <input type="date" id="journal-entry-date" value="${selDate}"
                 style="flex:1;min-width:140px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
-              <input type="text" id="journal-entry-time" placeholder="Heure" value="${getLocalTime()}"
+              <input type="text" id="journal-entry-time" placeholder="${window.t ? window.t('journal_time') : 'Heure'}" value="${getLocalTime()}"
                 style="flex:0 0 80px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
               <select id="journal-entry-type"
                 style="flex:0 0 130px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
-                <option value="note">Note</option>
-                <option value="morning">Matin</option>
-                <option value="afternoon">Après-midi</option>
-                <option value="evening">Soirée</option>
-                <option value="reflection">Réflexion</option>
-                <option value="event">Événement</option>
-                <option value="mood">Humeur</option>
+                <option value="note">${window.t ? window.t('type_note') : 'Note'}</option>
+                <option value="morning">${window.t ? window.t('type_morning') : 'Matin'}</option>
+                <option value="afternoon">${window.t ? window.t('type_afternoon') : 'Après-midi'}</option>
+                <option value="evening">${window.t ? window.t('type_evening') : 'Soirée'}</option>
+                <option value="reflection">${window.t ? window.t('type_reflection') : 'Réflexion'}</option>
+                <option value="event">${window.t ? window.t('type_event') : 'Événement'}</option>
+                <option value="mood">${window.t ? window.t('type_mood') : 'Humeur'}</option>
               </select>
             </div>
-            <textarea id="journal-entry-content" rows="4" placeholder="Qu'as-tu fait ? Comment te sens-tu ?"
+            <textarea id="journal-entry-content" rows="4" placeholder="${window.t ? window.t('journal_placeholder') : "Qu'as-tu fait ? Comment te sens-tu ?"}"
               style="width:100%;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm);resize:vertical">${focusHint || ''}</textarea>
             <div style="display:flex;gap:var(--space-2);margin-top:var(--space-2);flex-wrap:wrap">
-              <input type="text" id="journal-entry-tags" placeholder="Tags (séparés par des virgules)"
+              <input type="text" id="journal-entry-tags" placeholder="${window.t ? window.t('journal_tags_placeholder') : 'Tags (séparés par des virgules)'}"
                 style="flex:1;min-width:120px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
-              <input type="number" id="journal-entry-mood" min="1" max="5" placeholder="Humeur 1-5"
+              <input type="number" id="journal-entry-mood" min="1" max="5" placeholder="${window.t ? window.t('journal_mood_placeholder') : 'Humeur 1-5'}"
                 style="flex:0 0 120px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
               <button type="submit"
                 style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer;font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)">
-                Publier
+                ${window.t ? window.t('journal_publish') : 'Publier'}
               </button>
             </div>
           </form>
@@ -115,8 +142,8 @@ async function renderJournalPage(focusHint) {
         <div class="card-header">
           <div class="card-title">${escapeHtml(monthName)}</div>
           <div class="flex gap-2">
-            <button class="btn btn-sm btn-ghost" onclick="changeMonth(-1)" aria-label="Mois précédent">◀</button>
-            <button class="btn btn-sm btn-ghost" onclick="changeMonth(1)" aria-label="Mois suivant">▶</button>
+            <button class="btn btn-sm btn-ghost" onclick="changeMonth(-1)" aria-label="${window.t ? window.t('prev_month') : 'Mois précédent'}">◀</button>
+            <button class="btn btn-sm btn-ghost" onclick="changeMonth(1)" aria-label="${window.t ? window.t('next_month') : 'Mois suivant'}">▶</button>
           </div>
         </div>
         <div class="card-body">
@@ -153,22 +180,22 @@ async function renderJournalPage(focusHint) {
           <div class="card-body">
             <div class="score-grid mb-4">
               <div class="score-item">
-                <div class="score-label">Humeur</div>
+                <div class="score-label">${window.t ? window.t('mood') : 'Humeur'}</div>
                 <div class="score-value" style="color:${getScoreColor(s.mood.score)};font-size:1.2rem">${s.mood.score != null ? s.mood.score + '/5' : '—'}</div>
               </div>
               <div class="score-item">
-                <div class="score-label">Énergie</div>
+                <div class="score-label">${window.t ? window.t('energy') : 'Énergie'}</div>
                 <div class="score-value" style="color:${getScoreColor(s.energy.score)};font-size:1.2rem">${s.energy.score != null ? s.energy.score + '/5' : '—'}</div>
               </div>
               <div class="score-item">
-                <div class="score-label">Satisfaction</div>
+                <div class="score-label">${window.t ? window.t('satisfaction') : 'Satisfaction'}</div>
                 <div class="score-value" style="color:${getScoreColor(s.satisfaction.score)};font-size:1.2rem">${s.satisfaction.score != null ? s.satisfaction.score + '/5' : '—'}</div>
               </div>
             </div>
 
             ${s.highlights && s.highlights.length > 0 ? `
               <div class="mb-3">
-                <div class="font-medium text-sm mb-2">Points forts</div>
+                <div class="font-medium text-sm mb-2">${window.t ? window.t('highlights') : 'Points forts'}</div>
                 <ul style="list-style:disc;padding-left:var(--space-5)">
                   ${s.highlights.map(h => `<li class="mb-1">${escapeHtml(h)}</li>`).join('')}
                 </ul>
@@ -177,7 +204,7 @@ async function renderJournalPage(focusHint) {
 
             ${s.lessons && s.lessons.length > 0 ? `
               <div class="mb-3">
-                <div class="font-medium text-sm mb-2">Leçons</div>
+                <div class="font-medium text-sm mb-2">${window.t ? window.t('lessons') : 'Leçons'}</div>
                 <ul style="list-style:disc;padding-left:var(--space-5)">
                   ${s.lessons.map(l => `<li class="mb-1">${escapeHtml(String(l))}</li>`).join('')}
                 </ul>
@@ -186,7 +213,7 @@ async function renderJournalPage(focusHint) {
 
             ${s.tomorrow_focus && s.tomorrow_focus.length > 0 ? `
               <div>
-                <div class="font-medium text-sm mb-2">Focus demain</div>
+                <div class="font-medium text-sm mb-2">${window.t ? window.t('tomorrow_focus') : 'Focus demain'}</div>
                 <ul style="list-style:disc;padding-left:var(--space-5)">
                   ${s.tomorrow_focus.map(f => `<li class="mb-1">${escapeHtml(String(f))}</li>`).join('')}
                 </ul>
@@ -194,24 +221,85 @@ async function renderJournalPage(focusHint) {
             ` : ''}
 
             <div class="mt-4 text-sm text-muted">
-              ${s.entry_count || entryCounts[selDate] || 0} entrée${(s.entry_count || entryCounts[selDate] || 0) > 1 ? 's' : ''} • ${s.ideas_count || 0} idée${(s.ideas_count || 0) > 1 ? 's' : ''}
+              ${s.entry_count || entryCounts[selDate] || 0} ${window.t ? window.t('entries') : 'entrée'}${(s.entry_count || entryCounts[selDate] || 0) > 1 ? 's' : ''} • ${s.ideas_count || 0} ${window.t ? window.t('ideas') : 'idée'}${(s.ideas_count || 0) > 1 ? 's' : ''}
             </div>
           </div>
         </div>
       `;
     } else {
-      html += renderEmptyState('Aucun résumé pour cette date', 'Sélectionnez une autre date ou créez une entrée.');
+      html += renderEmptyState(window.t ? window.t('no_summary') : 'Aucun résumé pour cette date', window.t ? window.t('no_summary_hint') : 'Sélectionnez une autre date ou créez une entrée.');
     }
+
+    // Type filter bar with emoji icons
+    html += `
+      <div class="card mb-6">
+        <div class="card-header">
+          <div class="card-title">${window.t ? window.t('entry_type_filter') : 'Filtrer par type'}</div>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+            <button class="btn btn-sm ${!journalState.typeFilter ? 'btn-primary' : 'btn-ghost'}" onclick="journalFilterByType('')" style="font-size:var(--font-size-sm)">
+              ${window.t ? window.t('all') : 'Tous'}
+            </button>
+            ${ENTRY_TYPES.map(t => `
+              <button class="btn btn-sm ${journalState.typeFilter === t ? 'btn-primary' : 'btn-ghost'}" onclick="journalFilterByType('${t}')" style="font-size:var(--font-size-sm)">
+                ${ENTRY_TYPE_EMOJIS[t] || '📄'} ${window.t ? window.t('type_' + t) : t}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Entries list with pagination
+    const entriesSectionTitle = journalState.typeFilter
+      ? `${ENTRY_TYPE_EMOJIS[journalState.typeFilter] || '📄'} ${window.t ? window.t('entries_of_type') : 'Entrées'} ${window.t ? window.t('type_' + journalState.typeFilter) : journalState.typeFilter}`
+      : (window.t ? window.t('all_entries') : 'Toutes les entrées');
+
+    html += `
+      <div class="card mb-6">
+        <div class="card-header">
+          <div class="card-title">${entriesSectionTitle} (${paginatedEntries.length}/${totalEntries})</div>
+        </div>
+        <div class="card-body">
+          ${paginatedEntries.length > 0 ? paginatedEntries.map(e => `
+            <div class="insight-card" style="margin-bottom:var(--space-2)">
+              <div class="flex items-center justify-between mb-1">
+                <div class="flex items-center gap-2">
+                  <span style="font-size:1.1rem">${ENTRY_TYPE_EMOJIS[e.type] || '📄'}</span>
+                  <span class="text-xs text-muted">${escapeHtml(e.date)} ${e.time ? escapeHtml(e.time) : ''}</span>
+                </div>
+                ${e.mood_score ? `<span class="tag tag-info">${window.t ? window.t('mood') : 'Humeur'}: ${e.mood_score}/5</span>` : ''}
+              </div>
+              <p class="text-sm" style="line-height:var(--line-height-relaxed)">${escapeHtml(e.content)}</p>
+              ${e.tags && e.tags.length > 0 ? `
+                <div class="flex gap-1 flex-wrap mt-1">
+                  ${e.tags.map(t => `<span class="tag tag-neutral" style="font-size:10px">${escapeHtml(t)}</span>`).join('')}
+                </div>
+              ` : ''}
+            </div>
+          `).join('') : renderEmptyState(window.t ? window.t('no_entries') : 'Aucune entrée', window.t ? window.t('no_entries_hint') : 'Créez votre première entrée ci-dessus.')}
+
+          ${hasMore ? `
+            <div style="text-align:center;margin-top:var(--space-4)">
+              <button class="btn btn-secondary" onclick="journalLoadMore()">
+                ${window.t ? window.t('load_more') : 'Load more'} ↓
+              </button>
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
 
     // Search / filter
     html += `
       <div class="card mb-6">
         <div class="card-header">
-          <div class="card-title">Tous les résumés</div>
+          <div class="card-title">${window.t ? window.t('all_summaries') : 'Tous les résumés'}</div>
         </div>
         <div class="card-body">
           <div class="filter-bar">
-            <input class="form-input" type="text" id="journal-search" placeholder="Rechercher..." value="${escapeHtml(journalState.searchQuery)}" oninput="filterJournal(event)">
+            <input class="form-input" type="text" id="journal-search" placeholder="${window.t ? window.t('search_placeholder') : 'Rechercher...'}" value="${escapeHtml(journalState.searchQuery)}" oninput="filterJournal(event)">
             <input class="form-input" type="date" id="journal-date-from" value="${journalState.dateFrom}" onchange="journalDateFromChange(event)">
             <input class="form-input" type="date" id="journal-date-to" value="${journalState.dateTo}" onchange="journalDateToChange(event)">
           </div>
@@ -220,15 +308,15 @@ async function renderJournalPage(focusHint) {
             <div class="insight-card" onclick="selectJournalDate('${s.date}')" style="cursor:pointer">
               <div class="flex items-center justify-between mb-2">
                 <div class="font-medium">${escapeHtml(formatDate(s.date, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))}</div>
-                <span class="text-xs text-muted">${s.entry_count || 0} entrée${(s.entry_count || 0) > 1 ? 's' : ''}</span>
+                <span class="text-xs text-muted">${s.entry_count || 0} ${window.t ? window.t('entries') : 'entrée'}${(s.entry_count || 0) > 1 ? 's' : ''}</span>
               </div>
               ${s.highlights && s.highlights.length > 0 ? `<div class="text-sm text-muted">${s.highlights.slice(0, 2).map(h => escapeHtml(h)).join(' · ')}</div>` : ''}
               <div class="flex gap-2 mt-2">
-                <span class="tag ${s.mood.score >= 4 ? 'tag-success' : s.mood.score >= 3 ? 'tag-warning' : 'tag-error'}">Humeur: ${s.mood.score}/5</span>
-                <span class="tag ${s.satisfaction.score >= 4 ? 'tag-success' : 'tag-neutral'}">Sat.: ${s.satisfaction.score}/5</span>
+                <span class="tag ${s.mood.score >= 4 ? 'tag-success' : s.mood.score >= 3 ? 'tag-warning' : 'tag-error'}">${window.t ? window.t('mood') : 'Humeur'}: ${s.mood.score}/5</span>
+                <span class="tag ${s.satisfaction.score >= 4 ? 'tag-success' : 'tag-neutral'}">${window.t ? window.t('satisfaction_abbr') : 'Sat.'}: ${s.satisfaction.score}/5</span>
               </div>
             </div>
-          `).join('') : renderEmptyState('Aucun résumé trouvé', 'Essayez d\'ajuster vos filtres de recherche.')}
+          `).join('') : renderEmptyState(window.t ? window.t('no_summaries_found') : 'Aucun résumé trouvé', window.t ? window.t('no_summaries_hint') : 'Essayez d\'ajuster vos filtres de recherche.')}
         </div>
       </div>
     `;
@@ -240,7 +328,7 @@ async function renderJournalPage(focusHint) {
   } catch (error) {
     console.error('Journal page error:', error);
     store.setState({ loading: false });
-    app.innerHTML = renderError('Erreur lors du chargement du journal.');
+    app.innerHTML = renderError(window.t ? window.t('journal_load_error') : 'Erreur lors du chargement du journal.');
   }
 }
 
@@ -253,6 +341,17 @@ function changeMonth(delta) {
   const current = new Date((journalState.selectedDate || getTodayISO()) + 'T12:00:00');
   current.setMonth(current.getMonth() + delta);
   journalState.selectedDate = current.toISOString().split('T')[0];
+  renderJournalPage();
+}
+
+function journalFilterByType(type) {
+  journalState.typeFilter = type;
+  journalState.page = 1;
+  renderJournalPage();
+}
+
+function journalLoadMore() {
+  journalState.page++;
   renderJournalPage();
 }
 
@@ -270,7 +369,7 @@ async function submitJournalEntry(event) {
   const moodInput = document.getElementById('journal-entry-mood');
 
   if (!content || !content.value.trim()) {
-    showToast('Écris quelque chose', 'warning');
+    showToast(window.t ? window.t('journal_write_something') : 'Écris quelque chose', 'warning');
     content?.focus();
     return;
   }
@@ -295,10 +394,10 @@ async function submitJournalEntry(event) {
     content.value = '';
     if (tagsInput) tagsInput.value = '';
     if (moodInput) moodInput.value = '';
-    showToast('Entrée publiée ✓', 'success');
+    showToast(window.t ? window.t('entry_published') : 'Entrée publiée ✓', 'success');
     renderJournalPage();
   } catch (e) {
-    showToast('Erreur: ' + e.message, 'error');
+    showToast(window.t ? window.t('error_prefix') : 'Erreur: ' + e.message, 'error');
   }
 }
 

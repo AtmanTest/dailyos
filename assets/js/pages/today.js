@@ -16,6 +16,9 @@ async function renderTodayPage() {
     const dayName = new Date(today + 'T12:00:00').toLocaleDateString('fr-FR', { weekday: 'long' });
     const capitalizedDay = dayName.charAt(0).toUpperCase() + dayName.slice(1);
 
+    // Load all entries for streak, wins, tomorrow focus
+    const allEntries = (typeof loadFromLS === 'function' && loadFromLS('entries')) || (typeof DEMO_DATA !== 'undefined' && DEMO_DATA.entries) || [];
+
     let html = `
       <div class="section">
         <div class="flex items-center justify-between mb-4">
@@ -23,8 +26,83 @@ async function renderTodayPage() {
             <h1 style="font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold)">${escapeHtml(capitalizedDay)}</h1>
             <div class="text-muted text-sm">${escapeHtml(dateFormatted)}</div>
           </div>
-          <span class="tag tag-accent">${entries.length} entrée${entries.length > 1 ? 's' : ''}</span>
+          <span class="tag tag-accent">${entries.length} entr&eacute;e${entries.length > 1 ? 's' : ''}</span>
         </div>
+      </div>
+    `;
+
+    // ===================================================================
+    // TOMORROW FOCUS FROM PREVIOUS DAY (at the very top, before streak)
+    // ===================================================================
+    const yesterdayDate = getYesterdayISO();
+    const yesterdayEntry = allEntries.find(e =>
+      e.date === yesterdayDate && (
+        e.tomorrow === true ||
+        (e.content && e.content.startsWith('[TOMORROW]'))
+      )
+    );
+    // Only show if there are no entries yet today (hasn't been started)
+    const todayHasEntries = entries.length > 0;
+
+    if (yesterdayEntry && !todayHasEntries) {
+      const focusContent = yesterdayEntry.tomorrow === true
+        ? yesterdayEntry.content
+        : yesterdayEntry.content.replace('[TOMORROW] ', '');
+      html += `
+        <div class="card mb-6 tomorrow-focus" id="tomorrow-focus-card">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-sm text-muted mb-1">Focus du jour</div>
+              <div style="font-weight:var(--font-weight-semibold)">${escapeHtml(focusContent)}</div>
+            </div>
+            <button onclick="markTomorrowFocusDone()" class="btn"
+              style="padding:var(--space-1) var(--space-3);background:var(--color-win);color:white;border:none;border-radius:var(--radius-md);cursor:pointer;font-size:var(--font-size-sm)">
+              Done &check;
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // ===================================================================
+    // STREAK BADGE
+    // ===================================================================
+    const streak = calculateStreak(allEntries);
+    const lastStreak = localStorage.getItem('dailyos_last_streak');
+    const isNewStreak = lastStreak !== null && parseInt(lastStreak, 10) >= 0 && parseInt(lastStreak, 10) !== streak;
+    let streakText;
+    if (streak === 0) {
+      streakText = window.t('streak_start');
+    } else if (streak === 1) {
+      streakText = window.t('streak_today');
+    } else {
+      streakText = window.t('streak_days', { count: streak });
+    }
+    localStorage.setItem('dailyos_last_streak', String(streak));
+
+    html += `
+      <div class="section mb-4">
+        <div class="streak-badge${isNewStreak ? ' streak-new' : ''}">
+          <span>&#x1F525;</span>
+          <span class="streak-count">${streak}</span>
+          <span>${escapeHtml(streakText)}</span>
+        </div>
+      </div>
+    `;
+
+    // ===================================================================
+    // CONTEXTUAL MESSAGE
+    // ===================================================================
+    const hour = new Date().getHours();
+    let msgKey;
+    if (hour >= 5 && hour <= 11) msgKey = 'msg_morning';
+    else if (hour >= 12 && hour <= 17) msgKey = 'msg_afternoon';
+    else if (hour >= 18 && hour <= 21) msgKey = 'msg_evening';
+    else msgKey = 'msg_night';
+
+    html += `
+      <div class="section mb-4">
+        <div class="text-muted text-sm" style="font-style:italic">${escapeHtml(window.t(msgKey))}</div>
       </div>
     `;
 
@@ -32,7 +110,7 @@ async function renderTodayPage() {
     html += `
       <div class="card mb-6">
         <div class="card-header">
-          <div class="card-title">Ajouter une entrée</div>
+          <div class="card-title">Ajouter une entr&eacute;e</div>
         </div>
         <div class="card-body">
           <div id="quick-entry-form">
@@ -42,10 +120,10 @@ async function renderTodayPage() {
               <select id="qe-type"
                 style="flex:0 0 120px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
                 <option value="morning">Matin</option>
-                <option value="afternoon">Après-midi</option>
-                <option value="evening" selected>Soirée</option>
-                <option value="reflection">Réflexion</option>
-                <option value="event">Événement</option>
+                <option value="afternoon">Apr&egrave;s-midi</option>
+                <option value="evening" selected>Soir&eacute;e</option>
+                <option value="reflection">R&eacute;flexion</option>
+                <option value="event">&Eacute;v&eacute;nement</option>
                 <option value="mood">Humeur</option>
               </select>
             </div>
@@ -58,13 +136,14 @@ async function renderTodayPage() {
               </button>
               <button onclick="openFullEntry()" class="btn"
                 style="padding:var(--space-2) var(--space-4);background:transparent;color:var(--color-text-muted);border:1px solid var(--color-border);border-radius:var(--radius-md);cursor:pointer;font-size:var(--font-size-sm)">
-                Entrée complète
+                Entr&eacute;e compl&egrave;te
               </button>
             </div>
           </div>
         </div>
       </div>
     `;
+
     if (summary) {
       const s = summary;
       html += `
@@ -76,23 +155,23 @@ async function renderTodayPage() {
             <div class="score-grid">
               <div class="score-item">
                 <div class="score-label">Humeur</div>
-                <div class="score-value" style="color:${getScoreColor(s.mood.score)}">${s.mood.score != null ? s.mood.score + '/5 ' + getMoodEmoji(s.mood.score) : '—'}</div>
+                <div class="score-value" style="color:${getScoreColor(s.mood.score)}">${s.mood.score != null ? s.mood.score + '/5 ' + getMoodEmoji(s.mood.score) : '&mdash;'}</div>
               </div>
               <div class="score-item">
-                <div class="score-label">Énergie</div>
-                <div class="score-value" style="color:${getScoreColor(s.energy.score)}">${s.energy.score != null ? s.energy.score + '/5' : '—'}</div>
+                <div class="score-label">&Eacute;nergie</div>
+                <div class="score-value" style="color:${getScoreColor(s.energy.score)}">${s.energy.score != null ? s.energy.score + '/5' : '&mdash;'}</div>
               </div>
               <div class="score-item">
                 <div class="score-label">Stress</div>
-                <div class="score-value" style="color:${getScoreColorInverted(s.stress.score)}">${s.stress.score != null ? s.stress.score + '/5' : '—'}</div>
+                <div class="score-value" style="color:${getScoreColorInverted(s.stress.score)}">${s.stress.score != null ? s.stress.score + '/5' : '&mdash;'}</div>
               </div>
               <div class="score-item">
-                <div class="score-label">Clarté</div>
-                <div class="score-value" style="color:${getScoreColor(s.clarity.score)}">${s.clarity.score != null ? s.clarity.score + '/5' : '—'}</div>
+                <div class="score-label">Clart&eacute;</div>
+                <div class="score-value" style="color:${getScoreColor(s.clarity.score)}">${s.clarity.score != null ? s.clarity.score + '/5' : '&mdash;'}</div>
               </div>
               <div class="score-item">
                 <div class="score-label">Satisfaction</div>
-                <div class="score-value" style="color:${getScoreColor(s.satisfaction.score)}">${s.satisfaction.score != null ? s.satisfaction.score + '/5' : '—'}</div>
+                <div class="score-value" style="color:${getScoreColor(s.satisfaction.score)}">${s.satisfaction.score != null ? s.satisfaction.score + '/5' : '&mdash;'}</div>
               </div>
             </div>
           </div>
@@ -124,7 +203,7 @@ async function renderTodayPage() {
         html += `<div class="card mb-6"><div class="card-header"><div class="card-title">Actions</div></div><div class="card-body">`;
 
         if (s.actions_completed && s.actions_completed.length > 0) {
-          html += `<div class="mb-3"><span class="tag tag-success mb-2">Terminées</span><ul style="padding-left:var(--space-5)">`;
+          html += `<div class="mb-3"><span class="tag tag-success mb-2">Termin&eacute;es</span><ul style="padding-left:var(--space-5)">`;
           s.actions_completed.forEach(a => {
             html += `<li class="mb-1 flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> ${escapeHtml(String(a))}</li>`;
           });
@@ -140,7 +219,7 @@ async function renderTodayPage() {
         }
 
         if (s.actions_blocked && s.actions_blocked.length > 0) {
-          html += `<div class="mb-3"><span class="tag tag-error mb-2">Bloqué</span><ul style="padding-left:var(--space-5)">`;
+          html += `<div class="mb-3"><span class="tag tag-error mb-2">Bloqu&eacute;</span><ul style="padding-left:var(--space-5)">`;
           s.actions_blocked.forEach(a => {
             html += `<li class="mb-1 flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/></svg> ${escapeHtml(String(a))}</li>`;
           });
@@ -155,7 +234,7 @@ async function renderTodayPage() {
         html += `
           <div class="card mb-6">
             <div class="card-header">
-              <div class="card-title">Événements</div>
+              <div class="card-title">&Eacute;v&eacute;nements</div>
             </div>
             <div class="card-body">
               <ul style="list-style:disc;padding-left:var(--space-5)">
@@ -171,7 +250,7 @@ async function renderTodayPage() {
         html += `
           <div class="card mb-6">
             <div class="card-header">
-              <div class="card-title">Leçons du jour</div>
+              <div class="card-title">Le&ccedil;ons du jour</div>
             </div>
             <div class="card-body">
               <ul style="list-style:disc;padding-left:var(--space-5)">
@@ -182,7 +261,7 @@ async function renderTodayPage() {
         `;
       }
 
-      // Tomorrow Focus
+      // Tomorrow Focus (from summary)
       if (s.tomorrow_focus && s.tomorrow_focus.length > 0) {
         html += `
           <div class="card mb-6">
@@ -204,12 +283,12 @@ async function renderTodayPage() {
         html += `
           <div class="card mb-6">
             <div class="card-header">
-              <div class="card-title">Idées du jour</div>
+              <div class="card-title">Id&eacute;es du jour</div>
             </div>
             <div class="card-body">
               ${todayIdeas.map(idea => `
                 <div class="flex items-center justify-between mb-2">
-                  <span>💡 ${escapeHtml(idea.content)}</span>
+                  <span>&#x1F4A1; ${escapeHtml(idea.content)}</span>
                   ${getStatusBadge(idea.status)}
                 </div>
               `).join('')}
@@ -218,6 +297,76 @@ async function renderTodayPage() {
         `;
       }
     }
+
+    // ===================================================================
+    // QUICK MOODS
+    // ===================================================================
+    const todayMoods = entries.filter(e => e.type === 'mood');
+    const lastMood = todayMoods.length > 0 ? todayMoods[todayMoods.length - 1] : null;
+    const moodMap = {0: '😴', 1: '💫', 2: '⚡', 3: '🔥', 4: '🌪️'};
+
+    html += `
+      <div class="card mb-6">
+        <div class="card-header">
+          <div class="card-title">Humeur rapide</div>
+        </div>
+        <div class="card-body">
+          <div class="quick-moods-bar">
+            ${[0,1,2,3,4].map(i => {
+              const moodEmoji = moodMap[i];
+              const isSelected = lastMood && lastMood.content === moodEmoji;
+              return `<button class="quick-mood-btn${isSelected ? ' selected' : ''}" onclick="addQuickMood('${moodEmoji}')" title="${moodEmoji}">${moodEmoji}</button>`;
+            }).join('')}
+          </div>
+          ${lastMood ? `<div class="text-muted text-xs mt-2">Derni&egrave;re humeur: ${lastMood.content}</div>` : ''}
+        </div>
+      </div>
+    `;
+
+    // ===================================================================
+    // WIN OF THE DAY
+    // ===================================================================
+    const allWins = allEntries
+      .filter(e => e.type === 'win')
+      .sort((a, b) => {
+        const aTime = a.created_at || a.date + 'T' + (a.time || '00:00');
+        const bTime = b.created_at || b.date + 'T' + (b.time || '00:00');
+        return bTime.localeCompare(aTime);
+      });
+    const recentWins = allWins.slice(0, 3);
+
+    html += `
+      <div class="card mb-6">
+        <div class="card-header">
+          <div class="card-title">&#x1F3C6; Win du jour</div>
+        </div>
+        <div class="card-body">
+          <div class="win-section">
+            <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3)">
+              <input type="text" id="win-input" placeholder="Note ta victoire du jour..."
+                style="flex:1;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)"
+                onkeydown="if(event.key==='Enter')addWin()">
+              <button onclick="addWin()" class="btn"
+                style="padding:var(--space-2) var(--space-4);background:var(--color-win);color:white;border:none;border-radius:var(--radius-md);cursor:pointer;font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)">
+                +
+              </button>
+            </div>
+            ${recentWins.length > 0 ? `
+              <div>
+                ${recentWins.map(w => `
+                  <div class="flex items-center gap-2 mb-2">
+                    <span>&#x1F3C6;</span>
+                    <span>${escapeHtml(w.content)}</span>
+                  </div>
+                `).join('')}
+              </div>
+            ` : `
+              <div class="text-muted text-sm">${escapeHtml(window.t('today_win_empty'))}</div>
+            `}
+          </div>
+        </div>
+      </div>
+    `;
 
     // Timeline of entries
     if (entries.length > 0) {
@@ -244,6 +393,28 @@ async function renderTodayPage() {
       `;
     }
 
+    // ===================================================================
+    // TOMORROW PRIORITY (at the bottom)
+    // ===================================================================
+    html += `
+      <div class="card mb-6">
+        <div class="card-header">
+          <div class="card-title">Priorit&eacute; de demain</div>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;gap:var(--space-2)">
+            <input type="text" id="tomorrow-priority-input" placeholder="Quelle est ta priorit&eacute; pour demain ?"
+              style="flex:1;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)"
+              onkeydown="if(event.key==='Enter')saveTomorrowPriority()">
+            <button onclick="saveTomorrowPriority()" class="btn"
+              style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer;font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)">
+              Enregistrer
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
     // Empty state if no data
     if (!summary && entries.length === 0) {
       html = `
@@ -255,7 +426,7 @@ async function renderTodayPage() {
             </div>
           </div>
         </div>
-        ${renderEmptyState('Aucune donnée pour aujourd\'hui', 'Commencez à journaliser pour voir votre journée ici.')}
+        ${renderEmptyState('Aucune donn\u00e9e pour aujourd\'hui', 'Commencez \u00e0 journaliser pour voir votre journ\u00e9e ici.')}
       `;
     }
 
@@ -269,6 +440,162 @@ async function renderTodayPage() {
     app.innerHTML = renderError('Erreur lors du chargement de la page aujourd\'hui.');
   }
 }
+
+/* ===== Helper Functions ===== */
+
+/**
+ * Calculate streak: consecutive days with at least one entry going backwards from today
+ * @param {Array} allEntries - All entries across all dates
+ * @returns {number} - Streak count
+ */
+function calculateStreak(allEntries) {
+  if (!allEntries || allEntries.length === 0) return 0;
+
+  // Build a set of dates that have entries
+  const dateSet = new Set();
+  allEntries.forEach(e => {
+    if (e.date) dateSet.add(e.date);
+  });
+
+  if (dateSet.size === 0) return 0;
+
+  // Count backwards from today
+  let streak = 0;
+  const today = new Date();
+  const checkDate = new Date(today);
+
+  // Check today first
+  const todayStr = checkDate.toISOString().split('T')[0];
+  if (!dateSet.has(todayStr)) {
+    // If no entry today, check if there's an entry yesterday (consecutive ending yesterday)
+    // Return 0 for today with no entry
+    return 0;
+  }
+
+  // Today has an entry, count consecutive days backward
+  while (true) {
+    const dateStr = checkDate.toISOString().split('T')[0];
+    if (dateSet.has(dateStr)) {
+      streak++;
+      checkDate.setDate(checkDate.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+}
+
+/**
+ * Get yesterday's ISO date string
+ * @returns {string} - YYYY-MM-DD
+ */
+function getYesterdayISO() {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  return d.toISOString().split('T')[0];
+}
+
+/**
+ * Add a quick mood entry
+ * @param {string} emoji - The mood emoji
+ */
+async function addQuickMood(emoji) {
+  const today = getTodayISO();
+  const newEntry = {
+    date: today,
+    time: getLocalTime(),
+    type: 'mood',
+    content: emoji
+  };
+
+  try {
+    await addEntry(newEntry);
+    showToast('Humeur enregistr\u00e9e ' + emoji, 'success');
+    renderTodayPage();
+  } catch (e) {
+    showToast('Erreur: ' + e.message, 'error');
+  }
+}
+
+/**
+ * Add a win of the day entry
+ */
+async function addWin() {
+  const input = document.getElementById('win-input');
+  if (!input || !input.value.trim()) {
+    showToast('\u00c9cris ta victoire d\'abord', 'warning');
+    input?.focus();
+    return;
+  }
+
+  const today = getTodayISO();
+  const newEntry = {
+    date: today,
+    time: getLocalTime(),
+    type: 'win',
+    content: input.value.trim()
+  };
+
+  try {
+    await addEntry(newEntry);
+    input.value = '';
+    showToast('Victoire ajout\u00e9e \u2713', 'success');
+    // Fire confetti on the win section
+    const winCard = document.querySelector('.card:has(.win-section)');
+    if (winCard && typeof fireConfetti === 'function') {
+      fireConfetti(winCard);
+    }
+    renderTodayPage();
+  } catch (e) {
+    showToast('Erreur: ' + e.message, 'error');
+  }
+}
+
+/**
+ * Save tomorrow priority entry
+ */
+async function saveTomorrowPriority() {
+  const input = document.getElementById('tomorrow-priority-input');
+  if (!input || !input.value.trim()) {
+    showToast('\u00c9cris une priorit\u00e9 d\'abord', 'warning');
+    input?.focus();
+    return;
+  }
+
+  const today = getTodayISO();
+  const newEntry = {
+    date: today,
+    time: getLocalTime(),
+    type: 'reflection',
+    content: '[TOMORROW] ' + input.value.trim()
+  };
+
+  try {
+    await addEntry(newEntry);
+    input.value = '';
+    showToast('Priorit\u00e9 enregistr\u00e9e \u2713', 'success');
+    renderTodayPage();
+  } catch (e) {
+    showToast('Erreur: ' + e.message, 'error');
+  }
+}
+
+/**
+ * Mark the tomorrow focus as done
+ */
+async function markTomorrowFocusDone() {
+  const card = document.getElementById('tomorrow-focus-card');
+  if (card) {
+    card.classList.add('done');
+    card.querySelector('button').textContent = 'Fait \u2713';
+    card.querySelector('button').style.background = 'var(--color-text-muted)';
+    card.querySelector('button').disabled = true;
+  }
+  showToast('Focus du jour marqu\u00e9 comme fait \u2713', 'success');
+}
+
+/* ===== Score Helpers ===== */
 
 function getScoreColor(score) {
   if (score == null) return 'var(--color-text-muted)';
@@ -295,7 +622,7 @@ async function submitQuickEntry() {
   const typeSelect = document.getElementById('qe-type');
 
   if (!content || !content.value.trim()) {
-    showToast("Écris quelque chose d'abord", 'warning');
+    showToast("\u00c9cris quelque chose d'abord", 'warning');
     content?.focus();
     return;
   }
@@ -311,7 +638,7 @@ async function submitQuickEntry() {
   try {
     await addEntry(newEntry);
     content.value = '';
-    showToast('Entrée ajoutée ✓', 'success');
+    showToast('Entr\u00e9e ajout\u00e9e \u2713', 'success');
     // Re-render the page to show the new entry in timeline
     await renderTodayPage();
   } catch (e) {

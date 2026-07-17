@@ -417,3 +417,31 @@ async function addReminder(reminder) {
   }
   return { data: newReminder, error: null };
 }
+
+/**
+ * Sync local unsynced entries to Supabase
+ * @returns {Promise<{done: number, total: number, errors: number}>}
+ */
+async function syncLocalToSupabase() {
+  const entries = loadFromLS('entries') || [];
+  const unsynced = entries.filter(e => !e.synced);
+  if (!unsynced.length) return { done: 0, total: 0, errors: 0 };
+  let synced = 0, errors = 0;
+  for (const entry of unsynced) {
+    try {
+      const supabase = await initSupabaseClient();
+      const { error } = await supabase.from('raw_entries').insert([entry]);
+      if (error) { errors++; continue; }
+      entry.synced = true;
+      synced++;
+    } catch { errors++; }
+  }
+  saveToLS('entries', entries);
+  if (errors === 0) {
+    localStorage.removeItem('dailyos_sync_pending');
+  } else {
+    localStorage.setItem('dailyos_sync_pending', 'true');
+  }
+  return { done: synced, total: unsynced.length, errors };
+}
+window.syncLocalToSupabase = syncLocalToSupabase;

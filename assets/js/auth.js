@@ -129,7 +129,44 @@ async function handleAuth(event) {
 
     if (result.user) {
       const name = result.user.email?.split('@')[0] || 'Utilisateur';
-      showToast(`✅ Connecté en tant que ${name}`, 'success');
+      showToast(`✅ ${window.t ? window.t('auth_connected_as') : 'Connecté en tant que'} ${name}`, 'success');
+
+      // After successful auth, attempt to sync local data to Supabase
+      try {
+        const syncResult = await window.syncLocalToSupabase();
+        if (syncResult && syncResult.total > 0) {
+          // Show sync offer toast with Yes/Later
+          const toastMsg = window.t
+            ? window.t('toast_sync_offer', { count: syncResult.total })
+            : `📤 ${syncResult.total} entrée${syncResult.total > 1 ? 's' : ''} locale${syncResult.total > 1 ? 's' : ''} à synchroniser. Synchroniser maintenant ?`;
+          
+          // Create a custom sync dialog
+          const overlay = document.createElement('div');
+          overlay.className = 'modal-overlay';
+          overlay.innerHTML = `
+            <div class="modal" style="max-width:360px">
+              <div class="modal-header">
+                <div class="modal-title">📤 ${window.t ? window.t('sync_offer_title') : 'Synchronisation'}</div>
+              </div>
+              <div class="modal-body">
+                <p>${toastMsg}</p>
+              </div>
+              <div class="modal-footer" style="display:flex;gap:var(--space-2)">
+                <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()" style="flex:1">
+                  ${window.t ? window.t('sync_later') : 'Plus tard'}
+                </button>
+                <button class="btn btn-primary" onclick="this.closest('.modal-overlay').remove(); doSyncAfterAuth()" style="flex:1">
+                  ${window.t ? window.t('sync_yes') : 'Oui'}
+                </button>
+              </div>
+            </div>
+          `;
+          document.body.appendChild(overlay);
+        }
+      } catch (syncError) {
+        console.warn('Post-auth sync attempt failed (non-blocking):', syncError);
+      }
+
       // Re-render current page
       const current = store.getState('currentPage');
       const routeMap = {
@@ -149,7 +186,7 @@ async function handleAuth(event) {
 
 async function handleSignOut() {
   await signOut();
-  showToast('Déconnecté', 'info');
+  showToast(window.t ? window.t('auth_signed_out') : 'Déconnecté', 'info');
   const current = store.getState('currentPage');
   const routeMap = {
     today: renderTodayPage, journal: renderJournalPage,
@@ -157,4 +194,30 @@ async function handleSignOut() {
     insights: renderInsightsPage, settings: renderSettingsPage
   };
   if (routeMap[current]) routeMap[current]();
+}
+
+/**
+ * Execute sync after user clicks "Yes" on the sync offer dialog
+ */
+async function doSyncAfterAuth() {
+  try {
+    const result = await window.syncLocalToSupabase();
+    if (result.errors > 0) {
+      showToast(
+        window.t
+          ? window.t('toast_sync_partial', { done: result.done, total: result.total, errors: result.errors })
+          : `Sync partiel: ${result.done}/${result.total} synchronisé, ${result.errors} erreur(s)`,
+        'warning'
+      );
+    } else {
+      showToast(
+        window.t
+          ? window.t('toast_sync_done', { count: result.done })
+          : `✅ ${result.done} entrée${result.done > 1 ? 's' : ''} synchronisée${result.done > 1 ? 's' : ''}`,
+        'success'
+      );
+    }
+  } catch (e) {
+    showToast(window.t ? window.t('toast_sync_error') : 'Erreur de synchronisation', 'error');
+  }
 }
