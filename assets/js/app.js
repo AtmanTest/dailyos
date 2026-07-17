@@ -105,25 +105,25 @@ function openQuickEntry() {
   modal.innerHTML = `
     <div class="modal-content card">
       <div class="modal-header">
-        <h3>${t('quick_entry') || 'Quick Entry'}</h3>
+        <h3>${t('quick_title') || 'Quick Entry'}</h3>
         <span class="quick-entry-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
       </div>
       <div class="modal-body">
-        <textarea class="quick-entry-input" placeholder="${t('quick_entry_placeholder') || 'What\'s on your mind?'}" autofocus></textarea>
+        <textarea class="quick-entry-input" placeholder="${t('quick_placeholder') || 'What\'s on your mind?'}" autofocus></textarea>
         <div class="quick-entry-options">
           <select class="quick-entry-type">
             <option value="💡">💡 ${t('type_idea') || 'Idea'}</option>
             <option value="📝">📝 ${t('type_note') || 'Note'}</option>
-            <option value="✅">✅ ${t('type_task') || 'Task'}</option>
+            <option value="✅">✅ ${t('type_action') || 'Action'}</option>
             <option value="🌟">🌟 ${t('type_win') || 'Win'}</option>
-            <option value="😤">😤 ${t('type_frustration') || 'Frustration'}</option>
+            <option value="😤">😤 ${t('type_blocker') || 'Blocker'}</option>
             <option value="📅">📅 ${t('type_reminder') || 'Reminder'}</option>
           </select>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary quick-entry-cancel">${t('cancel') || 'Cancel'}</button>
-        <button class="btn btn-primary quick-entry-confirm">${t('save') || 'Save'}</button>
+        <button class="btn btn-secondary quick-entry-cancel">${t('form_cancel') || 'Cancel'}</button>
+        <button class="btn btn-primary quick-entry-confirm">${t('form_save') || 'Save'}</button>
       </div>
     </div>
   `;
@@ -155,7 +155,7 @@ function openQuickEntry() {
 
     addEntry(entry);
     fireConfetti(modal.querySelector('.modal-content'));
-    showToast(t('entry_saved') || 'Entry saved!');
+    showToast(t('toast_entry_added') || 'Entry saved!');
     modal.remove();
   });
 
