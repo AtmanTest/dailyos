@@ -1,0 +1,80 @@
+# ============================================================================
+# DailyOS — Monthly Review Generator
+# ============================================================================
+# Runs on the 1st day of every month at 03:45 Europe/Paris.
+# Manual trigger with workflow_dispatch for testing.
+# ============================================================================
+name: Monthly Review
+
+on:
+  schedule:
+    # 01:45 UTC = 02:45 CET / 03:45 CEST — Python handles DST internally
+    - cron: '45 1 1 * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'End date of the month (YYYY-MM-DD). Defaults to last day of previous month.'
+        required: false
+        type: string
+        default: ''
+      dry_run:
+        description: 'Run in dry-run mode (no DB writes)'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: monthly-review
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Determine month end date
+        id: date
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            echo "end_date=${{ inputs.date }}" >> $GITHUB_OUTPUT
+          else
+            # Last day of previous month
+            echo "end_date=$(date -d 'last month' +%Y-%m-%d)" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run dry-run (no Supabase configured)
+        if: ${{ secrets.SUPABASE_URL == '' }}
+        run: |
+          echo "⚠️  No Supabase URL configured — running dry-run mode"
+          python3 scripts/monthly_review.py \
+            --date ${{ steps.date.outputs.end_date }} \
+            --dry-run
+
+      - name: Run monthly review with Supabase
+        if: ${{ secrets.SUPABASE_URL != '' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          DRY_RUN_FLAG=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            DRY_RUN_FLAG="--dry-run"
+          fi
+          python3 scripts/monthly_review.py \
+            --supabase-url "$SUPABASE_URL" \
+            --service-key "$SUPABASE_SERVICE_ROLE_KEY" \
+            --date ${{ steps.date.outputs.end_date }} \
+            $DRY_RUN_FLAG
