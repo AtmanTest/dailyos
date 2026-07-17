@@ -10,11 +10,11 @@ const APP_CONFIG = {
     anonKey: 'eyJhbG...AnL8'
   },
   API_ENDPOINTS: {
-    entries: '/api/entries',
-    summaries: '/api/summaries',
-    ideas: '/api/ideas',
-    reminders: '/api/reminders',
-    insights: '/api/insights'
+    entries: '/rest/v1/raw_entries?select=*',
+    summaries: '/rest/v1/daily_summaries?select=*',
+    ideas: '/rest/v1/ideas?select=*',
+    reminders: '/rest/v1/reminders?select=*',
+    insights: '/rest/v1/insights?select=*'
   },
   REVIEW_SCHEDULE: {
     idea_3day: 3,

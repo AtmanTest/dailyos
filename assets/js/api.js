@@ -127,10 +127,43 @@ async function fetchFromSupabase(endpoint, options = {}) {
   }
 
   try {
-    const response = await fetch(`${url}${endpoint}`, {
+    // Get session access token (if user is logged in)
+    let authToken = anonKey;
+    try {
+      const supabase = await initSupabaseClient();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.access_token) {
+        authToken = session.access_token;
+      }
+    } catch {
+      // Fallback to anon key
+    }
+
+    // Build Supabase query params
+    let queryEndpoint = endpoint;
+    const params = [];
+    if (options.date) params.push(`date=eq.${options.date}`);
+    if (options.dateFrom && options.dateTo) {
+      params.push(`and=(date.gte.${options.dateFrom},date.lte.${options.dateTo})`);
+    }
+    if (options.status) params.push(`status=eq.${options.status}`);
+    if (options.tag) params.push(`tags=cs.${options.tag}`);
+    if (options.category) params.push(`category=eq.${options.category}`);
+    if (options.period) {
+      const days = { '7d': 7, '30d': 30, '90d': 90 }[options.period] || 30;
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - days);
+      params.push(`created_at=gte.${cutoff.toISOString()}`);
+    }
+    if (params.length > 0) {
+      queryEndpoint += queryEndpoint.includes('?') ? '&' : '?';
+      queryEndpoint += params.join('&');
+    }
+
+    const response = await fetch(`${url}${queryEndpoint}`, {
       headers: {
         'apikey': anonKey,
-        'Authorization': `Bearer ${anonKey}`,
+        'Authorization': `Bearer ${authToken}`,
         'Content-Type': 'application/json',
         ...options.headers
       },
@@ -329,11 +362,13 @@ async function addEntry(entry) {
   }
 
   try {
-    const result = await fetchFromSupabase(APP_CONFIG.API_ENDPOINTS.entries, {
-      method: 'POST',
-      body: JSON.stringify(entry)
-    });
-    return result;
+    const supabase = await initSupabaseClient();
+    const { data, error } = await supabase
+      .from('raw_entries')
+      .insert([{ ...entry, user_id: (await supabase.auth.getUser())?.data?.user?.id }])
+      .select();
+    if (error) return { data: null, error };
+    return { data: data?.[0] || null, error: null };
   } catch (error) {
     console.error('addEntry error:', error);
     throw error;

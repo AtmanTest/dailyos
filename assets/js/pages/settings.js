@@ -33,6 +33,20 @@ async function renderSettingsPage() {
               ).join('')}
             </select>
           </div>
+          <hr style="border-color:var(--color-border);margin:var(--space-4) 0">
+          <div class="form-group">
+            <label class="form-label">Connexion Supabase</label>
+            <div id="auth-status-section">
+              <div class="flex items-center justify-between">
+                <span id="auth-user-label" class="text-sm">Vérification...</span>
+                <div class="flex gap-2">
+                  <button id="auth-login-btn" class="btn btn-sm btn-primary" onclick="renderAuthModal('login')" style="display:none">Se connecter</button>
+                  <button id="auth-signup-btn" class="btn btn-sm btn-secondary" onclick="renderAuthModal('signup')" style="display:none">S'inscrire</button>
+                  <button id="auth-logout-btn" class="btn btn-sm btn-danger" onclick="handleSignOut()" style="display:none">Déconnexion</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -148,6 +162,27 @@ async function renderSettingsPage() {
     store.setState({ loading: false });
     app.innerHTML = html;
     updateNav();
+
+    // Check auth status
+    (async () => {
+      const { user } = await getSession();
+      const label = document.getElementById('auth-user-label');
+      const loginBtn = document.getElementById('auth-login-btn');
+      const signupBtn = document.getElementById('auth-signup-btn');
+      const logoutBtn = document.getElementById('auth-logout-btn');
+      if (!label) return;
+      if (user) {
+        label.innerHTML = `<span style="color:var(--color-success)">✅ Connecté</span> <span class="text-muted">${escapeHtml(user.email)}</span>`;
+        loginBtn.style.display = 'none';
+        signupBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-flex';
+      } else {
+        label.textContent = '🔓 Non connecté';
+        loginBtn.style.display = 'inline-flex';
+        signupBtn.style.display = 'inline-flex';
+        logoutBtn.style.display = 'none';
+      }
+    })();
 
   } catch (error) {
     console.error('Settings page error:', error);
