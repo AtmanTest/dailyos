@@ -1,5 +1,6 @@
 # ============================================================================
-# DailyOS — CI Workflow
+# Daily ADHD — CI Workflow v2.0
+# Runs on every push to main/develop and every pull request to main
 # ============================================================================
 name: CI
 
@@ -11,9 +12,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  # ─────────────────────────────────────────────
+  # JOB 1 — Python tests (backend scripts)
+  # ─────────────────────────────────────────────
+  python-tests:
+    name: Python Tests
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,13 +32,178 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
 
-      - name: Run automated tests
-        run: pytest scripts/test_scripts.py -v
+      - name: Run pytest
+        run: pytest scripts/test_scripts.py -v --tb=short
 
       - name: Validate data files
         run: python3 scripts/validate_data.py
 
-      - name: Check for leaked secrets
+  # ─────────────────────────────────────────────
+  # JOB 2 — Frontend structure check
+  # ─────────────────────────────────────────────
+  frontend-structure:
+    name: Frontend Structure Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check critical files exist
         run: |
-          echo "Checking for secrets in committed files..."
-          grep -r 'ghp_\|sk-\|sbp_' . --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=__pycache__ || echo "✅ No secrets found"
+          echo "Checking critical files..."
+          files=(
+            "index.html"
+            "assets/css/app.css"
+            "assets/js/config.js"
+            "assets/js/i18n.js"
+            "assets/js/app.js"
+            "assets/js/api.js"
+            "assets/js/auth.js"
+            "assets/js/router.js"
+            "assets/js/state.js"
+            "assets/js/ui.js"
+            "assets/js/pages/today.js"
+            "assets/js/pages/journal.js"
+            "assets/js/pages/ideas.js"
+            "assets/js/pages/reminders.js"
+            "assets/js/pages/insights.js"
+            "assets/js/pages/settings.js"
+            ".github/workflows/pages.yml"
+          )
+          all_ok=true
+          for f in "${files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "❌ MISSING: $f"
+              all_ok=false
+            else
+              echo "✅ OK: $f"
+            fi
+          done
+          if [ "$all_ok" = false ]; then
+            echo "One or more critical files are missing."
+            exit 1
+          fi
+          echo "All critical files present."
+
+      - name: Check cache-busting version is consistent
+        run: |
+          echo "Checking ?v= consistency in index.html..."
+          # Extract all ?v=X values and ensure they're all the same
+          versions=$(grep -oP '\?v=\K[0-9]+' index.html | sort -u)
+          count=$(echo "$versions" | wc -l)
+          if [ "$count" -gt 1 ]; then
+            echo "⚠️  Mixed ?v= versions found in index.html: $versions"
+            echo "All script/link tags should use the same ?v= value."
+            exit 1
+          fi
+          echo "✅ Cache-busting version consistent: ?v=$versions"
+
+      - name: Check pages.yml is untouched (path must be '.')
+        run: |
+          if ! grep -q "path: '.'" .github/workflows/pages.yml; then
+            echo "❌ pages.yml: 'path: \'.\'' line is missing or modified!"
+            exit 1
+          fi
+          echo "✅ pages.yml path is correct"
+
+  # ─────────────────────────────────────────────
+  # JOB 3 — i18n parity check
+  # ─────────────────────────────────────────────
+  i18n-check:
+    name: i18n Parity Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check FR/EN key parity in i18n.js
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const src = fs.readFileSync('assets/js/i18n.js', 'utf8');
+
+          // Extract keys for each language block using a simple regex approach
+          // We look for patterns like: key: "value" or 'key': "value"
+          const frMatch = src.match(/fr\s*:\s*\{([^}]+(?:\{[^}]*\}[^}]*)*)\}/s);
+          const enMatch = src.match(/en\s*:\s*\{([^}]+(?:\{[^}]*\}[^}]*)*)\}/s);
+
+          if (!frMatch || !enMatch) {
+            console.error('❌ Could not find fr or en blocks in i18n.js');
+            process.exit(1);
+          }
+
+          const extractKeys = (block) => {
+            const keys = [];
+            const re = /['"]([\w_]+)['"]\s*:/g;
+            let m;
+            while ((m = re.exec(block)) !== null) keys.push(m[1]);
+            return new Set(keys);
+          };
+
+          const frKeys = extractKeys(frMatch[1]);
+          const enKeys = extractKeys(enMatch[1]);
+
+          const missingInEn = [...frKeys].filter(k => !enKeys.has(k));
+          const missingInFr = [...enKeys].filter(k => !frKeys.has(k));
+
+          if (missingInEn.length > 0) {
+            console.error('❌ Keys in FR but missing in EN:', missingInEn.join(', '));
+          }
+          if (missingInFr.length > 0) {
+            console.error('❌ Keys in EN but missing in FR:', missingInFr.join(', '));
+          }
+          if (missingInEn.length > 0 || missingInFr.length > 0) {
+            process.exit(1);
+          }
+
+          console.log(`✅ i18n parity OK — ${frKeys.size} keys in FR, ${enKeys.size} keys in EN`);
+          EOF
+
+  # ─────────────────────────────────────────────
+  # JOB 4 — Secret scan
+  # ─────────────────────────────────────────────
+  secret-scan:
+    name: Secret Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan for leaked secrets
+        run: |
+          echo "Scanning for secrets..."
+          found=false
+
+          # GitHub PAT
+          if grep -rn 'ghp_[A-Za-z0-9]\{36,\}' . \
+            --exclude-dir=.git --exclude-dir=node_modules --include='*.js' \
+            --include='*.ts' --include='*.json' --include='*.md' --include='*.yml'; then
+            echo "❌ GitHub PAT found"
+            found=true
+          fi
+
+          # OpenAI key
+          if grep -rn 'sk-[A-Za-z0-9]\{32,\}' . \
+            --exclude-dir=.git --include='*.js' --include='*.ts' --include='*.json'; then
+            echo "❌ OpenAI key found"
+            found=true
+          fi
+
+          # Supabase service role key (not anon)
+          if grep -rn 'sbp_[A-Za-z0-9]\{40,\}' . \
+            --exclude-dir=.git --include='*.js' --include='*.ts' --include='*.json'; then
+            echo "❌ Supabase service role key found"
+            found=true
+          fi
+
+          # .env.example is excluded from secret scan (contains placeholders)
+          if [ "$found" = true ]; then
+            echo "Secrets detected — aborting push."
+            exit 1
+          fi
+          echo "✅ No secrets detected"
