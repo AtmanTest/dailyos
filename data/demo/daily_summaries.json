@@ -1,0 +1,1415 @@
+[
+  {
+    "date": "2026-07-17",
+    "headline": "Réussi et lever",
+    "summary": "2 éléments capturés aujourd'hui. Répartition : 1 win, 1 idea. 1 victoire aujourd'hui.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Réussi à me lever à 6h pendant une semaine"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Créer un compte Instagram sur le minimalisme"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "befb599e-ae74-4eec-a0f9-a66e309c50cd",
+      "d0569dad-827b-437b-83f9-4810613bba12"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709146+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-18",
+    "headline": "Observations et nouvelles",
+    "summary": "6 éléments capturés aujourd'hui. Répartition : 1 note, 1 event, 1 blocker, 1 action, 1 win, 1 idea. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Lu 50 pages de mon livre ce soir",
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "actions": {
+      "completed": [
+        "Finaliser la présentation client"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Attente de validation de la direction"
+      ]
+    },
+    "ideas": [
+      "Créer un jardin potager sur le balcon"
+    ],
+    "events": [
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Réunion d'équipe hebdomadaire",
+      "Lu 50 pages de mon livre ce soir"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "aba0d087-48dd-49d2-b9c1-4dab35e1f36a",
+      "5f216a90-44d9-4ac6-9615-164568568a4b",
+      "682a3508-68d7-4566-8fe3-9fc80057642c",
+      "bee5fdc7-a070-41ab-ad0e-86694fe249bf",
+      "c8c0e797-5681-4544-a2a3-fad084c24062",
+      "a4f72c68-5020-449b-9239-aa64e341e09a"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709342+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-19",
+    "headline": "Développer et application",
+    "summary": "5 éléments capturés aujourd'hui. Répartition : 1 idea, 1 reminder, 1 thought, 1 mood, 1 note. Humeur moyenne : 8.9/10. Énergie moyenne : 5.2/10.",
+    "mood": {
+      "score": 8.9,
+      "energy": 5.2,
+      "stress": 1.1,
+      "clarity": 9.9,
+      "satisfaction": 5.7,
+      "tags": []
+    },
+    "highlights": [],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Développer une application de suivi d'habitudes"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [],
+    "reminder_ids": [
+      "3ae8daf7-6988-4c9e-9c00-f59f0f333bc2"
+    ],
+    "source_entry_ids": [
+      "3cd0033c-e936-456d-a5cd-e2e06dd90eeb",
+      "3ae8daf7-6988-4c9e-9c00-f59f0f333bc2",
+      "0fd07837-034a-4078-92c1-0b0c9fd01d45",
+      "fc56ad00-4ebc-421f-9c7d-e8921493f5fb",
+      "124797cc-fbd2-4629-8e5a-e43760a002a5"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709379+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-20",
+    "headline": "Atelier et formation",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 event, 1 blocker, 1 action, 1 win. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Résolu un problème technique complexe",
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "actions": {
+      "completed": [
+        "Compléter le formulaire administratif"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Conflit de planning avec une autre réunion"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Conflit de planning avec une autre réunion"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "7b40e007-532b-4763-a3a3-5242c2eb8919",
+      "d480d2ae-d3a3-40c4-aa1f-0324d718a23d",
+      "07c4da0d-5d42-4d1e-bfb5-799113529c62",
+      "bc368c81-0a3e-47eb-af0d-24d2ad89e5e2"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709410+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-21",
+    "headline": "Après et rappel",
+    "summary": "6 éléments capturés aujourd'hui. Répartition : 1 reminder, 1 thought, 1 mood, 1 note, 1 event, 1 blocker. Humeur moyenne : 5.2/10. Énergie moyenne : 6.1/10. 1 blocage identifié.",
+    "mood": {
+      "score": 5.2,
+      "energy": 6.1,
+      "stress": 4.8,
+      "clarity": 6.2,
+      "satisfaction": 6.6,
+      "tags": []
+    },
+    "highlights": [
+      "Rencontre networking après-midi"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": [
+        "Retard dans la livraison d'un fournisseur"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Rencontre networking après-midi"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "rappel: Appeler le service informatique",
+      "Liste de courses pour la semaine"
+    ],
+    "reminder_ids": [
+      "5a4088cf-a84b-4567-9eff-064356e689f1"
+    ],
+    "source_entry_ids": [
+      "5a4088cf-a84b-4567-9eff-064356e689f1",
+      "77921655-d6f3-45e3-bb6d-28bc63767b44",
+      "402fa0a4-33a4-4174-873b-4a9234fb9a10",
+      "dd8daea8-7cca-4655-a8df-fc689a73c680",
+      "688bdc0f-b252-435e-971c-63db89be6e86",
+      "109df57b-4448-4a0f-9445-6a96470a282a"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709429+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-22",
+    "headline": "Bug et non",
+    "summary": "10 éléments capturés aujourd'hui. Répartition : 2 blocker, 1 action, 1 win, 1 idea, 1 reminder, 1 thought, 1 mood, 1 note, 1 event. Humeur moyenne : 3.3/10. Énergie moyenne : 4.4/10. 1 victoire aujourd'hui. 2 blocages identifiés.",
+    "mood": {
+      "score": 3.3,
+      "energy": 4.4,
+      "stress": 6.7,
+      "clarity": 4.3,
+      "satisfaction": 4.9,
+      "tags": []
+    },
+    "highlights": [
+      "Reçu des compliments sur ma présentation",
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "actions": {
+      "completed": [
+        "Organiser les fichiers du projet"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Bug non résolu dans l'environnement de test",
+        "Difficulté à joindre l'interlocuteur clé"
+      ]
+    },
+    "ideas": [
+      "Créer une newsletter sur les outils de productivité"
+    ],
+    "events": [
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "rappel: Relire le contrat avant signature",
+      "Idées de lecture pour le mois prochain"
+    ],
+    "reminder_ids": [
+      "da00d40a-f7ce-41a5-89e9-f2d7e89d8b95"
+    ],
+    "source_entry_ids": [
+      "c3edeee8-2c8b-44ec-b5e7-32b59adf8d50",
+      "c9be732b-ea08-4129-a4b8-16cb3e2eae00",
+      "5d435ce6-6071-4392-b051-ddaf030b558e",
+      "127ae067-f77f-4c81-83f6-f8578b05764b",
+      "da00d40a-f7ce-41a5-89e9-f2d7e89d8b95",
+      "32a35221-9cf7-48fa-9093-b9157ee7c948",
+      "99c37647-e02c-4a14-a99d-3b47e815228f",
+      "1c7ae23c-9c3c-44c6-bd3c-4fbb60bc54ff",
+      "9f9dd887-faf4-436a-ae6e-8d8b740e1829",
+      "f311453c-af9d-4238-9f79-45c666cbf9f5"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709457+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-23",
+    "headline": "Besoin et temps",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 thought, 1 mood, 1 note, 1 event. Humeur moyenne : 8.5/10. Énergie moyenne : 7.0/10.",
+    "mood": {
+      "score": 8.5,
+      "energy": 7.0,
+      "stress": 1.5,
+      "clarity": 9.5,
+      "satisfaction": 7.5,
+      "tags": []
+    },
+    "highlights": [
+      "Réunion de planification stratégique"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [],
+    "events": [
+      "Réunion de planification stratégique"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Besoin de plus de temps pour lire mes livres."
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "8e6bf637-f020-435b-a299-229c3f8943fa",
+      "318f9669-529f-4279-8473-6958485bf137",
+      "1606e11a-8ad7-4b9d-b8b9-04211696f818",
+      "564fe61b-39e3-4462-8c37-3cc59549d85e"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709494+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-24",
+    "headline": "Mettre et jour",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 action, 1 win, 1 idea, 1 reminder. 1 victoire aujourd'hui.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Réussi à me lever à 6h pendant une semaine"
+    ],
+    "actions": {
+      "completed": [
+        "Mettre à jour le site web"
+      ],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Créer un compte Instagram sur le minimalisme"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Créer un compte Instagram sur le minimalisme"
+    ],
+    "reminder_ids": [
+      "9a8ad102-aca8-4342-8d4c-7ef33e7e0f7c"
+    ],
+    "source_entry_ids": [
+      "4308f6c9-afc7-4a94-9a5a-2abd2ebabd1b",
+      "490f4c77-2258-4ba5-b033-b4f14260a400",
+      "b06067f1-43b6-4ce4-abec-54d9dbb8684f",
+      "9a8ad102-aca8-4342-8d4c-7ef33e7e0f7c"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709512+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-25",
+    "headline": "Fatigué et satisfait",
+    "summary": "5 éléments capturés aujourd'hui. Répartition : 1 mood, 1 note, 1 event, 1 blocker, 1 action. Humeur moyenne : 4.8/10. Énergie moyenne : 7.9/10. 1 blocage identifié.",
+    "mood": {
+      "score": 4.8,
+      "energy": 7.9,
+      "stress": 5.2,
+      "clarity": 5.8,
+      "satisfaction": 8.4,
+      "tags": []
+    },
+    "highlights": [
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "actions": {
+      "completed": [
+        "Finaliser la présentation client"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Attente de validation de la direction"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Attente de validation de la direction"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "ec8264fa-f3cf-4e3c-bfaa-6da55224788f",
+      "7b28d912-8c5a-4c0e-9204-c86e3d27b060",
+      "db8dfe27-baf4-46a0-ab9c-6ca2db0851a7",
+      "9e0151c9-2496-4dc5-b9f1-1d0f5c323ffe",
+      "cae57458-bbed-47e1-9463-a53ce65a110a"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709531+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-26",
+    "headline": "Terminé et gros",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 win, 1 idea, 1 reminder, 1 thought. 1 victoire aujourd'hui.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Terminé le gros projet en avance !"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Développer une application de suivi d'habitudes"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [],
+    "reminder_ids": [
+      "4788c933-d288-4abb-953a-58d2ce7d016c"
+    ],
+    "source_entry_ids": [
+      "cbd24019-4d3a-449d-bbf2-44da6a5f8116",
+      "0160fd37-b380-45d2-9bf7-3590ba71cccc",
+      "4788c933-d288-4abb-953a-58d2ce7d016c",
+      "e17c8860-e99c-49d9-9d4f-48e0a1d1587c"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709552+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-27",
+    "headline": "Réunion et notes",
+    "summary": "7 éléments capturés aujourd'hui. Répartition : 1 note, 1 event, 1 blocker, 1 action, 1 win, 1 idea, 1 reminder. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Résolu un problème technique complexe",
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "actions": {
+      "completed": [
+        "Compléter le formulaire administratif"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Conflit de planning avec une autre réunion"
+      ]
+    },
+    "ideas": [
+      "Développer un jeu de société sur la gestion du temps"
+    ],
+    "events": [
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "reminder_ids": [
+      "6b28713f-ecbe-4997-9c2e-babce2d6ea2f"
+    ],
+    "source_entry_ids": [
+      "0639baf8-311c-4c2a-bd76-2815f1513de6",
+      "3414a056-0393-4587-8e54-28cfaac0fb55",
+      "760aa0b2-108c-4875-976c-fa7937533136",
+      "0d53c49f-37e9-4000-9401-4268e2ec6f6c",
+      "0f4712ce-8f82-46b7-9227-a90b71876d44",
+      "59f2cf78-bb2a-415c-ba81-05d02b701a84",
+      "6b28713f-ecbe-4997-9c2e-babce2d6ea2f"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709568+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-28",
+    "headline": "Créer et jardin",
+    "summary": "5 éléments capturés aujourd'hui. Répartition : 1 idea, 1 reminder, 1 thought, 1 mood, 1 note. Humeur moyenne : 6.2/10. Énergie moyenne : 7.1/10.",
+    "mood": {
+      "score": 6.2,
+      "energy": 7.1,
+      "stress": 3.8,
+      "clarity": 7.2,
+      "satisfaction": 7.6,
+      "tags": []
+    },
+    "highlights": [],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Créer un jardin potager sur le balcon"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Me demander si je ne devrais pas revoir mon organisation."
+    ],
+    "reminder_ids": [
+      "08933801-9302-4b03-a51a-1cf63fcd5299"
+    ],
+    "source_entry_ids": [
+      "29d68e7e-cb9c-4daf-85da-c8df5706d4ee",
+      "08933801-9302-4b03-a51a-1cf63fcd5299",
+      "bedc1e9c-8187-4b0e-873e-fdd30bb30fd7",
+      "7e50d29a-43c8-4e60-93ab-ee6459291276",
+      "2af8b2e4-bad0-4d19-8440-c6c735f1211c"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709591+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-29",
+    "headline": "Séance et brainstorming",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 event, 1 blocker, 1 action, 1 win. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Reçu des compliments sur ma présentation",
+      "Séance de brainstorming créatif"
+    ],
+    "actions": {
+      "completed": [
+        "Organiser les fichiers du projet"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Bug non résolu dans l'environnement de test"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Séance de brainstorming créatif"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "4cea7c02-b476-4e46-9141-cf321c3c9bea",
+      "ea39f0cc-9804-4f50-b2d0-a5a303fb0e67",
+      "1ff708ca-d04f-4ca3-b80f-6452d52ad263",
+      "216f2676-9b2b-4983-abbc-65ceb3529d84"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709611+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-30",
+    "headline": "Rappel et commander",
+    "summary": "6 éléments capturés aujourd'hui. Répartition : 1 reminder, 1 thought, 1 mood, 1 note, 1 event, 1 blocker. Humeur moyenne : 9.5/10. Énergie moyenne : 8.0/10. 1 blocage identifié.",
+    "mood": {
+      "score": 9.5,
+      "energy": 8.0,
+      "stress": 0.5,
+      "clarity": 10,
+      "satisfaction": 8.5,
+      "tags": []
+    },
+    "highlights": [
+      "Réunion de planification stratégique"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": [
+        "Chevauchement des priorités projet"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Réunion de planification stratégique"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "rappel: Commander les fournitures de bureau"
+    ],
+    "reminder_ids": [
+      "ccf64736-f2e4-43c9-91e7-9f56e7dc973e"
+    ],
+    "source_entry_ids": [
+      "ccf64736-f2e4-43c9-91e7-9f56e7dc973e",
+      "4b6f8fc6-9f3b-4324-bf47-88ef00e4dfad",
+      "8c46c7f0-e6ce-4f96-a77a-528b57b5c8f1",
+      "94ebea46-891a-4784-b3c3-f860a7401e7d",
+      "e776f6be-fefd-4fed-82f6-fde78de05b8a",
+      "d9ddfc4c-bf80-4133-bf10-8d67dd40a7c2"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709626+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-07-31",
+    "headline": "Problème et connexion",
+    "summary": "3 éléments capturés aujourd'hui. Répartition : 1 blocker, 1 action, 1 win. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Réussi à me lever à 6h pendant une semaine"
+    ],
+    "actions": {
+      "completed": [
+        "Mettre à jour le site web"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Problème de connexion internet récurrent"
+      ]
+    },
+    "ideas": [],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Mettre à jour le site web"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "3b11cfef-d621-4329-bc9b-c9e5f1b8b6af",
+      "535d84de-384d-44db-acaf-06a6f4817df5",
+      "2fc71030-f1ff-48fe-9d99-bf5ab8ed88db"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709647+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-01",
+    "headline": "Soir et lecture",
+    "summary": "8 éléments capturés aujourd'hui. Répartition : 1 thought, 1 mood, 1 note, 1 event, 1 blocker, 1 action, 1 win, 1 idea. Humeur moyenne : 5.8/10. Énergie moyenne : 8.9/10. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 5.8,
+      "energy": 8.9,
+      "stress": 4.2,
+      "clarity": 6.8,
+      "satisfaction": 9.4,
+      "tags": []
+    },
+    "highlights": [
+      "Lu 50 pages de mon livre ce soir",
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "actions": {
+      "completed": [
+        "Finaliser la présentation client"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Attente de validation de la direction"
+      ]
+    },
+    "ideas": [
+      "Créer un jardin potager sur le balcon"
+    ],
+    "events": [
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Réunion d'équipe hebdomadaire",
+      "Lu 50 pages de mon livre ce soir"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "beefacb9-d3a2-4081-a7e5-ac9c6be099a9",
+      "a84c5708-0ea7-46b7-85aa-574ccf64d679",
+      "648d06f3-02b4-41b3-a298-4c8b2153141d",
+      "1cfe09f1-f0e6-4be0-8f4f-eb9b76e2f409",
+      "790d70aa-39be-4c5a-8e19-2efcb2cb40ec",
+      "3f3041c3-396f-49d0-9872-14a5d0e8e2c9",
+      "fe43579c-5b43-477f-bf85-6a7b347e79da",
+      "a868964f-4606-4ccb-8a25-360311a20367"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709661+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-02",
+    "headline": "Nettoyer et boîte",
+    "summary": "6 éléments capturés aujourd'hui. Répartition : 1 action, 1 win, 1 idea, 1 reminder, 1 thought, 1 mood. Humeur moyenne : 3.9/10. Énergie moyenne : 7.2/10. 1 victoire aujourd'hui.",
+    "mood": {
+      "score": 3.9,
+      "energy": 7.2,
+      "stress": 6.1,
+      "clarity": 4.9,
+      "satisfaction": 7.7,
+      "tags": []
+    },
+    "highlights": [
+      "Terminé le gros projet en avance !"
+    ],
+    "actions": {
+      "completed": [
+        "Nettoyer la boîte mail"
+      ],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Développer une application de suivi d'habitudes"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [],
+    "reminder_ids": [
+      "39ad3377-99f3-4e37-b34e-1857d0f73157"
+    ],
+    "source_entry_ids": [
+      "36891298-aa58-44af-98bf-f1b50bfc0bb2",
+      "aea90595-19fd-42ae-9f41-19bc6ae58b68",
+      "9b7b6a43-76c7-4235-95b4-b9dea5115c8f",
+      "39ad3377-99f3-4e37-b34e-1857d0f73157",
+      "c915e5e8-d427-443e-9cde-70d719a00c8a",
+      "a6949682-524b-42c9-aa2f-10ac3cffc9f7"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709687+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-03",
+    "headline": "Réunion et sentiment",
+    "summary": "5 éléments capturés aujourd'hui. Répartition : 1 mood, 1 note, 1 event, 1 blocker, 1 action. Humeur moyenne : 9.1/10. Énergie moyenne : 9.8/10. 1 blocage identifié.",
+    "mood": {
+      "score": 9.1,
+      "energy": 9.8,
+      "stress": 0.9,
+      "clarity": 10,
+      "satisfaction": 10,
+      "tags": []
+    },
+    "highlights": [
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "actions": {
+      "completed": [
+        "Compléter le formulaire administratif"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Conflit de planning avec une autre réunion"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Sentiment de fatigue en fin d'après-midi",
+      "Conflit de planning avec une autre réunion"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "4b87f269-123f-4c8f-b4ad-66250631fcf3",
+      "2fda62c7-c18c-455a-a808-c48175d595f1",
+      "b4b8fab6-f012-4651-8aad-32caa0062501",
+      "95e29e7c-18a7-417c-ab2d-014bf7ce0ef1",
+      "3dc48af7-0f9b-46cd-9c9b-c69d859920f6"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709708+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-04",
+    "headline": "Pages et livre",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 win, 1 idea, 1 reminder, 1 thought. 1 victoire aujourd'hui.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Lu 50 pages de mon livre ce soir"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Créer un jardin potager sur le balcon"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [
+      "rappel: Appeler le service informatique"
+    ],
+    "reminder_ids": [
+      "9b5b9a38-3b1e-4ba4-99e4-b6818b02b23c"
+    ],
+    "source_entry_ids": [
+      "f771b24f-cb32-4390-a4ce-ad3ffc774bb5",
+      "d7a4c93c-9db7-47e3-9e2b-f1a11d9ff945",
+      "9b5b9a38-3b1e-4ba4-99e4-b6818b02b23c",
+      "706ea0cd-9d58-443b-9d2d-a6bd443fc6d4"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709729+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-05",
+    "headline": "Contacts et importants",
+    "summary": "6 éléments capturés aujourd'hui. Répartition : 1 note, 1 event, 1 blocker, 1 action, 1 win, 1 idea. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Reçu des compliments sur ma présentation",
+      "Séance de brainstorming créatif"
+    ],
+    "actions": {
+      "completed": [
+        "Organiser les fichiers du projet"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Bug non résolu dans l'environnement de test"
+      ]
+    },
+    "ideas": [
+      "Créer une newsletter sur les outils de productivité"
+    ],
+    "events": [
+      "Séance de brainstorming créatif"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "0a8fefe2-f2de-405d-98a4-6cbadba5aef4",
+      "ff145a48-52ef-4989-8fdb-983892154173",
+      "78fcf7c8-dea4-4ba7-a6fa-94ef75d8961e",
+      "62179c7d-7a5b-4923-9219-889bc4625193",
+      "4db0aaec-d76f-4f57-8530-d012bc14da45",
+      "d0b8a4c7-5b7a-4f04-a0f9-f0c51e792cc2"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709744+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-06",
+    "headline": "Temps et projet",
+    "summary": "9 éléments capturés aujourd'hui. Répartition : 1 idea, 1 reminder, 1 thought, 1 mood, 1 note, 1 event, 1 blocker, 1 action, 1 win. Humeur moyenne : 3.5/10. Énergie moyenne : 9.0/10. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 3.5,
+      "energy": 9.0,
+      "stress": 6.5,
+      "clarity": 4.5,
+      "satisfaction": 9.5,
+      "tags": []
+    },
+    "highlights": [
+      "Terminé le gros projet en avance !",
+      "Réunion de planification stratégique"
+    ],
+    "actions": {
+      "completed": [
+        "Nettoyer la boîte mail"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Chevauchement des priorités projet"
+      ]
+    },
+    "ideas": [
+      "Développer un jeu de société sur la gestion du temps"
+    ],
+    "events": [
+      "Réunion de planification stratégique"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Besoin de plus de temps pour lire mes livres.",
+      "Terminé le gros projet en avance !"
+    ],
+    "reminder_ids": [
+      "f4b17055-749e-45d3-a4bb-11b94732c8a7"
+    ],
+    "source_entry_ids": [
+      "8d47828f-8b80-4cca-8004-82220bfc23f2",
+      "f4b17055-749e-45d3-a4bb-11b94732c8a7",
+      "cda2df95-0384-4707-b494-216c32d0964f",
+      "564a8edf-c026-4799-b820-7a3d5c02b365",
+      "59610a1c-23ea-4a14-a531-88b00db54599",
+      "3161ce5a-f0ac-446f-81b9-07f710ba7f8e",
+      "0361e8cf-2498-4279-8d63-9bcafe849052",
+      "547e430c-df18-4c62-bac3-6e199af3841c",
+      "1b63233d-b3ef-4250-8351-fd17ca49be9a"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709764+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-07",
+    "headline": "Rencontre et networking",
+    "summary": "2 éléments capturés aujourd'hui. Répartition : 1 event, 1 blocker. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Rencontre networking après-midi"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": [
+        "Problème de connexion internet récurrent"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Rencontre networking après-midi"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Problème de connexion internet récurrent"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "d734ecf2-66c8-4b10-bb54-5886385aa80f",
+      "22bbbec3-8b5a-4a00-914f-1e713ac472c1"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709793+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-08",
+    "headline": "Réunion et équipe",
+    "summary": "6 éléments capturés aujourd'hui. Répartition : 1 reminder, 1 thought, 1 mood, 1 note, 1 event, 1 blocker. Humeur moyenne : 6.8/10. Énergie moyenne : 9.9/10. 1 blocage identifié.",
+    "mood": {
+      "score": 6.8,
+      "energy": 9.9,
+      "stress": 3.2,
+      "clarity": 7.8,
+      "satisfaction": 10,
+      "tags": []
+    },
+    "highlights": [
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": [
+        "Attente de validation de la direction"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Réunion d'équipe hebdomadaire"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Attente de validation de la direction"
+    ],
+    "reminder_ids": [
+      "954d3093-d383-4215-961e-ef6afff826db"
+    ],
+    "source_entry_ids": [
+      "954d3093-d383-4215-961e-ef6afff826db",
+      "3fddec5e-a374-4773-ae76-142fb963f5ea",
+      "09f95d1f-6f42-46c8-b82d-dd5c809c0d67",
+      "f6259d72-5f22-4d2d-8bd7-d7dda17d2772",
+      "a2353f7f-a8cf-47ea-b9f4-cb66e0e051cf",
+      "7bcac560-d433-49da-b1f4-c9f4739f5cba"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709803+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-09",
+    "headline": "Manque et information",
+    "summary": "5 éléments capturés aujourd'hui. Répartition : 1 blocker, 1 action, 1 win, 1 idea, 1 reminder. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Terminé le gros projet en avance !"
+    ],
+    "actions": {
+      "completed": [
+        "Nettoyer la boîte mail"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Manque d'information pour avancer sur le dossier"
+      ]
+    },
+    "ideas": [
+      "Développer une application de suivi d'habitudes"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Nettoyer la boîte mail"
+    ],
+    "reminder_ids": [
+      "668fad03-6143-4828-bc26-4f9fc455c603"
+    ],
+    "source_entry_ids": [
+      "4725640f-3991-48b4-91d2-4a37c264f8a7",
+      "4c30486d-9b98-473b-aa0f-f2e13bf3b010",
+      "f7e547b9-4e2e-4314-a440-8b274b2c7e69",
+      "7ebf2be8-e5fc-4baa-ad2e-ad17356b370b",
+      "668fad03-6143-4828-bc26-4f9fc455c603"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709825+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-10",
+    "headline": "Après et content",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 thought, 1 mood, 1 note, 1 event. Humeur moyenne : 3.1/10. Énergie moyenne : 2.8/10.",
+    "mood": {
+      "score": 3.1,
+      "energy": 2.8,
+      "stress": 6.9,
+      "clarity": 4.1,
+      "satisfaction": 3.3,
+      "tags": []
+    },
+    "highlights": [
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [],
+    "events": [
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Content d'avoir repris le dessin après si longtemps.",
+      "Atelier de formation sur les nouveaux outils"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "bdd1f5d0-61f3-4adf-99a7-4a33a91d29f3",
+      "2ac542f7-a998-4c7f-b80a-558d9980002b",
+      "b0042afa-6ea5-4ecb-ab6a-4e0d9e3c4f86",
+      "cf4c7c57-53dc-462d-b9cd-9f495f6339ae"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709842+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-11",
+    "headline": "Après et finaliser",
+    "summary": "10 éléments capturés aujourd'hui. Répartition : 2 action, 1 win, 1 idea, 1 reminder, 1 thought, 1 mood, 1 note, 1 event, 1 blocker. Humeur moyenne : 8.2/10. Énergie moyenne : 9.1/10. 1 victoire aujourd'hui. 1 blocage identifié.",
+    "mood": {
+      "score": 8.2,
+      "energy": 9.1,
+      "stress": 1.8,
+      "clarity": 9.2,
+      "satisfaction": 9.6,
+      "tags": []
+    },
+    "highlights": [
+      "Lu 50 pages de mon livre ce soir",
+      "Rencontre networking après-midi"
+    ],
+    "actions": {
+      "completed": [
+        "Finaliser la présentation client",
+        "Mettre à jour le site web"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Retard dans la livraison d'un fournisseur"
+      ]
+    },
+    "ideas": [
+      "Créer un jardin potager sur le balcon"
+    ],
+    "events": [
+      "Rencontre networking après-midi"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Me demander si je ne devrais pas revoir mon organisation.",
+      "Rencontre networking après-midi"
+    ],
+    "reminder_ids": [
+      "25b9befd-d69b-4b05-8548-410fa4243527"
+    ],
+    "source_entry_ids": [
+      "77d0dfb5-ad50-423c-95ec-c4d335a86599",
+      "52d771b3-d123-4a5e-a9a8-c3c4b77e5407",
+      "39492317-ba0f-45c2-bb0b-eadfe1f92916",
+      "25b9befd-d69b-4b05-8548-410fa4243527",
+      "3b88bc5d-f26f-452b-8964-db1ce6b2b291",
+      "f4c668de-50a2-4cf6-b22b-768a08024375",
+      "fa3f12cf-9bb5-4a7c-b5ac-9e3996969386",
+      "0d2f684d-85a6-4e27-a8a8-2f80e827cf3a",
+      "7e5c82cb-279d-436b-8e2d-c97e4bd33a25",
+      "6a25d823-5aff-4f4d-ba2e-15e4d7bb3849"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709860+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-12",
+    "headline": "Calme et serein",
+    "summary": "5 éléments capturés aujourd'hui. Répartition : 1 mood, 1 note, 1 event, 1 blocker, 1 action. Humeur moyenne : 6.4/10. Énergie moyenne : 3.7/10. 1 blocage identifié.",
+    "mood": {
+      "score": 6.4,
+      "energy": 3.7,
+      "stress": 3.6,
+      "clarity": 7.4,
+      "satisfaction": 4.2,
+      "tags": []
+    },
+    "highlights": [
+      "Séance de brainstorming créatif"
+    ],
+    "actions": {
+      "completed": [
+        "Organiser les fichiers du projet"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Bug non résolu dans l'environnement de test"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Séance de brainstorming créatif"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Calme et serein, journée équilibrée"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "cd67b0fd-20c1-4d70-b07a-4f14dca2cdbc",
+      "499fd06a-893b-4847-bdc0-c304d8c68664",
+      "1d915533-e70c-4d6b-9a55-a12b2452578c",
+      "e2c155a5-2430-4260-a06b-8d6786b5b528",
+      "d2ffce94-7b1c-4122-a316-cb7d6ee52364"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709890+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-13",
+    "headline": "Résolu et problème",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 win, 1 idea, 1 reminder, 1 thought. 1 victoire aujourd'hui.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Résolu un problème technique complexe"
+    ],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Développer un jeu de société sur la gestion du temps"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [
+      "rappel: Commander les fournitures de bureau"
+    ],
+    "reminder_ids": [
+      "abd0157c-7999-4cc6-9750-7600f5472ae0"
+    ],
+    "source_entry_ids": [
+      "7e21210a-a40c-4cb0-b00d-25e8a089e4a0",
+      "1e55e914-5040-40ae-b3e4-a750e33c16de",
+      "abd0157c-7999-4cc6-9750-7600f5472ae0",
+      "0dc5bf53-5f82-4e2b-a8bd-f20d3241725f"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709908+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-14",
+    "headline": "Recommandations et livres",
+    "summary": "4 éléments capturés aujourd'hui. Répartition : 1 note, 1 event, 1 blocker, 1 action. 1 blocage identifié.",
+    "mood": {
+      "score": 0.0,
+      "energy": 0.0,
+      "stress": 0.0,
+      "clarity": 0.0,
+      "satisfaction": 0.0,
+      "tags": []
+    },
+    "highlights": [
+      "Rencontre networking après-midi"
+    ],
+    "actions": {
+      "completed": [
+        "Mettre à jour le site web"
+      ],
+      "in_progress": [],
+      "blocked": [
+        "Problème de connexion internet récurrent"
+      ]
+    },
+    "ideas": [],
+    "events": [
+      "Rencontre networking après-midi"
+    ],
+    "lessons": [],
+    "tomorrow_focus": [
+      "Mettre à jour le site web"
+    ],
+    "reminder_ids": [],
+    "source_entry_ids": [
+      "afd2e406-ab83-44d6-bc47-7a34dbbb2753",
+      "777f0f4e-6b6e-4af6-93dd-88a06accfe41",
+      "86f9f5f8-a2c4-498c-8df0-4f92e6c93293",
+      "26239af3-0d74-4973-92eb-73b228ebd168"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709924+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  },
+  {
+    "date": "2026-08-15",
+    "headline": "Créer et newsletter",
+    "summary": "5 éléments capturés aujourd'hui. Répartition : 1 idea, 1 reminder, 1 thought, 1 mood, 1 note. Humeur moyenne : 7.8/10. Énergie moyenne : 2.9/10.",
+    "mood": {
+      "score": 7.8,
+      "energy": 2.9,
+      "stress": 2.2,
+      "clarity": 8.8,
+      "satisfaction": 3.4,
+      "tags": []
+    },
+    "highlights": [],
+    "actions": {
+      "completed": [],
+      "in_progress": [],
+      "blocked": []
+    },
+    "ideas": [
+      "Créer une newsletter sur les outils de productivité"
+    ],
+    "events": [],
+    "lessons": [],
+    "tomorrow_focus": [],
+    "reminder_ids": [
+      "14d26661-6319-4bcf-928f-9ff2ae9ce8df"
+    ],
+    "source_entry_ids": [
+      "7b551483-d5df-4463-965a-f595ac90d035",
+      "14d26661-6319-4bcf-928f-9ff2ae9ce8df",
+      "4798b7c1-bdec-4859-86f8-932b58faaef5",
+      "10512dc8-eb63-4579-b806-8b52a1f29ceb",
+      "4f52aa43-4b68-4b1b-b266-bea0b2d684d7"
+    ],
+    "generated_at": "2026-07-17T06:15:03.709938+00:00",
+    "model_metadata": {
+      "provider": "local",
+      "model": "deterministic",
+      "prompt_version": "1.0"
+    }
+  }
+]
