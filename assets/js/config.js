@@ -7,7 +7,7 @@ const APP_CONFIG = {
   TIMEZONE: 'Europe/Paris',
   SUPABASE_CONFIG: {
     url: 'https://wlxtulibsipesxpwkhyz.supabase.co',
-    anonKey: 'eyJhbG...AnL8'
+    anonKey: 'sb_publishable_0MkIaGDQs3G5oJuHaKMh1A_wWsrzn4G'
   },
   API_ENDPOINTS: {
     entries: '/rest/v1/raw_entries?select=*',
