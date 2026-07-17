@@ -1,0 +1,242 @@
+[
+  {
+    "id": "f85b02ee-1092-4a7b-83da-8affd24d793c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Organiser des ateliers de gestion du stress",
+    "created_at": "2026-07-17T10:00:00+00:00",
+    "tags": [
+      "important",
+      "carrière",
+      "organisation"
+    ],
+    "theme": "créativité",
+    "potential": 6,
+    "status": "inbox",
+    "next_action": null,
+    "review_date": null
+  },
+  {
+    "id": "8ccc9884-5f26-430c-8e73-28247726b1e2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Écrire un roman court pendant le NaNoWriMo",
+    "created_at": "2026-07-15T10:00:00+00:00",
+    "tags": [
+      "créativité",
+      "important",
+      "carrière"
+    ],
+    "theme": "social",
+    "potential": 7,
+    "status": "exploring",
+    "next_action": "Vérifier les comptes du mois",
+    "review_date": null
+  },
+  {
+    "id": "7295a016-e3c8-4ab6-aeae-48d44604d713",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Développer un jeu de société sur la gestion du temps",
+    "created_at": "2026-07-13T10:00:00+00:00",
+    "tags": [
+      "finance",
+      "créativité",
+      "important"
+    ],
+    "theme": "bien-être",
+    "potential": 8,
+    "status": "active",
+    "next_action": "Mettre à jour le CV",
+    "review_date": "2026-08-12"
+  },
+  {
+    "id": "6758ebbf-e500-43df-8d7e-873e1d721719",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Écrire un guide de survie pour le télétravail",
+    "created_at": "2026-07-11T10:00:00+00:00",
+    "tags": [
+      "priority",
+      "finance",
+      "créativité"
+    ],
+    "theme": "productivité",
+    "potential": 9,
+    "status": "parked",
+    "next_action": null,
+    "review_date": null
+  },
+  {
+    "id": "d28e4cc0-7e7e-4c78-9bf5-78f6f33ddf9e",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Lancer un podcast sur l'organisation personnelle",
+    "created_at": "2026-07-09T10:00:00+00:00",
+    "tags": [
+      "projet",
+      "priority",
+      "finance"
+    ],
+    "theme": "technologie",
+    "potential": 10,
+    "status": "archived",
+    "next_action": null,
+    "review_date": null
+  },
+  {
+    "id": "e3c6b4b7-98b9-45a4-b6cd-40bad41411a2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Développer une application de suivi d'habitudes",
+    "created_at": "2026-07-07T10:00:00+00:00",
+    "tags": [
+      "famille",
+      "projet",
+      "priority"
+    ],
+    "theme": "créativité",
+    "potential": 3,
+    "status": "inbox",
+    "next_action": null,
+    "review_date": null
+  },
+  {
+    "id": "aeb4912f-f59d-486f-a2e0-1689154aa14c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Écrire un recueil de poésie inspirée du quotidien",
+    "created_at": "2026-07-05T10:00:00+00:00",
+    "tags": [
+      "objectifs",
+      "famille",
+      "projet"
+    ],
+    "theme": "social",
+    "potential": 4,
+    "status": "exploring",
+    "next_action": "Nettoyer la boîte mail",
+    "review_date": null
+  },
+  {
+    "id": "b869d278-7b08-4550-815a-eb1451767923",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Développer un template Notion pour la planification",
+    "created_at": "2026-07-03T10:00:00+00:00",
+    "tags": [
+      "santé",
+      "objectifs",
+      "famille"
+    ],
+    "theme": "bien-être",
+    "potential": 5,
+    "status": "active",
+    "next_action": "Rédiger les notes de release",
+    "review_date": "2026-08-02"
+  },
+  {
+    "id": "32362617-1bc4-4fa5-a3bb-5958af5787aa",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Créer une newsletter sur les outils de productivité",
+    "created_at": "2026-07-01T10:00:00+00:00",
+    "tags": [
+      "fitness",
+      "santé",
+      "objectifs"
+    ],
+    "theme": "productivité",
+    "potential": 6,
+    "status": "parked",
+    "next_action": null,
+    "review_date": null
+  },
+  {
+    "id": "1e0947f8-308b-4629-81db-60ce926176b7",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Créer un groupe de course à pied dans le quartier",
+    "created_at": "2026-06-29T10:00:00+00:00",
+    "tags": [
+      "routine",
+      "fitness",
+      "santé"
+    ],
+    "theme": "technologie",
+    "potential": 7,
+    "status": "archived",
+    "next_action": null,
+    "review_date": null
+  },
+  {
+    "id": "bd4a1765-b6fa-4341-9a47-62f057b048d5",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Mettre en place un système de gestion des tâches family",
+    "created_at": "2026-06-27T10:00:00+00:00",
+    "tags": [
+      "personnel",
+      "routine",
+      "fitness"
+    ],
+    "theme": "créativité",
+    "potential": 8,
+    "status": "inbox",
+    "next_action": null,
+    "review_date": null
+  },
+  {
+    "id": "e6325aeb-6f85-461c-82e3-d3fdb221dea2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Créer un jardin potager sur le balcon",
+    "created_at": "2026-06-25T10:00:00+00:00",
+    "tags": [
+      "lecture",
+      "personnel",
+      "routine"
+    ],
+    "theme": "social",
+    "potential": 9,
+    "status": "exploring",
+    "next_action": "Envoyer les emails en attente",
+    "review_date": null
+  },
+  {
+    "id": "b60b32d8-eabb-4338-8f9d-699b089f6e45",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Organiser un cercle de lecture mensuel",
+    "created_at": "2026-06-23T10:00:00+00:00",
+    "tags": [
+      "apprentissage",
+      "lecture",
+      "personnel"
+    ],
+    "theme": "bien-être",
+    "potential": 10,
+    "status": "active",
+    "next_action": "Finaliser la présentation client",
+    "review_date": "2026-07-23"
+  },
+  {
+    "id": "0e8ffa2f-2ea3-4fd6-b9c3-93870968fa5e",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Créer un blog personnel sur la productivité",
+    "created_at": "2026-06-21T10:00:00+00:00",
+    "tags": [
+      "travail",
+      "apprentissage",
+      "lecture"
+    ],
+    "theme": "productivité",
+    "potential": 3,
+    "status": "parked",
+    "next_action": null,
+    "review_date": null
+  },
+  {
+    "id": "e3468ddb-a9bd-4091-8613-7691d7d96512",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "content": "Créer un compte Instagram sur le minimalisme",
+    "created_at": "2026-06-19T10:00:00+00:00",
+    "tags": [
+      "réflexion",
+      "travail",
+      "apprentissage"
+    ],
+    "theme": "technologie",
+    "potential": 4,
+    "status": "archived",
+    "next_action": null,
+    "review_date": null
+  }
+]
