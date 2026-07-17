@@ -1,0 +1,2337 @@
+[
+  {
+    "id": "befb599e-ae74-4eec-a0f9-a66e309c50cd",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Réussi à me lever à 6h pendant une semaine",
+    "created_at": "2026-07-17T14:42:42+00:00",
+    "tags": [
+      "santé",
+      "victoire",
+      "objectifs"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "d0569dad-827b-437b-83f9-4810613bba12",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer un compte Instagram sur le minimalisme",
+    "created_at": "2026-07-17T09:13:13+00:00",
+    "tags": [
+      "travail",
+      "réflexion",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "aba0d087-48dd-49d2-b9c1-4dab35e1f36a",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Observations sur les nouvelles pratiques agiles",
+    "created_at": "2026-07-18T19:59:59+00:00",
+    "tags": [
+      "note",
+      "bien-être",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "5f216a90-44d9-4ac6-9615-164568568a4b",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Réunion d'équipe hebdomadaire",
+    "created_at": "2026-07-18T14:30:30+00:00",
+    "tags": [
+      "social",
+      "priority",
+      "finance"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "682a3508-68d7-4566-8fe3-9fc80057642c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Attente de validation de la direction",
+    "created_at": "2026-07-18T09:01:01+00:00",
+    "tags": [
+      "personnel",
+      "routine",
+      "blocage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "bee5fdc7-a070-41ab-ad0e-86694fe249bf",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Finaliser la présentation client",
+    "created_at": "2026-07-18T16:32:32+00:00",
+    "tags": [
+      "suivi",
+      "bien-être",
+      "travail"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "c8c0e797-5681-4544-a2a3-fad084c24062",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Lu 50 pages de mon livre ce soir",
+    "created_at": "2026-07-18T11:03:03+00:00",
+    "tags": [
+      "priority",
+      "victoire",
+      "projet"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "a4f72c68-5020-449b-9239-aa64e341e09a",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer un jardin potager sur le balcon",
+    "created_at": "2026-07-18T18:34:34+00:00",
+    "tags": [
+      "lecture",
+      "personnel",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3cd0033c-e936-456d-a5cd-e2e06dd90eeb",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Développer une application de suivi d'habitudes",
+    "created_at": "2026-07-19T12:16:16+00:00",
+    "tags": [
+      "famille",
+      "projet",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3ae8daf7-6988-4c9e-9c00-f59f0f333bc2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Vérifier les statistiques du mois",
+    "created_at": "2026-07-19T19:47:47+00:00",
+    "tags": [
+      "lecture",
+      "suivi",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0fd07837-034a-4078-92c1-0b0c9fd01d45",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "J'aimerais voyager plus cette année.",
+    "created_at": "2026-07-19T14:18:18+00:00",
+    "tags": [
+      "carrière",
+      "organisation"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "fc56ad00-4ebc-421f-9c7d-e8921493f5fb",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Serein, bonne journée dans l'ensemble",
+    "created_at": "2026-07-19T09:49:49+00:00",
+    "tags": [
+      "objectifs",
+      "famille"
+    ],
+    "mood_score": 8.9,
+    "energy_score": 5.2,
+    "metadata": {}
+  },
+  {
+    "id": "124797cc-fbd2-4629-8e5a-e43760a002a5",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Pistes pour améliorer le processus de déploiement",
+    "created_at": "2026-07-19T16:20:20+00:00",
+    "tags": [
+      "note",
+      "travail",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "7b40e007-532b-4763-a3a3-5242c2eb8919",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Atelier de formation sur les nouveaux outils",
+    "created_at": "2026-07-20T17:33:33+00:00",
+    "tags": [
+      "travail",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "d480d2ae-d3a3-40c4-aa1f-0324d718a23d",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Conflit de planning avec une autre réunion",
+    "created_at": "2026-07-20T12:04:04+00:00",
+    "tags": [
+      "blocage",
+      "créativité",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "07c4da0d-5d42-4d1e-bfb5-799113529c62",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Compléter le formulaire administratif",
+    "created_at": "2026-07-20T19:35:35+00:00",
+    "tags": [
+      "santé",
+      "travail",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "bc368c81-0a3e-47eb-af0d-24d2ad89e5e2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Résolu un problème technique complexe",
+    "created_at": "2026-07-20T14:06:06+00:00",
+    "tags": [
+      "victoire",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "5a4088cf-a84b-4567-9eff-064356e689f1",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Appeler le service informatique",
+    "created_at": "2026-07-21T10:50:50+00:00",
+    "tags": [
+      "suivi",
+      "priority",
+      "finance"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "77921655-d6f3-45e3-bb6d-28bc63767b44",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Je me demande si je devrais changer ma routine matinale.",
+    "created_at": "2026-07-21T17:21:21+00:00",
+    "tags": [
+      "personnel",
+      "routine"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "402fa0a4-33a4-4174-873b-4a9234fb9a10",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Très motivé après la réunion inspirante",
+    "created_at": "2026-07-21T12:52:52+00:00",
+    "tags": [
+      "suivi",
+      "bien-être"
+    ],
+    "mood_score": 5.2,
+    "energy_score": 6.1,
+    "metadata": {}
+  },
+  {
+    "id": "dd8daea8-7cca-4655-a8df-fc689a73c680",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Liste de courses pour la semaine",
+    "created_at": "2026-07-21T19:23:23+00:00",
+    "tags": [
+      "note",
+      "priority",
+      "projet"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "688bdc0f-b252-435e-971c-63db89be6e86",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Rencontre networking après-midi",
+    "created_at": "2026-07-21T14:54:54+00:00",
+    "tags": [
+      "lecture",
+      "personnel",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "109df57b-4448-4a0f-9445-6a96470a282a",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Retard dans la livraison d'un fournisseur",
+    "created_at": "2026-07-21T09:25:25+00:00",
+    "tags": [
+      "suivi",
+      "organisation",
+      "blocage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "c3edeee8-2c8b-44ec-b5e7-32b59adf8d50",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Bug non résolu dans l'environnement de test",
+    "created_at": "2026-07-22T15:07:07+00:00",
+    "tags": [
+      "lecture",
+      "blocage",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "c9be732b-ea08-4129-a4b8-16cb3e2eae00",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Organiser les fichiers du projet",
+    "created_at": "2026-07-22T10:38:38+00:00",
+    "tags": [
+      "travail",
+      "organisation",
+      "carrière"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "5d435ce6-6071-4392-b051-ddaf030b558e",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Reçu des compliments sur ma présentation",
+    "created_at": "2026-07-22T17:09:09+00:00",
+    "tags": [
+      "famille",
+      "victoire",
+      "objectifs"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "127ae067-f77f-4c81-83f6-f8578b05764b",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer une newsletter sur les outils de productivité",
+    "created_at": "2026-07-22T12:40:40+00:00",
+    "tags": [
+      "travail",
+      "créativité",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "da00d40a-f7ce-41a5-89e9-f2d7e89d8b95",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Relire le contrat avant signature",
+    "created_at": "2026-07-22T19:11:11+00:00",
+    "tags": [
+      "suivi",
+      "carrière",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "32a35221-9cf7-48fa-9093-b9157ee7c948",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Penser à appeler maman pour son anniversaire.",
+    "created_at": "2026-07-22T14:42:42+00:00",
+    "tags": [
+      "santé",
+      "objectifs"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "99c37647-e02c-4a14-a99d-3b47e815228f",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Un peu stressé par les délais serrés",
+    "created_at": "2026-07-22T09:13:13+00:00",
+    "tags": [
+      "réflexion",
+      "travail"
+    ],
+    "mood_score": 3.3,
+    "energy_score": 4.4,
+    "metadata": {}
+  },
+  {
+    "id": "1c7ae23c-9c3c-44c6-bd3c-4fbb60bc54ff",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Idées de lecture pour le mois prochain",
+    "created_at": "2026-07-22T16:44:44+00:00",
+    "tags": [
+      "note",
+      "créativité",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "9f9dd887-faf4-436a-ae6e-8d8b740e1829",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Réunion d'équipe hebdomadaire",
+    "created_at": "2026-07-22T11:15:15+00:00",
+    "tags": [
+      "social",
+      "santé",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "f311453c-af9d-4238-9f79-45c666cbf9f5",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Difficulté à joindre l'interlocuteur clé",
+    "created_at": "2026-07-22T18:46:46+00:00",
+    "tags": [
+      "blocage",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "8e6bf637-f020-435b-a299-229c3f8943fa",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Besoin de plus de temps pour lire mes livres.",
+    "created_at": "2026-07-23T08:24:24+00:00",
+    "tags": [
+      "créativité",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "318f9669-529f-4279-8473-6958485bf137",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Énergique et créatif aujourd'hui",
+    "created_at": "2026-07-23T15:55:55+00:00",
+    "tags": [
+      "fitness",
+      "santé"
+    ],
+    "mood_score": 8.5,
+    "energy_score": 7.0,
+    "metadata": {}
+  },
+  {
+    "id": "1606e11a-8ad7-4b9d-b8b9-04211696f818",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Questions à poser lors du prochain point",
+    "created_at": "2026-07-23T10:26:26+00:00",
+    "tags": [
+      "note",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "564fe61b-39e3-4462-8c37-3cc59549d85e",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Réunion de planification stratégique",
+    "created_at": "2026-07-23T17:57:57+00:00",
+    "tags": [
+      "finance",
+      "créativité",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "4308f6c9-afc7-4a94-9a5a-2abd2ebabd1b",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Mettre à jour le site web",
+    "created_at": "2026-07-24T13:41:41+00:00",
+    "tags": [
+      "travail",
+      "personnel",
+      "routine"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "490f4c77-2258-4ba5-b033-b4f14260a400",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Réussi à me lever à 6h pendant une semaine",
+    "created_at": "2026-07-24T08:12:12+00:00",
+    "tags": [
+      "suivi",
+      "bien-être",
+      "victoire"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "b06067f1-43b6-4ce4-abec-54d9dbb8684f",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer un compte Instagram sur le minimalisme",
+    "created_at": "2026-07-24T15:43:43+00:00",
+    "tags": [
+      "priority",
+      "projet",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "9a8ad102-aca8-4342-8d4c-7ef33e7e0f7c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Suivre la candidature du nouveau stagiaire",
+    "created_at": "2026-07-24T10:14:14+00:00",
+    "tags": [
+      "lecture",
+      "suivi",
+      "personnel"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "ec8264fa-f3cf-4e3c-bfaa-6da55224788f",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Fatigué mais satisfait du travail accompli",
+    "created_at": "2026-07-25T18:58:58+00:00",
+    "tags": [
+      "carrière",
+      "organisation"
+    ],
+    "mood_score": 4.8,
+    "energy_score": 7.9,
+    "metadata": {}
+  },
+  {
+    "id": "7b28d912-8c5a-4c0e-9204-c86e3d27b060",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Observations sur les nouvelles pratiques agiles",
+    "created_at": "2026-07-25T13:29:29+00:00",
+    "tags": [
+      "note",
+      "famille",
+      "objectifs"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "db8dfe27-baf4-46a0-ab9c-6ca2db0851a7",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Réunion d'équipe hebdomadaire",
+    "created_at": "2026-07-25T08:00:00+00:00",
+    "tags": [
+      "social",
+      "travail",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "9e0151c9-2496-4dc5-b9f1-1d0f5c323ffe",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Attente de validation de la direction",
+    "created_at": "2026-07-25T15:31:31+00:00",
+    "tags": [
+      "carrière",
+      "blocage",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "cae57458-bbed-47e1-9463-a53ce65a110a",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Finaliser la présentation client",
+    "created_at": "2026-07-25T10:02:02+00:00",
+    "tags": [
+      "santé",
+      "objectifs",
+      "travail"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "cbd24019-4d3a-449d-bbf2-44da6a5f8116",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Terminé le gros projet en avance !",
+    "created_at": "2026-07-26T11:15:15+00:00",
+    "tags": [
+      "santé",
+      "victoire",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0160fd37-b380-45d2-9bf7-3590ba71cccc",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Développer une application de suivi d'habitudes",
+    "created_at": "2026-07-26T18:46:46+00:00",
+    "tags": [
+      "créativité",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "4788c933-d288-4abb-953a-58d2ce7d016c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Vérifier les statistiques du mois",
+    "created_at": "2026-07-26T13:17:17+00:00",
+    "tags": [
+      "suivi",
+      "finance",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "e17c8860-e99c-49d9-9d4f-48e0a1d1587c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "La météo est parfaite pour une promenade ce soir.",
+    "created_at": "2026-07-26T08:48:48+00:00",
+    "tags": [
+      "routine",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0639baf8-311c-4c2a-bd76-2815f1513de6",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Notes de la réunion : décisions et actions",
+    "created_at": "2026-07-27T16:32:32+00:00",
+    "tags": [
+      "note",
+      "suivi",
+      "bien-être"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3414a056-0393-4587-8e54-28cfaac0fb55",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Atelier de formation sur les nouveaux outils",
+    "created_at": "2026-07-27T11:03:03+00:00",
+    "tags": [
+      "priority",
+      "projet",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "760aa0b2-108c-4875-976c-fa7937533136",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Conflit de planning avec une autre réunion",
+    "created_at": "2026-07-27T18:34:34+00:00",
+    "tags": [
+      "lecture",
+      "personnel",
+      "blocage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0d53c49f-37e9-4000-9401-4268e2ec6f6c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Compléter le formulaire administratif",
+    "created_at": "2026-07-27T13:05:05+00:00",
+    "tags": [
+      "suivi",
+      "organisation",
+      "travail"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0f4712ce-8f82-46b7-9227-a90b71876d44",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Résolu un problème technique complexe",
+    "created_at": "2026-07-27T08:36:36+00:00",
+    "tags": [
+      "famille",
+      "victoire",
+      "projet"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "59f2cf78-bb2a-415c-ba81-05d02b701a84",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Développer un jeu de société sur la gestion du temps",
+    "created_at": "2026-07-27T15:07:07+00:00",
+    "tags": [
+      "lecture",
+      "créativité",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "6b28713f-ecbe-4997-9c2e-babce2d6ea2f",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Penser à renouveler l'abonnement logiciel",
+    "created_at": "2026-07-27T10:38:38+00:00",
+    "tags": [
+      "suivi",
+      "organisation",
+      "carrière"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "29d68e7e-cb9c-4daf-85da-c8df5706d4ee",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer un jardin potager sur le balcon",
+    "created_at": "2026-07-28T09:49:49+00:00",
+    "tags": [
+      "famille",
+      "objectifs",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "08933801-9302-4b03-a51a-1cf63fcd5299",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Appeler le service informatique",
+    "created_at": "2026-07-28T16:20:20+00:00",
+    "tags": [
+      "travail",
+      "suivi",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "bedc1e9c-8187-4b0e-873e-fdd30bb30fd7",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Me demander si je ne devrais pas revoir mon organisation.",
+    "created_at": "2026-07-28T11:51:51+00:00",
+    "tags": [
+      "important",
+      "carrière"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "7e50d29a-43c8-4e60-93ab-ee6459291276",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Très motivé après la réunion inspirante",
+    "created_at": "2026-07-28T18:22:22+00:00",
+    "tags": [
+      "santé",
+      "objectifs"
+    ],
+    "mood_score": 6.2,
+    "energy_score": 7.1,
+    "metadata": {}
+  },
+  {
+    "id": "2af8b2e4-bad0-4d19-8440-c6c735f1211c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Liste de courses pour la semaine",
+    "created_at": "2026-07-28T13:53:53+00:00",
+    "tags": [
+      "note",
+      "travail",
+      "réflexion"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "4cea7c02-b476-4e46-9141-cf321c3c9bea",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Séance de brainstorming créatif",
+    "created_at": "2026-07-29T14:06:06+00:00",
+    "tags": [
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "ea39f0cc-9804-4f50-b2d0-a5a303fb0e67",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Bug non résolu dans l'environnement de test",
+    "created_at": "2026-07-29T09:37:37+00:00",
+    "tags": [
+      "blocage",
+      "finance",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "1ff708ca-d04f-4ca3-b80f-6452d52ad263",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Organiser les fichiers du projet",
+    "created_at": "2026-07-29T16:08:08+00:00",
+    "tags": [
+      "travail",
+      "routine",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "216f2676-9b2b-4983-abbc-65ceb3529d84",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Reçu des compliments sur ma présentation",
+    "created_at": "2026-07-29T11:39:39+00:00",
+    "tags": [
+      "bien-être",
+      "victoire",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "ccf64736-f2e4-43c9-91e7-9f56e7dc973e",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Commander les fournitures de bureau",
+    "created_at": "2026-07-30T19:23:23+00:00",
+    "tags": [
+      "suivi",
+      "priority",
+      "projet"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "4b6f8fc6-9f3b-4324-bf47-88ef00e4dfad",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Ce nouveau restaurant mérite une deuxième visite.",
+    "created_at": "2026-07-30T14:54:54+00:00",
+    "tags": [
+      "lecture",
+      "personnel"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "8c46c7f0-e6ce-4f96-a77a-528b57b5c8f1",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Énergique et créatif aujourd'hui",
+    "created_at": "2026-07-30T09:25:25+00:00",
+    "tags": [
+      "organisation",
+      "suivi"
+    ],
+    "mood_score": 9.5,
+    "energy_score": 8.0,
+    "metadata": {}
+  },
+  {
+    "id": "94ebea46-891a-4784-b3c3-f860a7401e7d",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Questions à poser lors du prochain point",
+    "created_at": "2026-07-30T16:56:56+00:00",
+    "tags": [
+      "note",
+      "famille",
+      "projet"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "e776f6be-fefd-4fed-82f6-fde78de05b8a",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Réunion de planification stratégique",
+    "created_at": "2026-07-30T11:27:27+00:00",
+    "tags": [
+      "lecture",
+      "social",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "d9ddfc4c-bf80-4133-bf10-8d67dd40a7c2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Chevauchement des priorités projet",
+    "created_at": "2026-07-30T18:58:58+00:00",
+    "tags": [
+      "organisation",
+      "carrière",
+      "blocage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3b11cfef-d621-4329-bc9b-c9e5f1b8b6af",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Problème de connexion internet récurrent",
+    "created_at": "2026-07-31T12:40:40+00:00",
+    "tags": [
+      "travail",
+      "blocage",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "535d84de-384d-44db-acaf-06a6f4817df5",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Mettre à jour le site web",
+    "created_at": "2026-07-31T19:11:11+00:00",
+    "tags": [
+      "travail",
+      "carrière",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "2fc71030-f1ff-48fe-9d99-bf5ab8ed88db",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Réussi à me lever à 6h pendant une semaine",
+    "created_at": "2026-07-31T14:42:42+00:00",
+    "tags": [
+      "santé",
+      "victoire",
+      "objectifs"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "beefacb9-d3a2-4081-a7e5-ac9c6be099a9",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "La lecture du soir devient une habitude agréable.",
+    "created_at": "2026-08-01T17:57:57+00:00",
+    "tags": [
+      "finance",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "a84c5708-0ea7-46b7-85aa-574ccf64d679",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Fatigué mais satisfait du travail accompli",
+    "created_at": "2026-08-01T12:28:28+00:00",
+    "tags": [
+      "routine",
+      "fitness"
+    ],
+    "mood_score": 5.8,
+    "energy_score": 8.9,
+    "metadata": {}
+  },
+  {
+    "id": "648d06f3-02b4-41b3-a298-4c8b2153141d",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Observations sur les nouvelles pratiques agiles",
+    "created_at": "2026-08-01T19:59:59+00:00",
+    "tags": [
+      "note",
+      "bien-être",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "1cfe09f1-f0e6-4be0-8f4f-eb9b76e2f409",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Réunion d'équipe hebdomadaire",
+    "created_at": "2026-08-01T14:30:30+00:00",
+    "tags": [
+      "social",
+      "priority",
+      "finance"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "790d70aa-39be-4c5a-8e19-2efcb2cb40ec",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Attente de validation de la direction",
+    "created_at": "2026-08-01T09:01:01+00:00",
+    "tags": [
+      "personnel",
+      "routine",
+      "blocage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3f3041c3-396f-49d0-9872-14a5d0e8e2c9",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Finaliser la présentation client",
+    "created_at": "2026-08-01T16:32:32+00:00",
+    "tags": [
+      "suivi",
+      "bien-être",
+      "travail"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "fe43579c-5b43-477f-bf85-6a7b347e79da",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Lu 50 pages de mon livre ce soir",
+    "created_at": "2026-08-01T11:03:03+00:00",
+    "tags": [
+      "priority",
+      "victoire",
+      "projet"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "a868964f-4606-4ccb-8a25-360311a20367",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer un jardin potager sur le balcon",
+    "created_at": "2026-08-01T18:34:34+00:00",
+    "tags": [
+      "lecture",
+      "personnel",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "36891298-aa58-44af-98bf-f1b50bfc0bb2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Nettoyer la boîte mail",
+    "created_at": "2026-08-02T10:14:14+00:00",
+    "tags": [
+      "lecture",
+      "travail",
+      "personnel"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "aea90595-19fd-42ae-9f41-19bc6ae58b68",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Terminé le gros projet en avance !",
+    "created_at": "2026-08-02T17:45:45+00:00",
+    "tags": [
+      "suivi",
+      "organisation",
+      "victoire"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "9b7b6a43-76c7-4235-95b4-b9dea5115c8f",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Développer une application de suivi d'habitudes",
+    "created_at": "2026-08-02T12:16:16+00:00",
+    "tags": [
+      "famille",
+      "projet",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "39ad3377-99f3-4e37-b34e-1857d0f73157",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Vérifier les statistiques du mois",
+    "created_at": "2026-08-02T19:47:47+00:00",
+    "tags": [
+      "lecture",
+      "suivi",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "c915e5e8-d427-443e-9cde-70d719a00c8a",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "J'aimerais voyager plus cette année.",
+    "created_at": "2026-08-02T14:18:18+00:00",
+    "tags": [
+      "carrière",
+      "organisation"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "a6949682-524b-42c9-aa2f-10ac3cffc9f7",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Serein, bonne journée dans l'ensemble",
+    "created_at": "2026-08-02T09:49:49+00:00",
+    "tags": [
+      "objectifs",
+      "famille"
+    ],
+    "mood_score": 3.9,
+    "energy_score": 7.2,
+    "metadata": {}
+  },
+  {
+    "id": "4b87f269-123f-4c8f-b4ad-66250631fcf3",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Sentiment de fatigue en fin d'après-midi",
+    "created_at": "2026-08-03T15:31:31+00:00",
+    "tags": [
+      "important",
+      "carrière"
+    ],
+    "mood_score": 9.1,
+    "energy_score": 9.8,
+    "metadata": {}
+  },
+  {
+    "id": "2fda62c7-c18c-455a-a808-c48175d595f1",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Notes de la réunion : décisions et actions",
+    "created_at": "2026-08-03T10:02:02+00:00",
+    "tags": [
+      "note",
+      "santé",
+      "objectifs"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "b4b8fab6-f012-4651-8aad-32caa0062501",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Atelier de formation sur les nouveaux outils",
+    "created_at": "2026-08-03T17:33:33+00:00",
+    "tags": [
+      "travail",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "95e29e7c-18a7-417c-ab2d-014bf7ce0ef1",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Conflit de planning avec une autre réunion",
+    "created_at": "2026-08-03T12:04:04+00:00",
+    "tags": [
+      "blocage",
+      "créativité",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3dc48af7-0f9b-46cd-9c9b-c69d859920f6",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Compléter le formulaire administratif",
+    "created_at": "2026-08-03T19:35:35+00:00",
+    "tags": [
+      "santé",
+      "travail",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "f771b24f-cb32-4390-a4ce-ad3ffc774bb5",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Lu 50 pages de mon livre ce soir",
+    "created_at": "2026-08-04T08:48:48+00:00",
+    "tags": [
+      "victoire",
+      "routine",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "d7a4c93c-9db7-47e3-9e2b-f1a11d9ff945",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer un jardin potager sur le balcon",
+    "created_at": "2026-08-04T15:19:19+00:00",
+    "tags": [
+      "bien-être",
+      "créativité",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "9b5b9a38-3b1e-4ba4-99e4-b6818b02b23c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Appeler le service informatique",
+    "created_at": "2026-08-04T10:50:50+00:00",
+    "tags": [
+      "suivi",
+      "priority",
+      "finance"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "706ea0cd-9d58-443b-9d2d-a6bd443fc6d4",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Je me demande si je devrais changer ma routine matinale.",
+    "created_at": "2026-08-04T17:21:21+00:00",
+    "tags": [
+      "personnel",
+      "routine"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0a8fefe2-f2de-405d-98a4-6cbadba5aef4",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Contacts importants échangés aujourd'hui",
+    "created_at": "2026-08-05T13:05:05+00:00",
+    "tags": [
+      "note",
+      "suivi",
+      "organisation"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "ff145a48-52ef-4989-8fdb-983892154173",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Séance de brainstorming créatif",
+    "created_at": "2026-08-05T08:36:36+00:00",
+    "tags": [
+      "famille",
+      "projet",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "78fcf7c8-dea4-4ba7-a6fa-94ef75d8961e",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Bug non résolu dans l'environnement de test",
+    "created_at": "2026-08-05T15:07:07+00:00",
+    "tags": [
+      "lecture",
+      "blocage",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "62179c7d-7a5b-4923-9219-889bc4625193",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Organiser les fichiers du projet",
+    "created_at": "2026-08-05T10:38:38+00:00",
+    "tags": [
+      "travail",
+      "organisation",
+      "carrière"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "4db0aaec-d76f-4f57-8530-d012bc14da45",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Reçu des compliments sur ma présentation",
+    "created_at": "2026-08-05T17:09:09+00:00",
+    "tags": [
+      "famille",
+      "victoire",
+      "objectifs"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "d0b8a4c7-5b7a-4f04-a0f9-f0c51e792cc2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer une newsletter sur les outils de productivité",
+    "created_at": "2026-08-05T12:40:40+00:00",
+    "tags": [
+      "travail",
+      "créativité",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "8d47828f-8b80-4cca-8004-82220bfc23f2",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Développer un jeu de société sur la gestion du temps",
+    "created_at": "2026-08-06T18:22:22+00:00",
+    "tags": [
+      "santé",
+      "objectifs",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "f4b17055-749e-45d3-a4bb-11b94732c8a7",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Commander les fournitures de bureau",
+    "created_at": "2026-08-06T13:53:53+00:00",
+    "tags": [
+      "travail",
+      "suivi",
+      "réflexion"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "cda2df95-0384-4707-b494-216c32d0964f",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Besoin de plus de temps pour lire mes livres.",
+    "created_at": "2026-08-06T08:24:24+00:00",
+    "tags": [
+      "créativité",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "564a8edf-c026-4799-b820-7a3d5c02b365",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Énergique et créatif aujourd'hui",
+    "created_at": "2026-08-06T15:55:55+00:00",
+    "tags": [
+      "fitness",
+      "santé"
+    ],
+    "mood_score": 3.5,
+    "energy_score": 9.0,
+    "metadata": {}
+  },
+  {
+    "id": "59610a1c-23ea-4a14-a531-88b00db54599",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Questions à poser lors du prochain point",
+    "created_at": "2026-08-06T10:26:26+00:00",
+    "tags": [
+      "note",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3161ce5a-f0ac-446f-81b9-07f710ba7f8e",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Réunion de planification stratégique",
+    "created_at": "2026-08-06T17:57:57+00:00",
+    "tags": [
+      "finance",
+      "créativité",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0361e8cf-2498-4279-8d63-9bcafe849052",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Chevauchement des priorités projet",
+    "created_at": "2026-08-06T12:28:28+00:00",
+    "tags": [
+      "routine",
+      "blocage",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "547e430c-df18-4c62-bac3-6e199af3841c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Nettoyer la boîte mail",
+    "created_at": "2026-08-06T19:59:59+00:00",
+    "tags": [
+      "travail",
+      "bien-être",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "1b63233d-b3ef-4250-8351-fd17ca49be9a",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Terminé le gros projet en avance !",
+    "created_at": "2026-08-06T14:30:30+00:00",
+    "tags": [
+      "priority",
+      "victoire",
+      "finance"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "d734ecf2-66c8-4b10-bb54-5886385aa80f",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Rencontre networking après-midi",
+    "created_at": "2026-08-07T11:39:39+00:00",
+    "tags": [
+      "bien-être",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "22bbbec3-8b5a-4a00-914f-1e713ac472c1",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Problème de connexion internet récurrent",
+    "created_at": "2026-08-07T18:10:10+00:00",
+    "tags": [
+      "priority",
+      "blocage",
+      "finance"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "954d3093-d383-4215-961e-ef6afff826db",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Planifier la prochaine réunion d'équipe",
+    "created_at": "2026-08-08T16:56:56+00:00",
+    "tags": [
+      "suivi",
+      "famille",
+      "projet"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3fddec5e-a374-4773-ae76-142fb963f5ea",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Devrais-je commencer un nouveau sport ?",
+    "created_at": "2026-08-08T11:27:27+00:00",
+    "tags": [
+      "apprentissage",
+      "lecture"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "09f95d1f-6f42-46c8-b82d-dd5c809c0d67",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Fatigué mais satisfait du travail accompli",
+    "created_at": "2026-08-08T18:58:58+00:00",
+    "tags": [
+      "carrière",
+      "organisation"
+    ],
+    "mood_score": 6.8,
+    "energy_score": 9.9,
+    "metadata": {}
+  },
+  {
+    "id": "f6259d72-5f22-4d2d-8bd7-d7dda17d2772",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Observations sur les nouvelles pratiques agiles",
+    "created_at": "2026-08-08T13:29:29+00:00",
+    "tags": [
+      "note",
+      "famille",
+      "objectifs"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "a2353f7f-a8cf-47ea-b9f4-cb66e0e051cf",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Réunion d'équipe hebdomadaire",
+    "created_at": "2026-08-08T08:00:00+00:00",
+    "tags": [
+      "social",
+      "travail",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "7bcac560-d433-49da-b1f4-c9f4739f5cba",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Attente de validation de la direction",
+    "created_at": "2026-08-08T15:31:31+00:00",
+    "tags": [
+      "carrière",
+      "blocage",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "4725640f-3991-48b4-91d2-4a37c264f8a7",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Manque d'information pour avancer sur le dossier",
+    "created_at": "2026-08-09T09:13:13+00:00",
+    "tags": [
+      "travail",
+      "blocage",
+      "réflexion"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "4c30486d-9b98-473b-aa0f-f2e13bf3b010",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Nettoyer la boîte mail",
+    "created_at": "2026-08-09T16:44:44+00:00",
+    "tags": [
+      "travail",
+      "créativité",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "f7e547b9-4e2e-4314-a440-8b274b2c7e69",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Terminé le gros projet en avance !",
+    "created_at": "2026-08-09T11:15:15+00:00",
+    "tags": [
+      "santé",
+      "victoire",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "7ebf2be8-e5fc-4baa-ad2e-ad17356b370b",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Développer une application de suivi d'habitudes",
+    "created_at": "2026-08-09T18:46:46+00:00",
+    "tags": [
+      "créativité",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "668fad03-6143-4828-bc26-4f9fc455c603",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Vérifier les statistiques du mois",
+    "created_at": "2026-08-09T13:17:17+00:00",
+    "tags": [
+      "suivi",
+      "finance",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "bdd1f5d0-61f3-4adf-99a7-4a33a91d29f3",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Content d'avoir repris le dessin après si longtemps.",
+    "created_at": "2026-08-10T14:30:30+00:00",
+    "tags": [
+      "priority",
+      "finance"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "2ac542f7-a998-4c7f-b80a-558d9980002b",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Sentiment de fatigue en fin d'après-midi",
+    "created_at": "2026-08-10T09:01:01+00:00",
+    "tags": [
+      "personnel",
+      "routine"
+    ],
+    "mood_score": 3.1,
+    "energy_score": 2.8,
+    "metadata": {}
+  },
+  {
+    "id": "b0042afa-6ea5-4ecb-ab6a-4e0d9e3c4f86",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Notes de la réunion : décisions et actions",
+    "created_at": "2026-08-10T16:32:32+00:00",
+    "tags": [
+      "note",
+      "suivi",
+      "bien-être"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "cf4c7c57-53dc-462d-b9cd-9f495f6339ae",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Atelier de formation sur les nouveaux outils",
+    "created_at": "2026-08-10T11:03:03+00:00",
+    "tags": [
+      "priority",
+      "projet",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "77d0dfb5-ad50-423c-95ec-c4d335a86599",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Finaliser la présentation client",
+    "created_at": "2026-08-11T19:47:47+00:00",
+    "tags": [
+      "lecture",
+      "travail",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "52d771b3-d123-4a5e-a9a8-c3c4b77e5407",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Lu 50 pages de mon livre ce soir",
+    "created_at": "2026-08-11T14:18:18+00:00",
+    "tags": [
+      "organisation",
+      "carrière",
+      "victoire"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "39492317-ba0f-45c2-bb0b-eadfe1f92916",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer un jardin potager sur le balcon",
+    "created_at": "2026-08-11T09:49:49+00:00",
+    "tags": [
+      "famille",
+      "objectifs",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "25b9befd-d69b-4b05-8548-410fa4243527",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Appeler le service informatique",
+    "created_at": "2026-08-11T16:20:20+00:00",
+    "tags": [
+      "travail",
+      "suivi",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "3b88bc5d-f26f-452b-8964-db1ce6b2b291",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Me demander si je ne devrais pas revoir mon organisation.",
+    "created_at": "2026-08-11T11:51:51+00:00",
+    "tags": [
+      "important",
+      "carrière"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "f4c668de-50a2-4cf6-b22b-768a08024375",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Très motivé après la réunion inspirante",
+    "created_at": "2026-08-11T18:22:22+00:00",
+    "tags": [
+      "santé",
+      "objectifs"
+    ],
+    "mood_score": 8.2,
+    "energy_score": 9.1,
+    "metadata": {}
+  },
+  {
+    "id": "fa3f12cf-9bb5-4a7c-b5ac-9e3996969386",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Liste de courses pour la semaine",
+    "created_at": "2026-08-11T13:53:53+00:00",
+    "tags": [
+      "note",
+      "travail",
+      "réflexion"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0d2f684d-85a6-4e27-a8a8-2f80e827cf3a",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Rencontre networking après-midi",
+    "created_at": "2026-08-11T08:24:24+00:00",
+    "tags": [
+      "social",
+      "créativité",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "7e5c82cb-279d-436b-8e2d-c97e4bd33a25",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Retard dans la livraison d'un fournisseur",
+    "created_at": "2026-08-11T15:55:55+00:00",
+    "tags": [
+      "santé",
+      "blocage",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "6a25d823-5aff-4f4d-ba2e-15e4d7bb3849",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Mettre à jour le site web",
+    "created_at": "2026-08-11T10:26:26+00:00",
+    "tags": [
+      "travail",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "cd67b0fd-20c1-4d70-b07a-4f14dca2cdbc",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Calme et serein, journée équilibrée",
+    "created_at": "2026-08-12T12:04:04+00:00",
+    "tags": [
+      "créativité",
+      "important"
+    ],
+    "mood_score": 6.4,
+    "energy_score": 3.7,
+    "metadata": {}
+  },
+  {
+    "id": "499fd06a-893b-4847-bdc0-c304d8c68664",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Contacts importants échangés aujourd'hui",
+    "created_at": "2026-08-12T19:35:35+00:00",
+    "tags": [
+      "note",
+      "santé",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "1d915533-e70c-4d6b-9a55-a12b2452578c",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Séance de brainstorming créatif",
+    "created_at": "2026-08-12T14:06:06+00:00",
+    "tags": [
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "e2c155a5-2430-4260-a06b-8d6786b5b528",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Bug non résolu dans l'environnement de test",
+    "created_at": "2026-08-12T09:37:37+00:00",
+    "tags": [
+      "blocage",
+      "finance",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "d2ffce94-7b1c-4122-a316-cb7d6ee52364",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Organiser les fichiers du projet",
+    "created_at": "2026-08-12T16:08:08+00:00",
+    "tags": [
+      "travail",
+      "routine",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "7e21210a-a40c-4cb0-b00d-25e8a089e4a0",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "win",
+    "content": "Résolu un problème technique complexe",
+    "created_at": "2026-08-13T17:21:21+00:00",
+    "tags": [
+      "personnel",
+      "routine",
+      "victoire"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "1e55e914-5040-40ae-b3e4-a750e33c16de",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Développer un jeu de société sur la gestion du temps",
+    "created_at": "2026-08-13T12:52:52+00:00",
+    "tags": [
+      "suivi",
+      "bien-être",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "abd0157c-7999-4cc6-9750-7600f5472ae0",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Commander les fournitures de bureau",
+    "created_at": "2026-08-13T19:23:23+00:00",
+    "tags": [
+      "suivi",
+      "priority",
+      "projet"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "0dc5bf53-5f82-4e2b-a8bd-f20d3241725f",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "Ce nouveau restaurant mérite une deuxième visite.",
+    "created_at": "2026-08-13T14:54:54+00:00",
+    "tags": [
+      "lecture",
+      "personnel"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "afd2e406-ab83-44d6-bc47-7a34dbbb2753",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Recommandations de livres sur le leadership",
+    "created_at": "2026-08-14T10:38:38+00:00",
+    "tags": [
+      "note",
+      "organisation",
+      "carrière"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "777f0f4e-6b6e-4af6-93dd-88a06accfe41",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "event",
+    "content": "Rencontre networking après-midi",
+    "created_at": "2026-08-14T17:09:09+00:00",
+    "tags": [
+      "famille",
+      "objectifs",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "86f9f5f8-a2c4-498c-8df0-4f92e6c93293",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "blocker",
+    "content": "Problème de connexion internet récurrent",
+    "created_at": "2026-08-14T12:40:40+00:00",
+    "tags": [
+      "travail",
+      "blocage",
+      "apprentissage"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "26239af3-0d74-4973-92eb-73b228ebd168",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "action",
+    "content": "Mettre à jour le site web",
+    "created_at": "2026-08-14T19:11:11+00:00",
+    "tags": [
+      "travail",
+      "carrière",
+      "important"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "7b551483-d5df-4463-965a-f595ac90d035",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "idea",
+    "content": "Créer une newsletter sur les outils de productivité",
+    "created_at": "2026-08-15T15:55:55+00:00",
+    "tags": [
+      "santé",
+      "créativité",
+      "fitness"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "14d26661-6319-4bcf-928f-9ff2ae9ce8df",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "reminder",
+    "content": "rappel: Planifier la prochaine réunion d'équipe",
+    "created_at": "2026-08-15T10:26:26+00:00",
+    "tags": [
+      "suivi",
+      "réflexion",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "4798b7c1-bdec-4859-86f8-932b58faaef5",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "thought",
+    "content": "La lecture du soir devient une habitude agréable.",
+    "created_at": "2026-08-15T17:57:57+00:00",
+    "tags": [
+      "finance",
+      "créativité"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  },
+  {
+    "id": "10512dc8-eb63-4579-b806-8b52a1f29ceb",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "mood",
+    "content": "Fatigué mais satisfait du travail accompli",
+    "created_at": "2026-08-15T12:28:28+00:00",
+    "tags": [
+      "routine",
+      "fitness"
+    ],
+    "mood_score": 7.8,
+    "energy_score": 2.9,
+    "metadata": {}
+  },
+  {
+    "id": "4f52aa43-4b68-4b1b-b266-bea0b2d684d7",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "type": "note",
+    "content": "Observations sur les nouvelles pratiques agiles",
+    "created_at": "2026-08-15T19:59:59+00:00",
+    "tags": [
+      "note",
+      "bien-être",
+      "social"
+    ],
+    "mood_score": null,
+    "energy_score": null,
+    "metadata": {}
+  }
+]
