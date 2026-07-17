@@ -16,8 +16,10 @@ async function renderTodayPage() {
     const dayName = new Date(today + 'T12:00:00').toLocaleDateString('fr-FR', { weekday: 'long' });
     const capitalizedDay = dayName.charAt(0).toUpperCase() + dayName.slice(1);
 
-    // Load all entries for streak, wins, tomorrow focus
-    const allEntries = (typeof loadFromLS === 'function' && loadFromLS('entries')) || (typeof DEMO_DATA !== 'undefined' && DEMO_DATA.entries) || [];
+    // Load all entries for streak, wins, tomorrow focus (use merged demo+user data)
+    const allEntries = await getLocalOrDemoData('entries').then(r => Array.isArray(r) ? r : (r.data || []));
+    // Ensure allEntries has content field (normalize from potential text field)
+    allEntries.forEach(e => { if (!e.content && e.text) e.content = e.text; });
 
     let html = `
       <div class="section">
