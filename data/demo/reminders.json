@@ -1,0 +1,112 @@
+[
+  {
+    "id": "efd83220-21db-4f57-8ead-3be9e949f71e",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Vérifier les statistiques du mois",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-07-19T19:47:47+00:00"
+  },
+  {
+    "id": "28527b9d-77f9-4d31-a147-60fe14c86e34",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Appeler le service informatique",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-07-21T10:50:50+00:00"
+  },
+  {
+    "id": "1dae2cb5-34cf-41d7-ab99-c98aaecfd155",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Relire le contrat avant signature",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "high",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-07-22T19:11:11+00:00"
+  },
+  {
+    "id": "34e99d9c-4446-4c0c-8e27-d8939e20cf45",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Suivre la candidature du nouveau stagiaire",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-07-24T10:14:14+00:00"
+  },
+  {
+    "id": "fb0cfe1b-a40e-4dfb-9e56-4e30a3f626a1",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Vérifier les statistiques du mois",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-07-26T13:17:17+00:00"
+  },
+  {
+    "id": "e0b255a5-b29a-4fbb-9c8b-f6ef938ea71d",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Penser à renouveler l'abonnement logiciel",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-07-27T10:38:38+00:00"
+  },
+  {
+    "id": "6335306c-8e4a-4b14-98ad-0e0cf08512ca",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Appeler le service informatique",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-07-28T16:20:20+00:00"
+  },
+  {
+    "id": "20ee1311-bd63-4951-bf68-e7d8d3a0965b",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Commander les fournitures de bureau",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-07-30T19:23:23+00:00"
+  },
+  {
+    "id": "775e3d57-54d5-40c8-a6e6-1f99347391f8",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Vérifier les statistiques du mois",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-08-02T19:47:47+00:00"
+  },
+  {
+    "id": "719ee47f-2f28-437e-81c8-fd3237ea7918",
+    "user_id": "c7cbf5bb-9e0b-4bfe-b2cd-f71fb1f66954",
+    "title": "Appeler le service informatique",
+    "source": "inbox",
+    "due_date": null,
+    "priority": "medium",
+    "status": "active",
+    "category": "follow_up",
+    "created_at": "2026-08-04T10:50:50+00:00"
+  }
+]
