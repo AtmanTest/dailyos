@@ -7,7 +7,7 @@ let journalState = {
   dateTo: ''
 };
 
-async function renderJournalPage() {
+async function renderJournalPage(focusHint) {
   const app = document.getElementById('app');
   store.setState({ loading: true });
   app.innerHTML = renderLoading();
@@ -69,6 +69,45 @@ async function renderJournalPage() {
     let html = `
       <div class="section">
         <h1 class="section-title">📖 Journal</h1>
+      </div>
+
+      <!-- Entry form -->
+      <div class="card mb-6">
+        <div class="card-header">
+          <div class="card-title">Nouvelle entrée</div>
+        </div>
+        <div class="card-body">
+          <form id="journal-entry-form" onsubmit="submitJournalEntry(event)">
+            <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-2);flex-wrap:wrap">
+              <input type="date" id="journal-entry-date" value="${selDate}"
+                style="flex:1;min-width:140px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
+              <input type="text" id="journal-entry-time" placeholder="Heure" value="${getLocalTime()}"
+                style="flex:0 0 80px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
+              <select id="journal-entry-type"
+                style="flex:0 0 130px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
+                <option value="note">Note</option>
+                <option value="morning">Matin</option>
+                <option value="afternoon">Après-midi</option>
+                <option value="evening">Soirée</option>
+                <option value="reflection">Réflexion</option>
+                <option value="event">Événement</option>
+                <option value="mood">Humeur</option>
+              </select>
+            </div>
+            <textarea id="journal-entry-content" rows="4" placeholder="Qu'as-tu fait ? Comment te sens-tu ?"
+              style="width:100%;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm);resize:vertical">${focusHint || ''}</textarea>
+            <div style="display:flex;gap:var(--space-2);margin-top:var(--space-2);flex-wrap:wrap">
+              <input type="text" id="journal-entry-tags" placeholder="Tags (séparés par des virgules)"
+                style="flex:1;min-width:120px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
+              <input type="number" id="journal-entry-mood" min="1" max="5" placeholder="Humeur 1-5"
+                style="flex:0 0 120px;padding:var(--space-2);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);font-size:var(--font-size-sm)">
+              <button type="submit"
+                style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer;font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)">
+                Publier
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <!-- Calendar -->
@@ -215,6 +254,52 @@ function changeMonth(delta) {
   current.setMonth(current.getMonth() + delta);
   journalState.selectedDate = current.toISOString().split('T')[0];
   renderJournalPage();
+}
+
+/**
+ * Submit a journal entry from the form
+ */
+async function submitJournalEntry(event) {
+  event.preventDefault();
+
+  const content = document.getElementById('journal-entry-content');
+  const dateInput = document.getElementById('journal-entry-date');
+  const timeInput = document.getElementById('journal-entry-time');
+  const typeSelect = document.getElementById('journal-entry-type');
+  const tagsInput = document.getElementById('journal-entry-tags');
+  const moodInput = document.getElementById('journal-entry-mood');
+
+  if (!content || !content.value.trim()) {
+    showToast('Écris quelque chose', 'warning');
+    content?.focus();
+    return;
+  }
+
+  const tags = tagsInput?.value
+    ? tagsInput.value.split(',').map(t => t.trim()).filter(Boolean)
+    : [];
+
+  const mood = moodInput?.value ? parseFloat(moodInput.value) : null;
+
+  const newEntry = {
+    date: dateInput?.value || getTodayISO(),
+    time: timeInput?.value || getLocalTime(),
+    type: typeSelect?.value || 'note',
+    content: content.value.trim(),
+    tags: tags,
+    mood_score: (mood >= 1 && mood <= 5) ? mood : null
+  };
+
+  try {
+    await addEntry(newEntry);
+    content.value = '';
+    if (tagsInput) tagsInput.value = '';
+    if (moodInput) moodInput.value = '';
+    showToast('Entrée publiée ✓', 'success');
+    renderJournalPage();
+  } catch (e) {
+    showToast('Erreur: ' + e.message, 'error');
+  }
 }
 
 function filterJournal(event) {
