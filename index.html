@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f0f13">
+  <meta name="description" content="DailyOS — Votre système d'exploitation quotidien">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>DailyOS</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <!-- Scripts (order matters) -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/demo-data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/router.js"></script>
+  <script src="assets/js/pages/today.js"></script>
+  <script src="assets/js/pages/journal.js"></script>
+  <script src="assets/js/pages/ideas.js"></script>
+  <script src="assets/js/pages/reminders.js"></script>
+  <script src="assets/js/pages/insights.js"></script>
+  <script src="assets/js/pages/settings.js"></script>
+  <script src="assets/js/app.js"></script>
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Header (rendered by JS) -->
+    <div id="app-header"></div>
+
+    <!-- Sidebar (rendered by JS) -->
+    <div id="app-sidebar"></div>
+
+    <!-- Main content -->
+    <main id="app" class="main-content" role="main">
+      <noscript>
+        <div class="noscript-msg">
+          <h2>DailyOS nécessite JavaScript</h2>
+          <p>Veuillez activer JavaScript pour utiliser cette application.</p>
+        </div>
+      </noscript>
+    </main>
+  </div>
+
+  <!-- Bottom nav (rendered by JS) -->
+  <div id="app-bottom-nav"></div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Service worker registration stub -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {
+          // Silent fail
+        });
+      });
+    }
+  </script>
+</body>
+</html>
