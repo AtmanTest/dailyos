@@ -14,6 +14,29 @@ function initApp() {
   const theme = store.getState('theme');
   applyTheme(theme);
 
+  // Initialize auth listener (detect Google OAuth redirect & session)
+  initAuthListener();
+  document.addEventListener('auth-changed', (e) => {
+    const { user, event } = e.detail;
+    if (event === 'INIT') {
+      // Session restored from hash fragment on page load
+    }
+    if (user) {
+      // Sync local data on first detection
+      if (event !== 'SIGNED_OUT') {
+        try { window.syncLocalToSupabase(); } catch (e) {}
+      }
+    }
+    // Re-render current page to reflect auth state
+    const current = store.getState('currentPage');
+    const routeMap = {
+      today: renderTodayPage, journal: renderJournalPage,
+      ideas: renderIdeasPage, reminders: renderRemindersPage,
+      insights: renderInsightsPage, settings: renderSettingsPage
+    };
+    if (routeMap[current]) routeMap[current]();
+  });
+
   // Register routes
   router.register('#/today', renderTodayPage);
   router.register('#/journal', renderJournalPage);
