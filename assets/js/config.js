@@ -6,8 +6,8 @@ const APP_CONFIG = {
   DEMO_MODE: true,
   TIMEZONE: 'Europe/Paris',
   SUPABASE_CONFIG: {
-    url: '',
-    anonKey: ''
+    url: 'https://wlxtulibsipesxpwkhyz.supabase.co',
+    anonKey: 'eyJhbG...AnL8'
   },
   API_ENDPOINTS: {
     entries: '/api/entries',
