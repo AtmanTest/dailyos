@@ -93,14 +93,14 @@
 
 ---
 
-## Ce qui RESTE à configurer (dashboards uniquement, pas de code)
+## Configuration dashboard ✅
 
-### Google OAuth
-1. **Google Cloud Console** → Créer identifiants OAuth 2.0
-   - Origines JS : `https://atmantest.github.io`
-   - URI de redirection : `https://wlxtulibsipesxpwkhyz.supabase.co/auth/v1/callback`
-2. **Supabase Dashboard** → Authentication → Providers → Google
-   - Coller Client ID + Client Secret
+### Google OAuth ✅
+- ✅ Client ID + Secret créés dans Google Cloud Console
+- ✅ Client ID/Secret collés dans Supabase (provider activé)
+- ✅ URI de redirection : `https://wlxtulibsipesxpwkhyz.supabase.co/auth/v1/callback`
+- ✅ Origines JS : `https://atmantest.github.io`
+- ✅ Auto-confirm email activé
 
 ---
 
@@ -113,6 +113,7 @@
 - Maintenir la parité FR/EN dans `i18n.js` (la CI vérifie)
 - Ne jamais committer de vraies clés API (la CI scanne)
 - Mettre à jour `docs/test-plan.md` si tu ajoutes une feature
+- Vérifier le dernier commit SHA avant de modifier (Claude bosse aussi sur ce repo)
 
 ### À NE JAMAIS faire
 - Ne pas toucher à `.github/workflows/pages.yml` (déploiement GitHub Pages)
