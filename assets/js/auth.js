@@ -44,7 +44,7 @@ async function signInWithGoogle() {
   const supabase = await initSupabaseClient();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: window.location.origin }
+    options: { redirectTo: window.location.origin + '/dailyos' }
   });
   return { data, error };
 }
