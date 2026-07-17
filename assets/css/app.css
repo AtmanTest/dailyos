@@ -1021,6 +1021,22 @@ tr:hover td {
 }
 .page-settings .fab-quick-entry { display: none; }
 
+/* FAB quick entry modal */
+.quick-entry-modal .modal-content .quick-entry-input {
+  width: 100%;
+  min-height: 80px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  resize: vertical;
+}
+.quick-entry-modal .modal-content .quick-entry-input::placeholder {
+  color: var(--color-text-muted);
+}
+
 /* Quick moods */
 .quick-moods-bar {
   display: flex;
