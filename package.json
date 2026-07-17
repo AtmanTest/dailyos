@@ -1,0 +1,13 @@
+{
+  "name": "dailyos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DailyOS — Votre système d'exploitation quotidien",
+  "scripts": {
+    "serve": "python3 -m http.server 8080",
+    "test": "echo \"Tests à implémenter\" && exit 0"
+  },
+  "keywords": ["journal", "productivity", "daily", "dashboard"],
+  "author": "",
+  "license": "MIT"
+}
