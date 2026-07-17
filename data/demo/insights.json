@@ -1,0 +1,57 @@
+[
+  {
+    "type": "metrics_overview",
+    "observation": "Analyse sur 1 jours : humeur moyenne à 6.2/10, énergie à 5.7/10.",
+    "hypothesis": null,
+    "confidence": "high",
+    "source_entry_ids": [
+      "2026-07-17"
+    ],
+    "period_start": "2026-07-17",
+    "period_end": "2026-07-17"
+  },
+  {
+    "type": "productivity",
+    "observation": "15 actions complétées, 10 idées capturées sur la période.",
+    "hypothesis": null,
+    "confidence": "high",
+    "source_entry_ids": [
+      "2026-07-17"
+    ],
+    "period_start": "2026-07-17",
+    "period_end": "2026-07-17"
+  },
+  {
+    "type": "pattern",
+    "observation": "Tendance observée : les jours avec plus d'actions complétées montrent un niveau d'énergie légèrement plus élevé.",
+    "hypothesis": "L'accomplissement de tâches peut influencer positivement le niveau d'énergie perçue.",
+    "confidence": "moderate",
+    "source_entry_ids": [
+      "2026-07-17"
+    ],
+    "period_start": "2026-07-17",
+    "period_end": "2026-07-17"
+  },
+  {
+    "type": "pattern",
+    "observation": "Les jours avec des idées notées ont une humeur légèrement supérieure à la moyenne.",
+    "hypothesis": "La capture d'idées est corrélée à un état d'esprit plus créatif.",
+    "confidence": "moderate",
+    "source_entry_ids": [
+      "2026-07-17"
+    ],
+    "period_start": "2026-07-17",
+    "period_end": "2026-07-17"
+  },
+  {
+    "type": "observation",
+    "observation": "2.0 moment(s) marquant(s) identifié(s) en moyenne par jour.",
+    "hypothesis": "Noter les moments positifs peut aider à maintenir une perspective équilibrée.",
+    "confidence": "low",
+    "source_entry_ids": [
+      "2026-07-17"
+    ],
+    "period_start": "2026-07-17",
+    "period_end": "2026-07-17"
+  }
+]
