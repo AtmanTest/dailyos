@@ -167,7 +167,7 @@ function openQuickEntry() {
     const entry = {
       id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
       type: type,
-      text: text,
+      content: text,
       date: getTodayISO(),
       time: new Date().toISOString(),
       timestamp: Date.now()
