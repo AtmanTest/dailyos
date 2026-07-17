@@ -1,13 +1,18 @@
 {
   "name": "dailyos",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "DailyOS — Votre système d'exploitation quotidien",
+  "description": "Daily ADHD — Journal personnel con\u00e7u pour les cerveaux TDAH",
   "scripts": {
     "serve": "python3 -m http.server 8080",
-    "test": "echo \"Tests à implémenter\" && exit 0"
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui"
   },
-  "keywords": ["journal", "productivity", "daily", "dashboard"],
+  "keywords": ["journal", "adhd", "tdah", "productivity", "daily"],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.45.0"
+  }
 }
