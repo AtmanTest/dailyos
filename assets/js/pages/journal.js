@@ -323,6 +323,7 @@ async function renderJournalPage(focusHint) {
 
     store.setState({ loading: false });
     app.innerHTML = html;
+    if (typeof applyLang === 'function') applyLang(app);
     updateNav();
 
   } catch (error) {

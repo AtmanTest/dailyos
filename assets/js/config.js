@@ -1,8 +1,8 @@
 /* ===== DailyOS Configuration ===== */
 const APP_CONFIG = {
-  APP_NAME: 'DailyOS',
-  VERSION: '0.1.0',
-  BUILD_DATE: '2025-07-17',
+  APP_NAME: 'Daily TDAH',
+  VERSION: '0.2.0',
+  BUILD_DATE: '2026-07-18',
   DEMO_MODE: true,
   TIMEZONE: 'Europe/Paris',
   SUPABASE_CONFIG: {
@@ -23,11 +23,11 @@ const APP_CONFIG = {
   },
   DATA_RETENTION_DAYS: 90,
   NAV_ITEMS: [
-    { id: 'today', label: "Aujourd'hui", icon: 'calendar', hash: '#/today' },
-    { id: 'journal', label: 'Journal', icon: 'book', hash: '#/journal' },
-    { id: 'ideas', label: 'Idées', icon: 'lightbulb', hash: '#/ideas' },
-    { id: 'reminders', label: 'Rappels', icon: 'bell', hash: '#/reminders' },
-    { id: 'insights', label: 'Insights', icon: 'chart', hash: '#/insights' },
-    { id: 'settings', label: 'Réglages', icon: 'settings', hash: '#/settings' }
+    { id: 'today', navKey: 'nav_today', icon: 'calendar', hash: '#/today' },
+    { id: 'journal', navKey: 'nav_journal', icon: 'book', hash: '#/journal' },
+    { id: 'ideas', navKey: 'nav_ideas', icon: 'lightbulb', hash: '#/ideas' },
+    { id: 'reminders', navKey: 'nav_reminders', icon: 'bell', hash: '#/reminders' },
+    { id: 'insights', navKey: 'nav_insights', icon: 'chart', hash: '#/insights' },
+    { id: 'settings', navKey: 'nav_settings', icon: 'settings', hash: '#/settings' }
   ]
 };

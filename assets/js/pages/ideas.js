@@ -144,6 +144,7 @@ async function renderIdeasPage() {
 
     store.setState({ loading: false });
     app.innerHTML = html;
+    if (typeof applyLang === 'function') applyLang(app);
     updateNav();
 
   } catch (error) {

@@ -52,6 +52,7 @@ function createStore(initialState) {
 const store = createStore({
   currentPage: 'today',
   theme: 'dark',
+  lang: (typeof localStorage !== 'undefined' && localStorage.getItem('dailyos_lang')) || 'fr',
   entries: [],
   summaries: [],
   ideas: [],

@@ -252,6 +252,7 @@ async function renderSettingsPage() {
 
     store.setState({ loading: false });
     app.innerHTML = html;
+    if (typeof applyLang === 'function') applyLang(app);
     updateNav();
 
     // Check auth status

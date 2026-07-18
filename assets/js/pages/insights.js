@@ -63,6 +63,7 @@ async function renderInsightsPage() {
       );
       store.setState({ loading: false });
       app.innerHTML = html;
+    if (typeof applyLang === 'function') applyLang(app);
       updateNav();
       return;
     }
@@ -238,6 +239,7 @@ async function renderInsightsPage() {
 
     store.setState({ loading: false });
     app.innerHTML = html;
+    if (typeof applyLang === 'function') applyLang(app);
     updateNav();
 
     // Render charts after DOM is updated

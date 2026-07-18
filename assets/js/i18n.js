@@ -122,6 +122,7 @@ const TRANSLATIONS = {
     insights_no_data: 'Pas assez de données pour des patterns (minimum 5 jours).',
     // Settings
     settings_profile: 'Profil',
+    settings_settings: 'Réglages',
     settings_appearance: 'Apparence',
     settings_theme: 'Thème',
     settings_data: 'Données',
@@ -389,6 +390,7 @@ const TRANSLATIONS = {
     settings_lang_fr: 'Français',
     settings_lang_en: 'English',
     settings_adhd_profile: 'ADHD Profile',
+    settings_settings: 'Settings',
     settings_name: 'Display name',
     settings_name: 'Display name',
     settings_name_placeholder: 'Your name',
@@ -492,6 +494,214 @@ const TRANSLATIONS = {
   }
 };
 
+const EXTRA_I18N = {
+  actions_done: { fr: `Actions faites`, en: `Actions done` },
+  adhd_patterns_title: { fr: `Patterns TDAH`, en: `ADHD Patterns` },
+  all: { fr: `Tous`, en: `All` },
+  all_categories: { fr: `Toutes catégories`, en: `All categories` },
+  all_entries: { fr: `Toutes les entrées`, en: `All entries` },
+  all_statuses: { fr: `Tous les statuts`, en: `All statuses` },
+  all_summaries: { fr: `Tous les résumés`, en: `All summaries` },
+  all_tags: { fr: `Tous les tags`, en: `All tags` },
+  avg_energy: { fr: `Énergie moy.`, en: `Avg energy` },
+  avg_mood: { fr: `Humeur moy.`, en: `Avg mood` },
+  avg_satisfaction: { fr: `Satisfaction`, en: `Avg satisfaction` },
+  blockers: { fr: `Bloqueurs`, en: `Blockers` },
+  cancel: { fr: `Annuler`, en: `Cancel` },
+  cat_action: { fr: `Action`, en: `Action` },
+  cat_follow_up: { fr: `Suivi`, en: `Follow-up` },
+  cat_open_loop: { fr: `Boucle ouverte`, en: `Open loop` },
+  cat_review: { fr: `Revue`, en: `Review` },
+  change_status: { fr: `Changer le statut`, en: `Change status` },
+  complete: { fr: `Terminer`, en: `Complete` },
+  completed_on: { fr: `Terminé le`, en: `Completed on` },
+  confidence: { fr: `Confiance`, en: `Confidence` },
+  days: { fr: `jours`, en: `days` },
+  demo_mode_off: { fr: `Mode réel activé — configurez Supabase dans config.js`, en: `Real mode activated — configure Supabase in config.js` },
+  demo_mode_on: { fr: `Mode démo activé`, en: `Demo mode activated` },
+  empty_days: { fr: `Jours sans entrée`, en: `Empty days` },
+  empty_days_hint: { fr: `Jours sans entrée cette semaine`, en: `Days without entry this week` },
+  energy: { fr: `Énergie`, en: `Energy` },
+  energy_levels: { fr: `Niveau d'énergie`, en: `Energy levels` },
+  energy_pattern: { fr: `Énergie jours gagnés`, en: `Win-day energy` },
+  entries: { fr: `entrées`, en: `entries` },
+  entries_of_type: { fr: `Entrées`, en: `Entries` },
+  entry_published: { fr: `Entrée publiée ✓`, en: `Entry published` },
+  entry_type_filter: { fr: `Filtrer par type`, en: `Filter by type` },
+  error_prefix: { fr: `Erreur: `, en: `Error: ` },
+  filter_by_category: { fr: `Filtrer par catégorie`, en: `Filter by category` },
+  filter_by_status: { fr: `Filtrer par statut`, en: `Filter by status` },
+  filter_by_tag: { fr: `Filtrer par tag`, en: `Filter by tag` },
+  frequent_type: { fr: `Type le plus fréquent`, en: `Most frequent type` },
+  highlights: { fr: `Points forts`, en: `Highlights` },
+  idea_active: { fr: `Actif`, en: `Active` },
+  idea_archive: { fr: `Archive`, en: `Archive` },
+  idea_explore: { fr: `Explore`, en: `Explore` },
+  idea_inbox: { fr: `Boîte`, en: `Inbox` },
+  idea_inprogress: { fr: `En cours`, en: `In progress` },
+  idea_parked: { fr: `Parked`, en: `Parked` },
+  idea_status_active: { fr: `Actif`, en: `Active` },
+  idea_status_archived: { fr: `Archivé`, en: `Archived` },
+  idea_status_exploring: { fr: `En exploration`, en: `Exploring` },
+  idea_status_inbox: { fr: `Boîte de réception`, en: `Inbox` },
+  idea_status_inprogress: { fr: `En cours`, en: `In progress` },
+  idea_status_parked: { fr: `En attente`, en: `Parked` },
+  idea_updated: { fr: `Idée mise à jour`, en: `Idea updated` },
+  ideas: { fr: `idée`, en: `idea` },
+  ideas_capture_eclair: { fr: `Capture éclair`, en: `Lightning capture` },
+  ideas_captured: { fr: `Idées captur.`, en: `Ideas captured` },
+  ideas_load_error: { fr: `Erreur lors du chargement des idées.`, en: `Error loading ideas.` },
+  ideas_this_week: { fr: `Idées cette semaine`, en: `Ideas this week` },
+  ideas_this_week_hint: { fr: `Idées capturées cette semaine`, en: `Ideas captured this week` },
+  ideas_title: { fr: `Idées`, en: `Ideas` },
+  insights_continue_hint: { fr: `Continuez à journaliser pour découvrir des patterns personnalisés.`, en: `Keep journaling to discover personalized patterns.` },
+  insights_load_error: { fr: `Erreur lors du chargement des insights.`, en: `Error loading insights.` },
+  insights_no_data: { fr: `Pas assez de données pour générer des insights`, en: `Not enough data to generate insights` },
+  insights_no_data_hint: { fr: `Continuez à journaliser pour débloquer vos insights personnalisés.`, en: `Keep journaling to unlock your personalized insights.` },
+  insights_title: { fr: `Insights`, en: `Insights` },
+  journal_load_error: { fr: `Erreur lors du chargement du journal.`, en: `Error loading journal.` },
+  journal_mood_placeholder: { fr: `Humeur 1-5`, en: `Mood 1-5` },
+  journal_new_entry: { fr: `Nouvelle entrée`, en: `New entry` },
+  journal_placeholder: { fr: `Qu'as-tu fait ? Comment te sens-tu ?`, en: `What did you do? How do you feel?` },
+  journal_publish: { fr: `Publier`, en: `Publish` },
+  journal_tags_placeholder: { fr: `Tags (séparés par des virgules)`, en: `Tags (comma separated)` },
+  journal_time: { fr: `Heure`, en: `Time` },
+  journal_title: { fr: `Journal`, en: `Journal` },
+  journal_write_something: { fr: `Écris quelque chose`, en: `Write something` },
+  lessons: { fr: `Leçons`, en: `Lessons` },
+  load_more: { fr: `Load more`, en: `Load more` },
+  months: { fr: `mois`, en: `months` },
+  mood: { fr: `Humeur`, en: `Mood` },
+  mood_evolution: { fr: `Évolution de l'humeur`, en: `Mood evolution` },
+  next_action: { fr: `Next action`, en: `Next action` },
+  next_action_placeholder: { fr: `What's the next step?`, en: `What's the next step?` },
+  next_month: { fr: `Mois suivant`, en: `Next month` },
+  next_review: { fr: `Prochaine revue`, en: `Next review` },
+  no_data: { fr: `Pas assez de données`, en: `Not enough data` },
+  no_entries: { fr: `Aucune entrée`, en: `No entries` },
+  no_entries_hint: { fr: `Créez votre première entrée ci-dessus.`, en: `Create your first entry above.` },
+  no_ideas: { fr: `Aucune idée pour le moment`, en: `No ideas yet` },
+  no_ideas_hint: { fr: `Capturez vos premières idées pour les voir apparaître ici.`, en: `Capture your first ideas to see them here.` },
+  no_summaries_found: { fr: `Aucun résumé trouvé`, en: `No summaries found` },
+  no_summaries_hint: { fr: `Essayez d'ajuster vos filtres de recherche.`, en: `Try adjusting your search filters.` },
+  no_summary: { fr: `Aucun résumé pour cette date`, en: `No summary for this date` },
+  no_summary_hint: { fr: `Sélectionnez une autre date ou créez une entrée.`, en: `Select another date or create an entry.` },
+  non_win_days: { fr: `Autres`, en: `Others` },
+  overdue: { fr: `En retard`, en: `Overdue` },
+  patterns_detected: { fr: `Patterns détectés`, en: `Patterns detected` },
+  period_30d: { fr: `30 jours`, en: `30 days` },
+  period_7d: { fr: `7 jours`, en: `7 days` },
+  period_90d: { fr: `90 jours`, en: `90 days` },
+  prev_month: { fr: `Mois précédent`, en: `Previous month` },
+  privacy_cookies: { fr: `Aucun cookie tiers n'est utilisé`, en: `No third-party cookies are used` },
+  privacy_demo: { fr: `Le mode démo utilise des données fictives qui ne vous identifient pas`, en: `Demo mode uses fictional data that does not identify you` },
+  privacy_export: { fr: `Vous pouvez exporter ou supprimer toutes vos données à tout moment`, en: `You can export or delete all your data at any time` },
+  privacy_local: { fr: `Toutes les données sont stockées localement dans votre navigateur`, en: `All data is stored locally in your browser` },
+  privacy_no_external: { fr: `Aucune donnée n'est envoyée à des serveurs externes sans votre consentement`, en: `No data is sent to external servers without your consent` },
+  productive_hours: { fr: `Heures productives`, en: `Productive hours` },
+  productive_hours_hint: { fr: `Moments où tu écris le plus`, en: `Moments when you write the most` },
+  reactivate: { fr: `Réactiver`, en: `Reactivate` },
+  reminder_active: { fr: `Actif`, en: `Active` },
+  reminder_cancelled: { fr: `Annulé`, en: `Cancelled` },
+  reminder_cancelled_msg: { fr: `Rappel annulé`, en: `Reminder cancelled` },
+  reminder_completed: { fr: `Rappel marqué comme terminé ✓`, en: `Reminder completed` },
+  reminder_done: { fr: `Terminé`, en: `Done` },
+  reminder_reactivated: { fr: `Rappel réactivé`, en: `Reminder reactivated` },
+  reminder_snoozed: { fr: `Reporté`, en: `Snoozed` },
+  reminder_snoozed_msg: { fr: `Rappel reporté de`, en: `Reminder snoozed for` },
+  reminders_all_clear: { fr: `Tout est en ordre ✓`, en: `All clear` },
+  reminders_cancelled_section: { fr: `Annulés`, en: `Cancelled` },
+  reminders_done_section: { fr: `Terminés`, en: `Done` },
+  reminders_due_now: { fr: `À faire maintenant`, en: `Due now` },
+  reminders_empty_hint: { fr: `Aucun rappel à afficher avec les filtres actuels.`, en: `No reminders to show with current filters.` },
+  reminders_load_error: { fr: `Erreur lors du chargement des rappels.`, en: `Error loading reminders.` },
+  reminders_snoozed_section: { fr: `Reportés`, en: `Snoozed` },
+  reminders_tab_all: { fr: `All`, en: `All` },
+  reminders_tab_today: { fr: `Today`, en: `Today` },
+  reminders_tab_week: { fr: `This week`, en: `This week` },
+  reminders_title: { fr: `Rappels`, en: `Reminders` },
+  reminders_upcoming: { fr: `À venir`, en: `Upcoming` },
+  satisfaction: { fr: `Satisfaction`, en: `Satisfaction` },
+  satisfaction_abbr: { fr: `Sat.`, en: `Sat.` },
+  search_placeholder: { fr: `Rechercher...`, en: `Search...` },
+  settings_about: { fr: `À propos`, en: `About` },
+  settings_about_desc: { fr: `DailyOS — Votre système d'exploitation quotidien. Toutes les données restent sur votre appareil.`, en: `DailyOS — Your daily operating system. All data stays on your device.` },
+  settings_adhd_profile: { fr: `ADHD Profile`, en: `ADHD Profile` },
+  settings_appearance: { fr: `Apparence`, en: `Appearance` },
+  settings_bedtime: { fr: `Bedtime`, en: `Bedtime` },
+  settings_build_date: { fr: `Date de build`, en: `Build date` },
+  settings_checking: { fr: `Vérification...`, en: `Checking...` },
+  settings_clear_confirm: { fr: `Êtes-vous sûr de vouloir continuer ?`, en: `Are you sure you want to continue?` },
+  settings_clear_data: { fr: `Effacer toutes les données locales`, en: `Clear all local data` },
+  settings_clear_title: { fr: `Effacer toutes les données`, en: `Clear all data` },
+  settings_clear_warning: { fr: `Cette action est <strong>irréversible</strong>. Toutes vos entrées, résumés, idées, rappels et préférences seront définitivement supprimés.`, en: `This action is <strong>irreversible</strong>. All your entries, summaries, ideas, reminders and preferences will be permanently deleted.` },
+  settings_clear_yes: { fr: `Oui, tout effacer`, en: `Yes, delete everything` },
+  settings_cleared: { fr: `Toutes les données ont été effacées`, en: `All data has been cleared` },
+  settings_connected: { fr: `Connecté`, en: `Connected` },
+  settings_danger_desc: { fr: `Ces actions sont irréversibles. Toutes les données locales seront effacées.`, en: `These actions are irreversible. All local data will be erased.` },
+  settings_danger_zone: { fr: `Zone dangereuse`, en: `Danger zone` },
+  settings_data: { fr: `Données`, en: `Data` },
+  settings_demo_hint: { fr: `Utiliser des données de démonstration`, en: `Use demo data` },
+  settings_demo_mode: { fr: `Mode démo`, en: `Demo mode` },
+  settings_demo_warning: { fr: `Les données ne sont pas persistées en mode démo.`, en: `Data is not persisted in demo mode.` },
+  settings_display_name: { fr: `Display name`, en: `Display name` },
+  settings_display_name_placeholder: { fr: `How should we call you?`, en: `How should we call you?` },
+  settings_export: { fr: `Exporter les données (JSON)`, en: `Export data (JSON)` },
+  settings_exported: { fr: `Données exportées ✓`, en: `Data exported` },
+  settings_language: { fr: `Langue`, en: `Language` },
+  settings_language_label: { fr: `Langue de l'interface`, en: `Interface language` },
+  settings_load_error: { fr: `Erreur lors du chargement des réglages.`, en: `Error loading settings.` },
+  settings_login: { fr: `Se connecter`, en: `Sign in` },
+  settings_logout: { fr: `Déconnexion`, en: `Sign out` },
+  settings_medication_note: { fr: `Médication / Notes`, en: `Medication / Notes` },
+  settings_medication_placeholder: { fr: `Medication schedule, dosages, notes...`, en: `Medication schedule, dosages, notes...` },
+  settings_name: { fr: `Nom`, en: `Name` },
+  settings_name_placeholder: { fr: `Votre nom`, en: `Your name` },
+  settings_not_connected: { fr: `Non connecté`, en: `Not connected` },
+  settings_privacy: { fr: `Confidentialité`, en: `Privacy` },
+  settings_profile: { fr: `Profil`, en: `Profile` },
+  settings_retention: { fr: `Rétention des données`, en: `Data retention` },
+  settings_saved: { fr: `Paramètre enregistré`, en: `Setting saved` },
+  settings_supabase: { fr: `Connexion Supabase`, en: `Supabase Connection` },
+  settings_sync: { fr: `Synchronisation`, en: `Sync` },
+  settings_sync_done: { fr: `Sync terminé`, en: `Sync complete` },
+  settings_sync_error: { fr: `Erreur de synchronisation`, en: `Sync error` },
+  settings_sync_hint: { fr: `État de la synchronisation Supabase`, en: `Supabase sync status` },
+  settings_sync_now: { fr: `Sync now`, en: `Sync now` },
+  settings_sync_partial: { fr: `Sync partiel`, en: `Partial sync` },
+  settings_sync_pending: { fr: `en attente`, en: `pending` },
+  settings_synced: { fr: `Synchronisé`, en: `Synced` },
+  settings_syncing: { fr: `Syncing...`, en: `Syncing...` },
+  settings_theme: { fr: `Thème`, en: `Theme` },
+  settings_timezone: { fr: `Timezone`, en: `Timezone` },
+  settings_title: { fr: `Réglages`, en: `Settings` },
+  settings_version: { fr: `Version`, en: `Version` },
+  snooze_1d: { fr: `+1d`, en: `+1d` },
+  snooze_1h: { fr: `+1h`, en: `+1h` },
+  snooze_3d: { fr: `+3d`, en: `+3d` },
+  theme_dark: { fr: `Sombre`, en: `Dark` },
+  theme_light: { fr: `Clair`, en: `Light` },
+  theme_system: { fr: `Système`, en: `System` },
+  theme_updated: { fr: `Thème mis à jour`, en: `Theme updated` },
+  tomorrow_focus: { fr: `Focus demain`, en: `Tomorrow's focus` },
+  type_afternoon: { fr: `Après-midi`, en: `Afternoon` },
+  type_evening: { fr: `Soirée`, en: `Evening` },
+  type_event: { fr: `Événement`, en: `Event` },
+  type_mood: { fr: `Humeur`, en: `Mood` },
+  type_morning: { fr: `Matin`, en: `Morning` },
+  type_note: { fr: `Note`, en: `Note` },
+  type_reflection: { fr: `Réflexion`, en: `Reflection` },
+  win_days: { fr: `Jours gagnés`, en: `Win days` },
+  year: { fr: `an`, en: `year` },
+};
+
+// Merge EXTRA_I18N into TRANSLATIONS (fr + en)
+Object.keys(EXTRA_I18N).forEach(k => {
+  const o = EXTRA_I18N[k];
+  if (!TRANSLATIONS.fr[k]) TRANSLATIONS.fr[k] = o.fr;
+  if (!TRANSLATIONS.en[k]) TRANSLATIONS.en[k] = o.en;
+});
+
 function t(key, vars) {
   const lang = localStorage.getItem('dailyos_lang') || 'fr';
   let str = (TRANSLATIONS[lang] && TRANSLATIONS[lang][key])
@@ -519,4 +729,139 @@ function refreshLang() {
   const lang = localStorage.getItem('dailyos_lang') || 'fr';
   document.documentElement.lang = lang;
 }
+
+/**
+ * Switch interface language, persist it, and re-render the whole shell + current page.
+ */
+async function setLang(lang) {
+  if (lang !== 'fr' && lang !== 'en') return;
+  localStorage.setItem('dailyos_lang', lang);
+  if (typeof store !== 'undefined') store.setState({ lang });
+  refreshLang();
+  const header = document.getElementById('app-header');
+  if (header) header.innerHTML = renderHeader();
+  const sidebar = document.getElementById('app-sidebar');
+  if (sidebar) sidebar.innerHTML = renderSidebar();
+  const bottomNav = document.getElementById('app-bottom-nav');
+  if (bottomNav) bottomNav.outerHTML = renderBottomNav();
+  const current = (typeof store !== 'undefined') ? store.getState('currentPage') : 'today';
+  const routeMap = {
+    today: renderTodayPage, journal: renderJournalPage,
+    ideas: renderIdeasPage, reminders: renderRemindersPage,
+    insights: renderInsightsPage, settings: renderSettingsPage
+  };
+  if (routeMap[current]) await routeMap[current]();
+}
+window.setLang = setLang;
+
+/**
+ * Auto-translation layer: replaces visible French strings with their English
+ * equivalent when the active language is English. This covers hardcoded UI
+ * labels in the page templates without rewriting every template string.
+ */
+const FR_TO_EN = {
+  'Ajouter une entrée': 'Add entry',
+  'Scores du jour': "Today's scores",
+  'Humeur': 'Mood',
+  'Énergie': 'Energy',
+  'Stress': 'Stress',
+  'Clarté': 'Clarity',
+  'Satisfaction': 'Satisfaction',
+  'Points forts': 'Strengths',
+  'Actions': 'Actions',
+  'Terminées': 'Completed',
+  'En cours': 'In progress',
+  'Bloqué': 'Blocked',
+  'Événements': 'Events',
+  'Leçons du jour': "Today's lessons",
+  'Focus demain': "Tomorrow's focus",
+  'Idées du jour': "Today's ideas",
+  'Humeur rapide': 'Quick mood',
+  'Chronologie': 'Timeline',
+  'Priorité de demain': 'Priority for tomorrow',
+  'Entrée complète': 'Full entry',
+  'Quoi de neuf aujourd\'hui ?': "What's new today?",
+  'Note ta victoire du jour...': 'Note your win of the day...',
+  'Enregistrer': 'Save',
+  'Win du jour': "Today's win",
+  'Type': 'Type',
+  'Date': 'Date',
+  'Heure': 'Time',
+  'Contenu': 'Content',
+  'Tags': 'Tags',
+  'Publier': 'Publish',
+  'Annuler': 'Cancel',
+  'Supprimer': 'Delete',
+  'Filtrer': 'Filter',
+  'Rechercher...': 'Search...',
+  'Tout': 'All',
+  'Aucune entrée. Écris quelque chose !': 'No entries. Write something!',
+  'Charger plus ↓': 'Load more ↓',
+  'Voir plus ↓': 'See more ↓',
+  'Statut': 'Status',
+  'Boîte de réception': 'Inbox',
+  'Archivé': 'Archived',
+  'Tag': 'Tag',
+  'Prochaine action': 'Next action',
+  'Aucune idée. Capture la première en un clic !': 'No ideas. Capture the first in one click!',
+  'Aujourd\'hui': 'Today',
+  'Cette semaine': 'This week',
+  'Tous': 'All',
+  'Aucun rappel. Prends une note rapide !': 'No reminders. Take a quick note!',
+  'Basse': 'Low',
+  'Moyenne': 'Medium',
+  'Haute': 'High',
+  'Patterns TDAH': 'ADHD Patterns',
+  '7 jours': '7 days',
+  '30 jours': '30 days',
+  '90 jours': '90 days',
+  'Matin': 'Morning',
+  'Après-midi': 'Afternoon',
+  'Soirée': 'Evening',
+  'Réflexion': 'Reflection',
+  'Événement': 'Event',
+  'Capturé': 'Captured',
+  'Suite': 'Follow-up',
+  'Heure (ex: 09:30)': 'Time (e.g. 09:30)',
+  'Quelle est ta priorité pour demain ?': 'What is your priority for tomorrow?',
+  'Dernière humeur:': 'Last mood:',
+  'Aucune donnée pour aujourd\'hui': 'No data for today',
+  'Commencez à journaliser pour voir votre journée ici.': 'Start journaling to see your day here.',
+  'Erreur lors du chargement de la page aujourd\'hui.': 'Error loading today’s page.',
+  'Langue de l\'interface': 'Interface language',
+  'Médication / Notes': 'Medication / Notes',
+  'Date de build': 'Build date',
+  'DailyOS — Votre système d\'exploitation quotidien. Toutes les données restent sur votre appareil.': 'DailyOS — Your daily operating system. All data stays on your device.',
+  'Ces actions sont irréversibles. Toutes les données locales seront effacées.': 'These actions are irreversible. All local data will be erased.',
+  'Effacer toutes les données locales': 'Clear all local data',
+  'Effacer toutes les données': 'Clear all data',
+  'Thème mis à jour': 'Theme updated',
+  'Mode démo activé': 'Demo mode activated',
+  'Données exportées ✓': 'Data exported ✓',
+  'Toutes les données ont été effacées': 'All data has been cleared',
+  'Cette action est <strong>irréversible</strong>. Toutes vos entrées, résumés, idées, rappels et préférences seront définitivement supprimés.': 'This action is <strong>irreversible</strong>. All your entries, summaries, ideas, reminders and preferences will be permanently deleted.'
+};
+
+function applyLang(root) {
+  try {
+    const lang = (typeof store !== 'undefined' && store.getState('lang')) || localStorage.getItem('dailyos_lang') || 'fr';
+    if (lang !== 'en' || !root) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    const texts = [];
+    let n;
+    while ((n = walker.nextNode())) {
+      const txt = n.nodeValue.trim();
+      if (txt && FR_TO_EN[txt]) texts.push({ node: n, txt, val: FR_TO_EN[txt] });
+    }
+    texts.forEach(({ node, txt, val }) => { node.nodeValue = node.nodeValue.replace(txt, val); });
+    root.querySelectorAll('[placeholder]').forEach(el => {
+      const p = el.getAttribute('placeholder');
+      if (FR_TO_EN[p]) el.setAttribute('placeholder', FR_TO_EN[p]);
+    });
+    root.querySelectorAll('option').forEach(el => {
+      if (FR_TO_EN[el.textContent.trim()]) el.textContent = FR_TO_EN[el.textContent.trim()];
+    });
+  } catch (e) { /* translation is best-effort */ }
+}
+window.applyLang = applyLang;
 window.refreshLang = refreshLang;

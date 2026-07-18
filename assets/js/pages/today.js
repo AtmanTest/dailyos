@@ -13,7 +13,8 @@ async function renderTodayPage() {
     store.setState({ entries, selectedDate: today });
 
     const dateFormatted = formatDate(today, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    const dayName = new Date(today + 'T12:00:00').toLocaleDateString('fr-FR', { weekday: 'long' });
+    const lang = store.getState('lang') || 'fr';
+    const dayName = new Date(today + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'fr-FR', { weekday: 'long' });
     const capitalizedDay = dayName.charAt(0).toUpperCase() + dayName.slice(1);
 
     // Load all entries for streak, wins, tomorrow focus (use merged demo+user data)
@@ -434,6 +435,7 @@ async function renderTodayPage() {
 
     store.setState({ loading: false });
     app.innerHTML = html;
+    if (typeof applyLang === 'function') applyLang(app);
     updateNav();
 
   } catch (error) {

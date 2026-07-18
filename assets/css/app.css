@@ -904,19 +904,25 @@ tr:hover td {
 }
 
 /* === Responsive === */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .sidebar {
     display: none;
   }
 
   .bottom-nav {
     display: block;
+    height: var(--bottom-nav-height);
   }
 
   .main-content {
     margin-left: 0;
-    margin-bottom: var(--bottom-nav-height);
+    margin-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
     padding: var(--space-4);
+  }
+
+  /* FAB must sit above the bottom nav, not overlap it */
+  .fab-quick-entry {
+    bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px) + var(--space-4));
   }
 
   .score-grid {
@@ -1192,12 +1198,8 @@ tr:hover td {
   background: rgba(16,185,129,0.08);
 }
 
-/* Bottom nav mobile redesign */
+/* Bottom nav item active indicator (mobile) */
 @media (max-width: 768px) {
-  .bottom-nav {
-    height: 64px !important;
-    display: block !important;
-  }
   .bottom-nav-inner {
     justify-content: center;
     gap: 0;
