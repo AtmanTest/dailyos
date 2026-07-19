@@ -49,6 +49,23 @@ async function signInWithGoogle() {
   return { data, error };
 }
 
+async function signInWithMagicLink(email) {
+  const supabase = await initSupabaseClient();
+  const { data, error } = await supabase.auth.signInWithOtp({
+    email,
+    options: { shouldCreateUser: true }
+  });
+  return { data, error };
+}
+
+async function resetPassword(email) {
+  const supabase = await initSupabaseClient();
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: window.location.origin + '/dailyos#/profile'
+  });
+  return { data, error };
+}
+
 async function signOut() {
   const supabase = await initSupabaseClient();
   await supabase.auth.signOut();
@@ -65,9 +82,11 @@ async function initAuthListener() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
         window._supabaseUser = session?.user || null;
+        store.setState({ user: session?.user || null });
         document.dispatchEvent(new CustomEvent('auth-changed', { detail: { user: session?.user, event } }));
       } else if (event === 'SIGNED_OUT') {
         window._supabaseUser = null;
+        store.setState({ user: null });
         document.dispatchEvent(new CustomEvent('auth-changed', { detail: { user: null, event } }));
       }
     });
@@ -76,6 +95,7 @@ async function initAuthListener() {
     const { data } = await supabase.auth.getSession();
     if (data?.session?.user) {
       window._supabaseUser = data.session.user;
+      store.setState({ user: data.session.user });
       document.dispatchEvent(new CustomEvent('auth-changed', { detail: { user: data.session.user, event: 'INIT' } }));
     }
   } catch (e) {
@@ -90,10 +110,32 @@ function renderAuthModal(mode) {
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
   overlay.id = 'auth-modal';
+
+  let title, btnLabel, altText, altAction, altLabel;
+  if (mode === 'login') {
+    title = '🔑 ' + T('auth_login', 'Connexion');
+    btnLabel = T('auth_login', 'Se connecter');
+    altText = T('auth_no_account', 'Pas encore de compte ?');
+    altAction = "switchAuthMode('signup')";
+    altLabel = T('auth_signup_link', "S'inscrire");
+  } else if (mode === 'signup') {
+    title = '📝 ' + T('auth_signup', 'Inscription');
+    btnLabel = T('auth_create_account', 'Créer mon compte');
+    altText = T('auth_have_account', 'Déjà un compte ?');
+    altAction = "switchAuthMode('login')";
+    altLabel = T('auth_login_link', 'Se connecter');
+  } else if (mode === 'forgot') {
+    title = '🔑 ' + T('auth_forgot_title', 'Mot de passe oublié');
+    btnLabel = T('auth_reset_send', 'Envoyer le lien');
+    altText = T('auth_back_to_login', 'Retour à la connexion');
+    altAction = "switchAuthMode('login')";
+    altLabel = T('auth_login_link', 'Se connecter');
+  }
+
   overlay.innerHTML = `
     <div class="modal" style="max-width:380px">
       <div class="modal-header">
-        <div class="modal-title">${mode === 'login' ? '🔑 ' + T('auth_login', 'Connexion') : '📝 ' + T('auth_signup', 'Inscription')}</div>
+        <div class="modal-title">${title}</div>
         <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">✕</button>
       </div>
       <div class="modal-body">
@@ -102,17 +144,28 @@ function renderAuthModal(mode) {
           <div class="form-group">
             <label class="form-label" for="auth-email">${T('auth_email', 'Email')}</label>
             <input class="form-input" type="email" id="auth-email" name="email" required
-              placeholder="vous@email.com" autocomplete="email">
+              placeholder="vous@email.com" autocomplete="${mode === 'login' ? 'email' : 'email'}">
           </div>
+          ${mode !== 'forgot' ? `
           <div class="form-group">
             <label class="form-label" for="auth-password">${T('auth_password', 'Mot de passe')}</label>
-            <input class="form-input" type="password" id="auth-password" name="password" required minlength="6"
-              placeholder="6 caractères minimum" autocomplete="${mode === 'login' ? 'current-password' : 'new-password'}">
+            <input class="form-input" type="password" id="auth-password" name="password" ${mode === 'signup' ? 'required minlength="6"' : 'required'} minlength="6"
+              placeholder="${mode === 'signup' ? '6 caractères minimum' : 'Votre mot de passe'}"
+              autocomplete="${mode === 'login' ? 'current-password' : 'new-password'}">
           </div>
+          ` : ''}
           <div id="auth-error" style="color:var(--color-error);font-size:var(--font-size-sm);margin-bottom:var(--space-2);display:none"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;padding:var(--space-3)">
-            ${mode === 'login' ? T('auth_login', 'Se connecter') : T('auth_create_account', 'Créer mon compte')}
+            ${btnLabel}
           </button>
+
+          ${mode === 'login' ? `
+          <div class="text-sm text-center mt-2">
+            <a href="#" onclick="switchAuthMode('forgot')" style="color:var(--color-text-muted);text-decoration:underline">${T('auth_forgot_password', 'Mot de passe oublié ?')}</a>
+          </div>
+          ` : ''}
+
+          ${mode !== 'forgot' ? `
           <div style="display:flex;align-items:center;gap:var(--space-2);margin:var(--space-3) 0">
             <hr style="flex:1;border:none;border-top:1px solid var(--color-border)">
             <span style="color:var(--color-text-muted);font-size:var(--font-size-sm)">${T('auth_or', 'ou')}</span>
@@ -121,11 +174,15 @@ function renderAuthModal(mode) {
           <button type="button" class="btn btn-secondary" onclick="handleGoogleSignIn()" style="width:100%;padding:var(--space-3)">
             🔵 ${mode === 'login' ? T('auth_continue_google', 'Continuer avec Google') : T('auth_signup_google', "S'inscrire avec Google")}
           </button>
+          ${mode === 'login' ? `
+          <button type="button" class="btn btn-secondary mt-2" onclick="handleMagicLink()" style="width:100%;padding:var(--space-3)">
+            ✉️ ${T('auth_magic_link', 'Envoyer un Magic Link')}
+          </button>
+          ` : ''}
+          ` : ''}
         </form>
         <div class="text-sm text-center mt-3" style="color:var(--color-text-muted)">
-          ${mode === 'login'
-            ? `${T('auth_no_account', 'Pas encore de compte ?')} <a href="#" onclick="switchAuthMode('signup')" style="color:var(--color-accent)">${T('auth_signup_link', "S'inscrire")}</a>`
-            : `${T('auth_have_account', 'Déjà un compte ?')} <a href="#" onclick="switchAuthMode('login')" style="color:var(--color-accent)">${T('auth_login_link', 'Se connecter')}</a>`}
+          ${altText} <a href="#" onclick="${altAction}" style="color:var(--color-accent)">${altLabel}</a>
         </div>
       </div>
     </div>
@@ -136,7 +193,6 @@ function renderAuthModal(mode) {
 
 function handleGoogleSignIn() {
   signInWithGoogle();
-  // OAuth redirects away, so we just close the modal
   document.getElementById('auth-modal')?.remove();
 }
 
@@ -146,32 +202,66 @@ function switchAuthMode(mode) {
   renderAuthModal(mode);
 }
 
+function setAuthError(message) {
+  const errorEl = document.getElementById('auth-error');
+  if (!errorEl) return;
+  const fn = window.getAuthErrorMessage || ((e) => e.message || e);
+  errorEl.textContent = fn(typeof message === 'object' ? message : { message });
+  errorEl.style.display = 'block';
+}
+
+async function handleMagicLink() {
+  const email = document.getElementById('auth-email')?.value?.trim();
+  if (!email) {
+    setAuthError({ message: 'Entre ton email' });
+    return;
+  }
+  const btn = document.querySelector('#auth-form button[type="button"]');
+  if (btn) { btn.disabled = true; btn.textContent = '✉️ Envoi...'; }
+
+  const result = await signInWithMagicLink(email);
+  if (result.error) {
+    setAuthError(result.error);
+  } else {
+    showToast('✉️ ' + (window.t ? window.t('auth_magic_sent') : 'Lien magique envoyé ! Vérifie ta boîte mail'), 'success');
+  }
+  if (btn) { btn.disabled = false; btn.textContent = '✉️ Magic Link'; }
+}
+
 async function handleAuth(event) {
   event.preventDefault();
   const form = event.target;
   const mode = form.mode.value;
   const email = form.email.value.trim();
-  const password = form.password.value;
+  const password = form.password?.value;
   const errorEl = document.getElementById('auth-error');
 
   errorEl.style.display = 'none';
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
-  submitBtn.textContent = mode === 'login' ? 'Connexion...' : 'Inscription...';
+  submitBtn.textContent = mode === 'login' ? 'Connexion...' : mode === 'forgot' ? 'Envoi...' : 'Inscription...';
 
   try {
     let result;
     if (mode === 'login') {
       result = await signIn(email, password);
+    } else if (mode === 'forgot') {
+      result = await resetPassword(email);
     } else {
       result = await signUp(email, password);
     }
 
     if (result.error) {
-      errorEl.textContent = result.error.message || 'Erreur inconnue';
-      errorEl.style.display = 'block';
+      setAuthError(result.error);
       submitBtn.disabled = false;
-      submitBtn.textContent = mode === 'login' ? 'Se connecter' : 'Créer mon compte';
+      submitBtn.textContent = mode === 'login' ? 'Se connecter' : mode === 'forgot' ? 'Envoyer le lien' : 'Créer mon compte';
+      return;
+    }
+
+    if (mode === 'forgot') {
+      showToast('✉️ ' + (window.t ? window.t('auth_reset_sent') : 'Lien de réinitialisation envoyé par email'), 'success');
+      const modal = document.getElementById('auth-modal');
+      if (modal) modal.remove();
       return;
     }
 
@@ -180,6 +270,12 @@ async function handleAuth(event) {
     if (modal) modal.remove();
 
     if (result.user) {
+      // Check if user needs email confirmation
+      if (mode === 'signup' && result.user?.identities?.length === 0) {
+        showToast('✉️ ' + (window.t ? window.t('auth_check_email') : 'Email de confirmation envoyé'), 'info');
+        return;
+      }
+
       const name = result.user.email?.split('@')[0] || 'Utilisateur';
       showToast(`✅ ${window.t ? window.t('auth_connected_as') : 'Connecté en tant que'} ${name}`, 'success');
 
@@ -187,15 +283,13 @@ async function handleAuth(event) {
       try {
         const syncResult = await window.syncLocalToSupabase();
         if (syncResult && syncResult.total > 0) {
-          // Show sync offer toast with Yes/Later
           const toastMsg = window.t
             ? window.t('toast_sync_offer', { count: syncResult.total })
             : `📤 ${syncResult.total} entrée${syncResult.total > 1 ? 's' : ''} locale${syncResult.total > 1 ? 's' : ''} à synchroniser. Synchroniser maintenant ?`;
-          
-          // Create a custom sync dialog
-          const overlay = document.createElement('div');
-          overlay.className = 'modal-overlay';
-          overlay.innerHTML = `
+
+          const syncOverlay = document.createElement('div');
+          syncOverlay.className = 'modal-overlay';
+          syncOverlay.innerHTML = `
             <div class="modal" style="max-width:360px">
               <div class="modal-header">
                 <div class="modal-title">📤 ${window.t ? window.t('sync_offer_title') : 'Synchronisation'}</div>
@@ -213,7 +307,7 @@ async function handleAuth(event) {
               </div>
             </div>
           `;
-          document.body.appendChild(overlay);
+          document.body.appendChild(syncOverlay);
         }
       } catch (syncError) {
         console.warn('Post-auth sync attempt failed (non-blocking):', syncError);
@@ -224,15 +318,15 @@ async function handleAuth(event) {
       const routeMap = {
         today: renderTodayPage, journal: renderJournalPage,
         ideas: renderIdeasPage, reminders: renderRemindersPage,
-        insights: renderInsightsPage, settings: renderSettingsPage
+        insights: renderInsightsPage, settings: renderSettingsPage,
+        profile: renderProfilePage
       };
       if (routeMap[current]) routeMap[current]();
     }
   } catch (e) {
-    errorEl.textContent = 'Erreur réseau';
-    errorEl.style.display = 'block';
+    setAuthError(e);
     submitBtn.disabled = false;
-    submitBtn.textContent = mode === 'login' ? 'Se connecter' : 'Créer mon compte';
+    submitBtn.textContent = mode === 'login' ? 'Se connecter' : mode === 'forgot' ? 'Envoyer le lien' : 'Créer mon compte';
   }
 }
 
@@ -243,14 +337,14 @@ async function handleSignOut() {
   const routeMap = {
     today: renderTodayPage, journal: renderJournalPage,
     ideas: renderIdeasPage, reminders: renderRemindersPage,
-    insights: renderInsightsPage, settings: renderSettingsPage
+    insights: renderInsightsPage, settings: renderSettingsPage,
+    profile: renderProfilePage
   };
   if (routeMap[current]) routeMap[current]();
 }
 
 /**
- * Save personal profile data into Supabase auth user_metadata (no extra table needed).
- * @param {Object} profile - { display_name, adhd_type, medication, daily_goal, avatar_color }
+ * Save personal profile data into Supabase auth user_metadata
  */
 async function updateSupabaseProfile(profile) {
   try {
@@ -261,19 +355,26 @@ async function updateSupabaseProfile(profile) {
         adhd_type: profile.adhd_type || '',
         medication: profile.medication || '',
         daily_goal: profile.daily_goal || '',
-        avatar_color: profile.avatar_color || ''
+        avatar_color: profile.avatar_color || '',
+        avatar_url: profile.avatar_url || '',
+        full_name: profile.full_name || '',
+        bio: profile.bio || ''
       }
     });
     if (error) throw error;
-    // Persist locally too
     if (profile.display_name) localStorage.setItem('dailyos_display_name', profile.display_name);
     if (profile.medication) localStorage.setItem('dailyos_medication', profile.medication);
+    if (profile.avatar_url) localStorage.setItem('dailyos_avatar_url', profile.avatar_url);
+    if (profile.full_name) localStorage.setItem('dailyos_full_name', profile.full_name);
+    if (profile.bio) localStorage.setItem('dailyos_bio', profile.bio);
     return { data, error: null };
   } catch (e) {
     console.warn('updateSupabaseProfile failed:', e.message);
-    // Still persist locally
     if (profile.display_name) localStorage.setItem('dailyos_display_name', profile.display_name);
     if (profile.medication) localStorage.setItem('dailyos_medication', profile.medication);
+    if (profile.avatar_url) localStorage.setItem('dailyos_avatar_url', profile.avatar_url);
+    if (profile.full_name) localStorage.setItem('dailyos_full_name', profile.full_name);
+    if (profile.bio) localStorage.setItem('dailyos_bio', profile.bio);
     return { data: null, error: e };
   }
 }

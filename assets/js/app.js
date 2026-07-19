@@ -21,6 +21,7 @@ function initApp() {
   router.register('#/reminders', renderRemindersPage);
   router.register('#/insights', renderInsightsPage);
   router.register('#/settings', renderSettingsPage);
+  router.register('#/profile', renderProfilePage);
 
   // Init UI components
   initUI();
