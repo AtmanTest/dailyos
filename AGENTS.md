@@ -1,135 +1,129 @@
-# Daily ADHD — Agent Context
+# AGENTS.md — Inter-Agent Communication Protocol
 
-> Ce fichier est lu automatiquement par les agents IA (Cursor, Copilot, ChatGPT, etc.)
-> Ne pas modifier sans mettre à jour la section "Last updated".
-> Last updated: 2026-07-17
+> Ce fichier documente les conventions de coordination entre les agents qui travaillent sur le repo `AtmanTest/dailyos` et le projet Supabase `wlxtulibsipesxpwkhyz`.
 
 ---
 
-## Projet
+## Agents actifs
 
-**Daily ADHD** — Journal personnel conçu pour les cerveaux TDAH.
-- Repo : https://github.com/AtmanTest/dailyos
-- App live : https://atmantest.github.io/dailyos/
-- Branche principale : `main`
-
----
-
-## Stack technique
-
-| Couche | Techno |
-|--------|--------|
-| Frontend | HTML + CSS + JS vanilla (aucun framework) |
-| Auth + DB | Supabase (projet `wlxtulibsipesxpwkhyz`) |
-| SDK | `@supabase/supabase-js@2` via CDN esm.sh |
-| Hébergement | GitHub Pages (`.github/workflows/pages.yml`) |
-| CI | GitHub Actions (`.github/workflows/ci.yml`) |
-| Tests backend | pytest (`scripts/test_scripts.py`) |
-| Tests E2E | Playwright (`tests/e2e/smoke.spec.js`) |
+| Nom | Canal principal | Rôle |
+|-----|----------------|------|
+| **Hermes** | Telegram → GitHub Issues + Supabase | Coordination, tâches humain→machine |
+| **DailyOS Agent** | Supabase Realtime + GitHub poll | Exécution, commits, migrations |
 
 ---
 
-## Architecture fichiers
+## Canal 1 — GitHub Issues (humain-lisible)
 
-```
-/
-├── index.html                   # Point d'entrée unique (SPA hash-router)
-├── assets/
-│   ├── css/app.css              # Tous les styles (variables CSS, dark/light)
-│   └── js/
-│       ├── config.js            # APP_CONFIG (Supabase URL, anonKey, nav items)
-│       ├── state.js             # Store réactif (demoMode, user, theme, lang…)
-│       ├── i18n.js              # Traductions FR/EN (window.t())
-│       ├── router.js            # Hash router (#/today, #/journal, etc.)
-│       ├── api.js               # CRUD : getEntries, addEntry, addIdea… (LS ou Supabase)
-│       ├── auth.js              # Auth : signIn, signUp, signInWithGoogle, sendPasswordReset
-│       ├── ui.js                # Header (avatar profil), sidebar, bottom nav, toasts
-│       └── pages/
-│           ├── today.js         # Page Aujourd'hui (FAB, streak, moods, wins, tomorrow)
-│           ├── journal.js       # Page Journal
-│           ├── ideas.js         # Page Idées (capture éclair)
-│           ├── reminders.js     # Page Rappels
-│           ├── insights.js      # Page Insights (patterns TDAH)
-│           └── settings.js      # Page Réglages (profil TDAH, langue, thème)
-├── scripts/                     # Scripts Python backend (ingest, normalize, summarize…)
-├── data/demo/                   # Données de démo JSON
-├── tests/e2e/smoke.spec.js      # Tests Playwright (25 tests navigateur)
-└── docs/test-plan.md            # Plan de test complet v2.0 (76 cas)
+### Label
+`agent-task` (violet `#7B2FBE`) — toute issue portant ce label est une tâche machine.
+
+### Format du body (JSON strict)
+
+```json
+{
+  "from": "hermes",
+  "to": "dailyos-agent",
+  "task": "Description courte de la tâche",
+  "priority": "low | medium | high | critical",
+  "done_when": "Condition de complétion observable",
+  "payload": {}
+}
 ```
 
----
+### Cycle de vie
 
-## Fonctionnalités implémentées (v2.0)
+```
+Ouverte (pending)
+  └─► Agent claim → commente "⏳ claimed by dailyos-agent"
+        └─► Succès  → commente "✅ done: <résumé>"  → GitHub Action ferme l'issue
+        └─► Bloqué  → commente "🚫 blocked: <raison>" → reste ouverte
+```
 
-### Auth
-- ✅ Inscription email/password
-- ✅ Connexion email/password
-- ✅ Déconnexion
-- ✅ Mot de passe oublié (email reset via Supabase)
-- ✅ Google OAuth (`signInWithGoogle` → `supabase.auth.signInWithOAuth`)
-- ✅ `onAuthStateChange` → header se met à jour automatiquement
-- ✅ Avatar + dropdown profil en haut à droite du header
-- ✅ Sync localStorage → Supabase après connexion
+### GitHub Action auto-close
 
-### TDAH Features
-- ✅ FAB Quick Entry (autofocus, Ctrl+Entrée, Escape, sélecteur de type)
-- ✅ Quick Moods (5 emojis, 1 tap = entrée mood)
-- ✅ Streak (calcul jours consécutifs, animation streak-new)
-- ✅ Message contextuel (matin/après-midi/soir/nuit)
-- ✅ Reminder nudge (1 fois/session si aucune entrée après 18h)
-- ✅ Win du jour (+ confetti)
-- ✅ Priorité de demain (focus J+1)
-- ✅ Toggle FR/EN sans rechargement (localStorage persistence)
-- ✅ Capture éclair idées (pré-sélection type=idea)
-- ✅ Patterns TDAH dans Insights (heure productive, énergie, etc.)
-- ✅ Migration localStorage → Supabase
-
-### CI (chaque push sur main/develop)
-- ✅ pytest 50+ tests backend
-- ✅ Structure check (17 fichiers critiques + ?v= cohérent)
-- ✅ i18n parity FR ↔ EN
-- ✅ Secret scan (ghp_, sk-, sbp_)
-- ✅ Playwright E2E (25 tests navigateur, Chromium + iPhone 14)
+Fichier : `.github/workflows/close-agent-task.yml`
+Déclenché sur : `issue_comment` contenant `✅ done`
+Action : ferme l'issue + ajoute label `completed`
 
 ---
 
-## Configuration dashboard ✅
+## Canal 2 — Table Supabase `agent_tasks` (machine-to-machine)
 
-### Google OAuth ✅
-- ✅ Client ID + Secret créés dans Google Cloud Console
-- ✅ Client ID/Secret collés dans Supabase (provider activé)
-- ✅ URI de redirection : `https://wlxtulibsipesxpwkhyz.supabase.co/auth/v1/callback`
-- ✅ Origines JS : `https://atmantest.github.io`
-- ✅ Auto-confirm email activé
+### Schéma
+
+```sql
+-- voir supabase/agent_tasks.sql
+```
+
+### Statuts
+
+| Status | Sens |
+|--------|------|
+| `pending` | Tâche créée, non prise en charge |
+| `claimed` | Agent a pris la tâche (updated_at mis à jour) |
+| `done` | Tâche terminée, `result` rempli |
+| `blocked` | Tâche échouée, `error` rempli |
+
+### Écoute Realtime (DailyOS Agent)
+
+```js
+supabase
+  .channel('agent-tasks')
+  .on('postgres_changes', {
+    event: 'INSERT',
+    schema: 'public',
+    table: 'agent_tasks',
+    filter: `to=eq.dailyos-agent`
+  }, (payload) => handleAgentTask(payload.new))
+  .subscribe();
+```
+
+### Insertion par Hermes
+
+```js
+await supabase.from('agent_tasks').insert({
+  from: 'hermes',
+  to: 'dailyos-agent',
+  task: { action: 'run_migration', file: 'supabase/xxx.sql' },
+  priority: 'high'
+});
+```
 
 ---
 
-## Règles pour les agents
+## Canal 3 — `agent/handoff.json` (fallback git)
 
-### À TOUJOURS faire
-- Lire ce fichier en entier avant toute modification
-- Respecter le style vanilla JS (pas de `import/export` ES modules sauf CDN)
-- Toujours incrémenter `?v=` dans `index.html` quand tu modifies un JS ou CSS
-- Maintenir la parité FR/EN dans `i18n.js` (la CI vérifie)
-- Ne jamais committer de vraies clés API (la CI scanne)
-- Mettre à jour `docs/test-plan.md` si tu ajoutes une feature
-- Vérifier le dernier commit SHA avant de modifier (Claude bosse aussi sur ce repo)
+Fichier de dernier recours si Supabase/GitHub API indisponibles.
 
-### À NE JAMAIS faire
-- Ne pas toucher à `.github/workflows/pages.yml` (déploiement GitHub Pages)
-- Ne pas installer de bundler (webpack, vite, etc.) — le projet est intentionnellement sans build
-- Ne pas changer l'architecture hash-router
-- Ne pas mettre de données médicales dans Supabase (médication stockée localStorage uniquement)
+```json
+{
+  "updated_at": "2026-07-20T00:00:00Z",
+  "pending": [],
+  "done": [],
+  "blocked": []
+}
+```
 
-### Conventions de code
-- Fonctions en camelCase, fichiers en kebab-case
-- `escapeHtml()` obligatoire sur tout contenu utilisateur affiché
-- `store.setState()` pour tout changement d'état global
-- `showToast(message, type)` pour tout feedback utilisateur
+Chaque agent lit ce fichier au démarrage de cycle et y commit ses mises à jour.
+**Attention** : risque de conflit git si les deux agents commitent en même temps — utiliser une branche dédiée `agent/sync`.
 
 ---
 
-## Variables d'environnement (GitHub Secrets)
+## Règles anti-conflits
 
-Aucune variable secrète dans le code. La `anonKey` Supabase est publique par nature (clé anon).
-Les secrets métier (service role key, etc.) ne doivent jamais apparaître dans ce repo.
+1. **Jamais deux agents sur la même branche en même temps.** Un agent claim une branche via `agent_tasks` avant de commiter.
+2. **Main est protégé.** Tout passe par PR ou branche `feature/`.
+3. **Un seul agent applique une migration à la fois.** Vérifier `status = pending` avant `claimed`.
+4. **Timeout claim : 10 minutes.** Si `claimed` depuis >10 min sans `done`, la tâche repasse en `pending`.
+
+---
+
+## Priorités
+
+| Priorité | Délai de traitement cible |
+|----------|---------------------------|
+| `critical` | Immédiat (dès réception Realtime) |
+| `high` | < 5 min |
+| `medium` | Prochain cycle (≤ 30 min) |
+| `low` | Best effort |
