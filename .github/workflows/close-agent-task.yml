@@ -1,0 +1,42 @@
+# ============================================================
+# Ferme automatiquement une issue agent-task quand
+# un commentaire contient "✅ done"
+# ============================================================
+name: Close Agent Task on Done
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  close-if-done:
+    if: |
+      contains(github.event.comment.body, '✅ done') &&
+      contains(join(github.event.issue.labels.*.name, ','), 'agent-task')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Add label 'completed'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['completed']
+            });
+
+      - name: Close issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+              state_reason: 'completed'
+            });
