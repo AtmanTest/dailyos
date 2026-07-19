@@ -127,3 +127,27 @@ Chaque agent lit ce fichier au démarrage de cycle et y commit ses mises à jour
 | `high` | < 5 min |
 | `medium` | Prochain cycle (≤ 30 min) |
 | `low` | Best effort |
+
+---
+
+## Inter-agent comms (Hermes ↔ DailyOS Agent)
+
+> Ajouté le 2026-07-20. Canal de coordination entre l'agent Hermes (Telegram) et l'agent DailyOS (Claude sur le repo).
+
+### Canaux disponibles
+1. **Supabase `agent_tasks`** (machine-to-machine, Realtime activé)
+   - Hermes insère : `INSERT INTO agent_tasks (from,to,task,priority) VALUES ('hermes','dailyos-agent', '<jsonb>', 'high')`
+   - Cycle de vie : `pending` → `claimed` → `done` / `blocked`
+   - Vue `agent_tasks_stale` : claims non mis à jour depuis >10 min repassent en `pending`
+2. **GitHub Issue** label `agent-task` (humain-lisible)
+   - Body JSON : `{"from":"hermes","to":"dailyos-agent","task":"...","priority":"high","done_when":"..."}`
+   - Workflow `close-agent-task.yml` ferme l'issue sur commentaire `✅ done`
+3. **Fallback git** : `agent/handoff.json` (objet `{pending:[],done:[]}`)
+
+### Côté Hermes (ce qui est implémenté)
+- Hermes peut lire/écrire le repo via API GitHub (token `AtmanTest/dailyos`)
+- Hermes peut insérer/lire `agent_tasks` via Supabase (service_role du projet `wlxtulibsipesxpwkhyz`)
+- Hermes poste une tâche → l'agent DailyOS la traite au prochain cycle et met `status='done'` + `result`
+
+### Test de bout en bout
+- Hermes insère une tâche `ping` → l'agent DailyOS répond `pong` dans `result` sous 10 min.
