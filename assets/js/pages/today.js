@@ -506,16 +506,19 @@ function getYesterdayISO() {
  */
 async function addQuickMood(emoji) {
   const today = getTodayISO();
+  const moodMap = { '😴': 1, '💫': 2, '⚡': 3, '🔥': 4, '🌪️': 5 };
+  const moodScore = moodMap[emoji] || 0;
   const newEntry = {
     date: today,
     time: getLocalTime(),
     type: 'mood',
-    content: emoji
+    content: emoji,
+    mood: moodScore
   };
 
   try {
     await addEntry(newEntry);
-    showToast('Humeur enregistr\u00e9e ' + emoji, 'success');
+    showToast('Humeur enregistrée ' + emoji, 'success');
     renderTodayPage();
   } catch (e) {
     showToast('Erreur: ' + e.message, 'error');

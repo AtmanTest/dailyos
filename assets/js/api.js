@@ -398,7 +398,7 @@ async function addEntry(entry) {
         content: entry.content || '',
         type: entry.type || 'note',
         tags: entry.tags || [],
-        mood_score: entry.mood || entry.mood_score || null,
+        mood_score: (entry.mood !== undefined && entry.mood !== null) ? entry.mood : 0,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       }])
