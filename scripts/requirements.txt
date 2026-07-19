@@ -1,5 +1,2 @@
-pydantic
-requests
-pytest
-pyyaml
-jsonschema
+pydantic>=2.0.0
+pytest>=7.0.0

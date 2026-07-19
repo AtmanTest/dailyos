@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0f0f13">
+  <link rel="manifest" href="/manifest.json">
   <meta name="description" data-i18n="desc" content="Daily TDAH — Journal personnel conçu pour les cerveaux TDAH. Rapide, visuel, sans distraction.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -60,16 +61,5 @@
 
   <!-- Toast container -->
   <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
-
-  <!-- Service worker registration stub -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {
-          // Silent fail
-        });
-      });
-    }
-  </script>
 </body>
 </html>

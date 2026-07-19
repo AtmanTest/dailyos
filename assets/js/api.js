@@ -134,7 +134,6 @@ async function getLocalOrDemoData(endpoint, options = {}) {
  * @returns {Promise<Object>}
  */
 async function fetchFromSupabase(endpoint, options = {}) {
-  const config = store.getState('demoMode') !== false ? true : false;
 
   if (store.getState('demoMode')) {
     // Return localStorage data, fallback to demo data
@@ -444,7 +443,7 @@ async function addIdea(idea) {
     if (!uid) throw new Error('No authenticated user');
     const { data, error } = await supabase
       .from('ideas')
-      .insert([{ id: crypto.randomUUID(), user_id: uid, content: newIdea.content }])
+      .insert([{ ...newIdea, id: crypto.randomUUID(), user_id: uid }])
       .select();
     if (error) throw error;
     return { data: data?.[0] || newIdea, error: null };
@@ -503,9 +502,13 @@ async function syncLocalToSupabase() {
   const unsynced = entries.filter(e => !e.synced);
   if (!unsynced.length) return { done: 0, total: 0, errors: 0 };
   let synced = 0, errors = 0;
+  const supabase = await initSupabaseClient();
+  const { data: { session } } = await supabase.auth.getSession();
+  const uid = session?.user?.id;
+  if (!uid) return { done: 0, total: unsynced.length, errors: unsynced.length };
   for (const entry of unsynced) {
     try {
-      const supabase = await initSupabaseClient();
+      entry.user_id = uid;
       const { error } = await supabase.from('raw_entries').insert([entry]);
       if (error) { errors++; continue; }
       entry.synced = true;
