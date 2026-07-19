@@ -86,46 +86,46 @@ async function initAuthListener() {
 /* ===== Auth UI ===== */
 
 function renderAuthModal(mode) {
+  const T = (k, fb) => (window.t ? window.t(k) : fb);
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
   overlay.id = 'auth-modal';
   overlay.innerHTML = `
     <div class="modal" style="max-width:380px">
       <div class="modal-header">
-        <div class="modal-title">${mode === 'login' ? '🔑 Connexion' : '📝 Inscription'}</div>
+        <div class="modal-title">${mode === 'login' ? '🔑 ' + T('auth_login', 'Connexion') : '📝 ' + T('auth_signup', 'Inscription')}</div>
         <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">✕</button>
       </div>
       <div class="modal-body">
         <form id="auth-form" onsubmit="handleAuth(event)">
           <input type="hidden" name="mode" value="${mode}">
           <div class="form-group">
-            <label class="form-label" for="auth-email">Email</label>
+            <label class="form-label" for="auth-email">${T('auth_email', 'Email')}</label>
             <input class="form-input" type="email" id="auth-email" name="email" required
               placeholder="vous@email.com" autocomplete="email">
           </div>
           <div class="form-group">
-            <label class="form-label" for="auth-password">Mot de passe</label>
+            <label class="form-label" for="auth-password">${T('auth_password', 'Mot de passe')}</label>
             <input class="form-input" type="password" id="auth-password" name="password" required minlength="6"
               placeholder="6 caractères minimum" autocomplete="${mode === 'login' ? 'current-password' : 'new-password'}">
           </div>
           <div id="auth-error" style="color:var(--color-error);font-size:var(--font-size-sm);margin-bottom:var(--space-2);display:none"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;padding:var(--space-3)">
-            ${mode === 'login' ? 'Se connecter' : 'Créer mon compte'}
+            ${mode === 'login' ? T('auth_login', 'Se connecter') : T('auth_create_account', 'Créer mon compte')}
           </button>
           <div style="display:flex;align-items:center;gap:var(--space-2);margin:var(--space-3) 0">
             <hr style="flex:1;border:none;border-top:1px solid var(--color-border)">
-            <span style="color:var(--color-text-muted);font-size:var(--font-size-sm)">ou</span>
+            <span style="color:var(--color-text-muted);font-size:var(--font-size-sm)">${T('auth_or', 'ou')}</span>
             <hr style="flex:1;border:none;border-top:1px solid var(--color-border)">
           </div>
           <button type="button" class="btn btn-secondary" onclick="handleGoogleSignIn()" style="width:100%;padding:var(--space-3)">
-            🔵 ${mode === 'login' ? 'Continuer avec Google' : "S'inscrire avec Google"}
+            🔵 ${mode === 'login' ? T('auth_continue_google', 'Continuer avec Google') : T('auth_signup_google', "S'inscrire avec Google")}
           </button>
         </form>
         <div class="text-sm text-center mt-3" style="color:var(--color-text-muted)">
           ${mode === 'login'
-            ? `Pas encore de compte ? <a href="#" onclick="switchAuthMode('signup')" style="color:var(--color-accent)">S'inscrire</a>`
-            : `Déjà un compte ? <a href="#" onclick="switchAuthMode('login')" style="color:var(--color-accent)">Se connecter</a>`
-          }
+            ? `${T('auth_no_account', 'Pas encore de compte ?')} <a href="#" onclick="switchAuthMode('signup')" style="color:var(--color-accent)">${T('auth_signup_link', "S'inscrire")}</a>`
+            : `${T('auth_have_account', 'Déjà un compte ?')} <a href="#" onclick="switchAuthMode('login')" style="color:var(--color-accent)">${T('auth_login_link', 'Se connecter')}</a>`}
         </div>
       </div>
     </div>
@@ -247,6 +247,37 @@ async function handleSignOut() {
   };
   if (routeMap[current]) routeMap[current]();
 }
+
+/**
+ * Save personal profile data into Supabase auth user_metadata (no extra table needed).
+ * @param {Object} profile - { display_name, adhd_type, medication, daily_goal, avatar_color }
+ */
+async function updateSupabaseProfile(profile) {
+  try {
+    const supabase = await initSupabaseClient();
+    const { data, error } = await supabase.auth.updateUser({
+      data: {
+        display_name: profile.display_name || '',
+        adhd_type: profile.adhd_type || '',
+        medication: profile.medication || '',
+        daily_goal: profile.daily_goal || '',
+        avatar_color: profile.avatar_color || ''
+      }
+    });
+    if (error) throw error;
+    // Persist locally too
+    if (profile.display_name) localStorage.setItem('dailyos_display_name', profile.display_name);
+    if (profile.medication) localStorage.setItem('dailyos_medication', profile.medication);
+    return { data, error: null };
+  } catch (e) {
+    console.warn('updateSupabaseProfile failed:', e.message);
+    // Still persist locally
+    if (profile.display_name) localStorage.setItem('dailyos_display_name', profile.display_name);
+    if (profile.medication) localStorage.setItem('dailyos_medication', profile.medication);
+    return { data: null, error: e };
+  }
+}
+window.updateSupabaseProfile = updateSupabaseProfile;
 
 /**
  * Execute sync after user clicks "Yes" on the sync offer dialog

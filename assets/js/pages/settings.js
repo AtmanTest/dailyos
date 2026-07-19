@@ -99,9 +99,32 @@ async function renderSettingsPage() {
           <div class="card-title">🧠 ${window.t ? window.t('settings_adhd_profile') : 'ADHD Profile'}</div>
         </div>
         <div class="card-body">
+          <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4)">
+            <div id="profile-avatar" style="width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.4rem;color:#fff;background:${localStorage.getItem('dailyos_avatar_color') || 'var(--color-accent)'}">${(displayName || 'U').charAt(0).toUpperCase()}</div>
+            <div>
+              <div style="font-weight:bold">${escapeHtml(displayName) || (window.t ? window.t('settings_no_name') : 'Sans nom')}</div>
+              <div class="text-sm" style="color:var(--color-text-muted)">${localStorage.getItem('dailyos_adhd_type') ? (window.t ? window.t('adhd_'+localStorage.getItem('dailyos_adhd_type')) : localStorage.getItem('dailyos_adhd_type')) : ''}</div>
+            </div>
+          </div>
           <div class="form-group">
             <label class="form-label" for="settings-adhd-name">${window.t ? window.t('settings_display_name') : 'Display name'}</label>
-            <input class="form-input" id="settings-adhd-name" type="text" value="${escapeHtml(displayName)}" placeholder="${window.t ? window.t('settings_display_name_placeholder') : 'How should we call you?'}" onchange="saveADHDSetting('dailyos_display_name', this.value)">
+            <input class="form-input" id="settings-adhd-name" type="text" value="${escapeHtml(displayName)}" placeholder="${window.t ? window.t('settings_display_name_placeholder') : 'How should we call you?'}" onchange="saveADHDSetting('dailyos_display_name', this.value); refreshProfileAvatar()">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="settings-adhd-type">${window.t ? window.t('settings_adhd_type') : 'Type TDAH'}</label>
+            <select class="form-select" id="settings-adhd-type" onchange="saveADHDSetting('dailyos_adhd_type', this.value)">
+              ${['inattentif','hyperactif','mixte','non-diagnostique'].map(t =>
+                `<option value="${t}" ${(localStorage.getItem('dailyos_adhd_type') || 'inattentif') === t ? 'selected' : ''}>${window.t ? window.t('adhd_'+t) : t}</option>`
+              ).join('')}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="settings-daily-goal">${window.t ? window.t('settings_daily_goal') : 'Objectif quotidien'}</label>
+            <input class="form-input" id="settings-daily-goal" type="text" value="${escapeHtml(localStorage.getItem('dailyos_daily_goal') || '')}" placeholder="${window.t ? window.t('settings_daily_goal_placeholder') : 'Ex: 3 tâches focus par jour'}" onchange="saveADHDSetting('dailyos_daily_goal', this.value)">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="settings-avatar-color">${window.t ? window.t('settings_avatar_color') : 'Couleur d\'avatar'}</label>
+            <input type="color" id="settings-avatar-color" value="${localStorage.getItem('dailyos_avatar_color') || '#6366f1'}" onchange="saveADHDSetting('dailyos_avatar_color', this.value); refreshProfileAvatar()">
           </div>
           <div class="form-group">
             <label class="form-label" for="settings-timezone-iana">${window.t ? window.t('settings_timezone') : 'Timezone'}</label>
@@ -119,6 +142,9 @@ async function renderSettingsPage() {
             <label class="form-label" for="settings-medication">${window.t ? window.t('settings_medication_note') : 'Médication / Notes'}</label>
             <textarea class="form-input" id="settings-medication" rows="3" placeholder="${window.t ? window.t('settings_medication_placeholder') : 'Medication schedule, dosages, notes...'}" onchange="saveADHDSetting('dailyos_medication', this.value)">${escapeHtml(medication)}</textarea>
           </div>
+          <button class="btn btn-primary" onclick="saveProfileToSupabaseFromSettings()" style="width:100%;margin-top:var(--space-2)">
+            💾 ${window.t ? window.t('settings_save_profile') : 'Sauvegarder le profil'}
+          </button>
         </div>
       </div>
 
@@ -294,6 +320,33 @@ function saveSetting(key, value) {
 function saveADHDSetting(key, value) {
   localStorage.setItem(key, value);
   showToast(window.t ? window.t('settings_saved') : 'Paramètre enregistré', 'success');
+}
+
+function refreshProfileAvatar() {
+  const name = document.getElementById('settings-adhd-name')?.value || localStorage.getItem('dailyos_display_name') || 'U';
+  const color = document.getElementById('settings-avatar-color')?.value || localStorage.getItem('dailyos_avatar_color') || 'var(--color-accent)';
+  const av = document.getElementById('profile-avatar');
+  if (av) {
+    av.textContent = name.charAt(0).toUpperCase();
+    av.style.background = color;
+  }
+}
+
+async function saveProfileToSupabaseFromSettings() {
+  const profile = {
+    display_name: document.getElementById('settings-adhd-name')?.value || '',
+    adhd_type: document.getElementById('settings-adhd-type')?.value || '',
+    daily_goal: document.getElementById('settings-daily-goal')?.value || '',
+    medication: document.getElementById('settings-medication')?.value || '',
+    avatar_color: document.getElementById('settings-avatar-color')?.value || ''
+  };
+  showToast(window.t ? window.t('settings_saving_profile') : 'Sauvegarde...', 'info');
+  const res = await window.updateSupabaseProfile(profile);
+  if (res.error) {
+    showToast(window.t ? window.t('settings_save_profile_error') : 'Profil sauvegardé localement (Supabase: erreur)', 'warning');
+  } else {
+    showToast(window.t ? window.t('settings_save_profile_ok') : 'Profil sauvegardé ✓', 'success');
+  }
 }
 
 function changeLang(lang) {

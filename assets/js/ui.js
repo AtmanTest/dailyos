@@ -198,7 +198,7 @@ function renderBottomNav() {
       </a>
     `;
   }).join('');
-  return `<nav class="bottom-nav" id="app-bottom-nav" role="navigation" aria-label="Navigation mobile"><div class="bottom-nav-inner">${items}</div></nav>`;
+  return `<nav class="bottom-nav" role="navigation" aria-label="Navigation mobile"><div class="bottom-nav-inner">${items}</div></nav>`;
 }
 
 function getNavIcon(name) {

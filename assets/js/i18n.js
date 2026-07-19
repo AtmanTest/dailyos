@@ -693,6 +693,40 @@ const EXTRA_I18N = {
   type_reflection: { fr: `Réflexion`, en: `Reflection` },
   win_days: { fr: `Jours gagnés`, en: `Win days` },
   year: { fr: `an`, en: `year` },
+  auth_login: { fr: `Connexion`, en: `Sign in` },
+  auth_signup: { fr: `Inscription`, en: `Sign up` },
+  auth_email: { fr: `Email`, en: `Email` },
+  auth_password: { fr: `Mot de passe`, en: `Password` },
+  auth_or: { fr: `ou`, en: `or` },
+  auth_continue_google: { fr: `Continuer avec Google`, en: `Continue with Google` },
+  auth_signup_google: { fr: `S'inscrire avec Google`, en: `Sign up with Google` },
+  auth_no_account: { fr: `Pas encore de compte ?`, en: `No account yet?` },
+  auth_signup_link: { fr: `S'inscrire`, en: `Sign up` },
+  auth_have_account: { fr: `Déjà un compte ?`, en: `Already have an account?` },
+  auth_login_link: { fr: `Se connecter`, en: `Sign in` },
+  auth_create_account: { fr: `Créer mon compte`, en: `Create account` },
+  auth_connected_as: { fr: `Connecté en tant que`, en: `Signed in as` },
+  auth_signed_out: { fr: `Déconnecté`, en: `Signed out` },
+  sync_offer_title: { fr: `Synchronisation`, en: `Sync` },
+  sync_later: { fr: `Plus tard`, en: `Later` },
+  sync_yes: { fr: `Oui`, en: `Yes` },
+  toast_sync_offer: { fr: `{count} entrée(s) locale(s) à synchroniser. Synchroniser maintenant ?`, en: `{count} local entr(y/ies) to sync. Sync now?` },
+  toast_sync_partial: { fr: `Sync partiel: {done}/{total} synchronisé, {errors} erreur(s)`, en: `Partial sync: {done}/{total} synced, {errors} error(s)` },
+  toast_sync_done: { fr: `{count} entrée(s) synchronisée(s)`, en: `{count} entr(y/ies) synced` },
+  toast_sync_error: { fr: `Erreur de synchronisation`, en: `Sync error` },
+  settings_adhd_type: { fr: `Type TDAH`, en: `ADHD type` },
+  settings_daily_goal: { fr: `Objectif quotidien`, en: `Daily goal` },
+  settings_daily_goal_placeholder: { fr: `Ex: 3 tâches focus par jour`, en: `e.g. 3 focus tasks per day` },
+  settings_avatar_color: { fr: `Couleur d'avatar`, en: `Avatar color` },
+  settings_save_profile: { fr: `Sauvegarder le profil`, en: `Save profile` },
+  settings_saving_profile: { fr: `Sauvegarde...`, en: `Saving...` },
+  settings_save_profile_ok: { fr: `Profil sauvegardé ✓`, en: `Profile saved ✓` },
+  settings_save_profile_error: { fr: `Profil sauvegardé localement (Supabase: erreur)`, en: `Profile saved locally (Supabase: error)` },
+  settings_no_name: { fr: `Sans nom`, en: `No name` },
+  adhd_inattentif: { fr: `Inattentif`, en: `Inattentive` },
+  adhd_hyperactif: { fr: `Hyperactif`, en: `Hyperactive` },
+  adhd_mixte: { fr: `Mixte`, en: `Combined` },
+  "adhd_non-diagnostique": { fr: `Non diagnostiqué`, en: `Undiagnosed` }
 };
 
 // Merge EXTRA_I18N into TRANSLATIONS (fr + en)
@@ -743,7 +777,7 @@ async function setLang(lang) {
   const sidebar = document.getElementById('app-sidebar');
   if (sidebar) sidebar.innerHTML = renderSidebar();
   const bottomNav = document.getElementById('app-bottom-nav');
-  if (bottomNav) bottomNav.outerHTML = renderBottomNav();
+  if (bottomNav) bottomNav.innerHTML = renderBottomNav();
   const current = (typeof store !== 'undefined') ? store.getState('currentPage') : 'today';
   const routeMap = {
     today: renderTodayPage, journal: renderJournalPage,

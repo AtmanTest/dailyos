@@ -3,7 +3,7 @@ const APP_CONFIG = {
   APP_NAME: 'Daily TDAH',
   VERSION: '0.2.0',
   BUILD_DATE: '2026-07-18',
-  DEMO_MODE: true,
+  DEMO_MODE: false,
   TIMEZONE: 'Europe/Paris',
   SUPABASE_CONFIG: {
     url: 'https://wlxtulibsipesxpwkhyz.supabase.co',

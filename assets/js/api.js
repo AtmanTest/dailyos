@@ -32,6 +32,27 @@ function replaceLSCollection(key, items) {
  * @param {Object} options
  * @returns {Promise<Object>}
  */
+/**
+ * LocalStorage-only persistence (no demo fiction). Used as fallback when
+ * Supabase schema doesn't match yet, so the app keeps working offline.
+ */
+async function getLocalDataOnly(endpoint, options = {}) {
+  await new Promise(resolve => setTimeout(resolve, 20));
+  const key = endpoint.includes('entries') ? 'entries'
+    : endpoint.includes('summaries') ? 'summaries'
+    : endpoint.includes('ideas') ? 'ideas'
+    : endpoint.includes('reminders') ? 'reminders'
+    : endpoint.includes('insights') ? 'insights' : null;
+  if (!key) return { data: null, error: 'Endpoint inconnu: ' + endpoint };
+  let stored = loadFromLS(key) || [];
+  if (options.date) stored = stored.filter(e => e.date === options.date);
+  if (options.dateFrom && options.dateTo) stored = stored.filter(e => e.date >= options.dateFrom && e.date <= options.dateTo);
+  if (options.status) stored = stored.filter(e => e.status === options.status);
+  if (options.tag) stored = stored.filter(e => e.tags && e.tags.includes(options.tag));
+  if (options.category) stored = stored.filter(e => e.category === options.category);
+  return { data: stored, error: null };
+}
+
 async function getLocalOrDemoData(endpoint, options = {}) {
   await new Promise(resolve => setTimeout(resolve, 30));
 
@@ -123,7 +144,8 @@ async function fetchFromSupabase(endpoint, options = {}) {
   // Real Supabase call
   const { url, anonKey } = APP_CONFIG.SUPABASE_CONFIG;
   if (!url || !anonKey) {
-    throw new Error('Supabase non configuré. Activez le mode démo ou configurez les clés API.');
+    // No Supabase configured: fall back to local-only data
+    return getLocalDataOnly(endpoint, options);
   }
 
   try {
@@ -174,10 +196,12 @@ async function fetchFromSupabase(endpoint, options = {}) {
       throw new Error(`Erreur API: ${response.status} ${response.statusText}`);
     }
 
-    return await response.json();
+    const json = await response.json();
+    return { data: json, error: null };
   } catch (error) {
-    console.error('API Error:', error);
-    throw error;
+    console.warn('Supabase read failed, falling back to local data:', error.message);
+    // Schema mismatch or network error: serve local data so UI still works
+    return getLocalDataOnly(endpoint, options);
   }
 }
 
@@ -363,15 +387,35 @@ async function addEntry(entry) {
 
   try {
     const supabase = await initSupabaseClient();
+    const { data: { session } } = await supabase.auth.getSession();
+    const uid = session?.user?.id;
+    if (!uid) throw new Error('No authenticated user');
     const { data, error } = await supabase
       .from('raw_entries')
-      .insert([{ ...entry, user_id: (await supabase.auth.getUser())?.data?.user?.id }])
+      .insert([{
+        id: crypto.randomUUID(),
+        user_id: uid,
+        content: entry.content || '',
+        type: entry.type || 'note',
+        tags: entry.tags || [],
+        mood_score: entry.mood || entry.mood_score || null,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }])
       .select();
-    if (error) return { data: null, error };
+    if (error) throw error;
     return { data: data?.[0] || null, error: null };
   } catch (error) {
-    console.error('addEntry error:', error);
-    throw error;
+    console.warn('addEntry Supabase failed, saving locally:', error.message);
+    const newEntry = {
+      ...entry,
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      user_id: (await getSession().catch(() => ({})))?.user?.id || null,
+      created_at: new Date().toISOString()
+    };
+    addToLSCollection('entries', newEntry);
+    localStorage.setItem('dailyos_sync_pending', 'true');
+    return { data: newEntry, error: null };
   }
 }
 
@@ -393,7 +437,23 @@ async function addIdea(idea) {
     addToLSCollection('ideas', newIdea);
     return { data: newIdea, error: null };
   }
-  return { data: newIdea, error: null };
+  try {
+    const supabase = await initSupabaseClient();
+    const { data: { session } } = await supabase.auth.getSession();
+    const uid = session?.user?.id;
+    if (!uid) throw new Error('No authenticated user');
+    const { data, error } = await supabase
+      .from('ideas')
+      .insert([{ id: crypto.randomUUID(), user_id: uid, content: newIdea.content }])
+      .select();
+    if (error) throw error;
+    return { data: data?.[0] || newIdea, error: null };
+  } catch (error) {
+    console.warn('addIdea Supabase failed, saving locally:', error.message);
+    addToLSCollection('ideas', newIdea);
+    localStorage.setItem('dailyos_sync_pending', 'true');
+    return { data: newIdea, error: null };
+  }
 }
 
 /**
@@ -415,7 +475,23 @@ async function addReminder(reminder) {
     addToLSCollection('reminders', newReminder);
     return { data: newReminder, error: null };
   }
-  return { data: newReminder, error: null };
+  try {
+    const supabase = await initSupabaseClient();
+    const { data: { session } } = await supabase.auth.getSession();
+    const uid = session?.user?.id;
+    if (!uid) throw new Error('No authenticated user');
+    const { data, error } = await supabase
+      .from('reminders')
+      .insert([{ id: crypto.randomUUID(), user_id: uid, title: newReminder.title, category: newReminder.category, priority: newReminder.priority, status: 'active', created_at: newReminder.created_at, updated_at: newReminder.updated_at }])
+      .select();
+    if (error) throw error;
+    return { data: data?.[0] || newReminder, error: null };
+  } catch (error) {
+    console.warn('addReminder Supabase failed, saving locally:', error.message);
+    addToLSCollection('reminders', newReminder);
+    localStorage.setItem('dailyos_sync_pending', 'true');
+    return { data: newReminder, error: null };
+  }
 }
 
 /**
